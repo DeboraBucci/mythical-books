@@ -1,5 +1,12 @@
+import React from "react";
+import Home from "./components/home/Home";
+
 function App() {
-  return <div>Mythical Books</div>;
+  return (
+    <React.Fragment>
+      <Home />
+    </React.Fragment>
+  );
 }
 
 export default App;
