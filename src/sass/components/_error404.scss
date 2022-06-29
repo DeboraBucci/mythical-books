@@ -27,5 +27,26 @@
     color: $color-white;
     font-size: 5rem;
     opacity: 0.8;
+    margin-top: -3rem;
+  }
+
+  &__btn {
+    transition: all 0.2s;
+    font-size: 2rem;
+    margin-top: 4rem;
+    text-transform: uppercase;
+
+    &:link,
+    &:visited {
+      color: #e97cec;
+      background-color: transparent;
+      border-bottom: 2px solid transparent;
+    }
+
+    &:hover,
+    &:focus {
+      transform: translateY(-2px);
+      border-color: #e97cec;
+    }
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
@@ -91,6 +92,10 @@ const Error404 = () => {
       <i className="fa-solid fa-bomb error404__icon"></i>
       <h2 className="error404__title">404</h2>
       <p className="error404__subtitle">Page not found.</p>
+
+      <Link to="/" className="error404__btn">
+        Go back home
+      </Link>
     </div>
   );
 };

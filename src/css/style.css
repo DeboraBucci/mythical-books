@@ -77,4 +77,17 @@ code {
   .error404__subtitle {
     color: #fff;
     font-size: 5rem;
-    opacity: 0.8; }
+    opacity: 0.8;
+    margin-top: -3rem; }
+  .error404__btn {
+    transition: all 0.2s;
+    font-size: 2rem;
+    margin-top: 4rem;
+    text-transform: uppercase; }
+    .error404__btn:link, .error404__btn:visited {
+      color: #e97cec;
+      background-color: transparent;
+      border-bottom: 2px solid transparent; }
+    .error404__btn:hover, .error404__btn:focus {
+      transform: translateY(-2px);
+      border-color: #e97cec; }
