@@ -81,10 +81,16 @@ const Error404 = () => {
   };
 
   return (
-    <div>
-      <Particles id="tsparticles" init={particlesInit} options={opt} />
-      <h2>Error404</h2>
-      <p>Page not found.</p>
+    <div className="error404">
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={opt}
+        className="error404__particles"
+      />
+      <i className="fa-solid fa-bomb error404__icon"></i>
+      <h2 className="error404__title">404</h2>
+      <p className="error404__subtitle">Page not found.</p>
     </div>
   );
 };

@@ -55,3 +55,26 @@ code {
 
 .u-margin-top-huge {
   margin-top: 10rem !important; }
+
+.error404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh; }
+  .error404 > * {
+    z-index: 10; }
+  .error404__particles {
+    z-index: 1; }
+  .error404__icon {
+    color: #fff;
+    font-size: 13rem;
+    opacity: 0.5; }
+  .error404__title {
+    color: #fff;
+    font-size: 20rem;
+    opacity: 0.8; }
+  .error404__subtitle {
+    color: #fff;
+    font-size: 5rem;
+    opacity: 0.8; }
