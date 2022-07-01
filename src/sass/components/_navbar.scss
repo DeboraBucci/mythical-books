@@ -1,7 +1,8 @@
 .navbar {
+  position: fixed;
+  z-index: 999;
   @include flexCenter;
   justify-content: space-between;
-  position: fixed;
   width: 100vw;
   padding: 0.5rem 2rem;
   background-color: $color-black;
