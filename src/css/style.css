@@ -91,3 +91,66 @@ code {
     .error404__btn:hover, .error404__btn:focus {
       transform: translateY(-2px);
       border-color: #e97cec; }
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100vw;
+  padding: 0.5rem 2rem;
+  background-color: #0a0016; }
+  .navbar__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background-color: #fff;
+    overflow: hidden;
+    width: 50px;
+    height: 50px; }
+  .navbar__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 25%;
+    gap: 3rem; }
+  .navbar__link {
+    font-size: 1.6rem;
+    position: relative;
+    cursor: pointer; }
+    .navbar__link a:link,
+    .navbar__link a:visited {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: #fff; }
+      .navbar__link a:link::before,
+      .navbar__link a:visited::before {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        width: 0px;
+        height: 2px;
+        transition: all 0.2s ease;
+        transition-duration: 0.45s;
+        opacity: 0;
+        background-color: white;
+        border-bottom-right-radius: 7px;
+        border-bottom-left-radius: 7px; }
+  .navbar__link:hover a::before {
+    width: 100%;
+    opacity: 1; }
+  .navbar__link:hover .navbar__icon--store {
+    color: #d1425f; }
+  .navbar__link:hover .navbar__icon--works {
+    color: magenta; }
+  .navbar__link:hover .navbar__icon--benefits {
+    color: cyan; }
+  .navbar__link:hover .navbar__icon--subscriptions {
+    color: #d373ff; }
+  .navbar__link:hover .navbar__icon--log {
+    color: goldenrod; }
