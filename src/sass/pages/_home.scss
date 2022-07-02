@@ -23,7 +23,12 @@
     left: 15%;
     right: 25%;
     transform: skew(50deg);
-    background-color: rgba(86, 1, 134, 0.4);
+    background: linear-gradient(
+      to bottom,
+      transparent 5%,
+      rgba(86, 1, 134, 0.4) 40%,
+      transparent 90%
+    );
   }
 
   &::after {
@@ -31,7 +36,11 @@
     left: -50%;
     right: 25%;
     transform: skew(-60deg);
-    background-color: rgba(29, 0, 75, 0.6);
+    background: linear-gradient(
+      to right,
+      transparent 50%,
+      rgba(29, 0, 75, 0.8)
+    );
   }
 
   &__content {
