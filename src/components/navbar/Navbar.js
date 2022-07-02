@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 
-import LinkComponent from "../UI/LinkComponent";
+import CustomLink from "../UI/CustomLink";
 
 const Navbar = ({ links }) => {
   return (
@@ -19,10 +19,10 @@ const Navbar = ({ links }) => {
       <ul className="navbar__list">
         {links.map((link) => (
           <li className="navbar__link" key={link.title}>
-            <LinkComponent att={link.att} type={link.type}>
+            <CustomLink att={link.att} type={link.type}>
               {link.title}{" "}
               <i className={`${link.icon} navbar__icon--${link.iconClass}`}></i>
-            </LinkComponent>
+            </CustomLink>
           </li>
         ))}
       </ul>
