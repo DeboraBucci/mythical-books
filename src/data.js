@@ -1,33 +1,38 @@
 const homeLinks = [
   {
     title: "Store",
-    href: "#",
+    att: "/store",
     icon: "fas fa-store",
     iconClass: "store",
+    type: "link",
   },
   {
     title: "How it Works",
-    href: "#works",
+    att: "#works",
     icon: "fas fa-dice-d20",
     iconClass: "works",
+    type: "anchor",
   },
   {
     title: "Benefits",
-    href: "#benefits",
+    att: "#benefits",
     icon: "far fa-gem",
     iconClass: "benefits",
+    type: "anchor",
   },
   {
     title: "Subscriptions",
-    href: "#subscriptions",
+    att: "#subscriptions",
     icon: "fas fa-dragon",
     iconClass: "subscriptions",
+    type: "anchor",
   },
   {
     title: "Log In",
-    href: "#",
+    att: "/login",
     icon: "fas fa-feather",
     iconClass: "log",
+    type: "link",
   },
 ];
 
