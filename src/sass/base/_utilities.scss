@@ -25,3 +25,11 @@
 .u-margin-top-huge {
   margin-top: 10rem !important;
 }
+
+.hidden {
+  display: none;
+}
+
+.first-letter-uppercase::first-letter {
+  text-transform: uppercase;
+}
