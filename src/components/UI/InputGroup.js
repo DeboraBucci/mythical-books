@@ -7,7 +7,7 @@ const InputGroup = ({
   onKeyUp,
   value,
   name,
-  type,
+  type = "text",
   onBlur,
 }) => {
   const errors = formProps.errors[name] && formProps.touched[name];
