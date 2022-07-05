@@ -1,0 +1,48 @@
+.login {
+  @include flexCenter;
+  height: 100vh;
+
+  &__particles {
+    z-index: 1;
+  }
+
+  &__content {
+    padding: 4rem;
+    z-index: 10;
+    background-color: rgba($color-white, 0.9);
+    border-radius: 4px;
+    height: 50rem;
+    width: 80rem;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 100;
+    letter-spacing: 1.2rem;
+    color: $color-dark-purple;
+  }
+
+  &__comment {
+    color: $color-dark-purple;
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+  }
+
+  &__form {
+    @include flexCenter;
+    flex-direction: column;
+    height: 90%;
+    gap: 6rem;
+  }
+
+  &__cta {
+    @include flexCenter;
+    gap: 6rem;
+
+    & button {
+      background-color: transparent;
+      font-size: 1.4rem;
+    }
+  }
+}
