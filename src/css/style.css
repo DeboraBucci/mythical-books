@@ -56,6 +56,12 @@ code {
 .u-margin-top-huge {
   margin-top: 10rem !important; }
 
+.hidden {
+  display: none; }
+
+.first-letter-uppercase::first-letter {
+  text-transform: uppercase; }
+
 .navbar {
   position: fixed;
   z-index: 999;
@@ -120,6 +126,230 @@ code {
   .navbar__link:hover .navbar__icon--log {
     color: goldenrod; }
 
+.input-group {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-size: 1.6rem;
+  border-radius: 3px;
+  border: 1px solid rgba(10, 0, 22, 0.5);
+  background-color: rgba(128, 0, 128, 0.04);
+  color: rgba(10, 0, 22, 0.5); }
+  .input-group__error {
+    border-color: #ee6a6a; }
+    .input-group__error i {
+      color: #ee6a6a; }
+  .input-group__container {
+    width: 80%; }
+  .input-group__text {
+    position: absolute;
+    top: 50%;
+    left: 4rem;
+    transform: translateY(-50%);
+    transition: all 0.2s;
+    text-transform: capitalize;
+    pointer-events: none; }
+  .input-group__field {
+    padding: 0.5rem;
+    border: none;
+    background-color: transparent !important;
+    width: 100%; }
+    .input-group__field:focus {
+      outline: none; }
+    .input-group__field:-webkit-autofill, .input-group__field:-webkit-autofill:hover, .input-group__field:-webkit-autofill:focus, .input-group__field:-webkit-autofill:active {
+      transition: background-color 50000s ease-in-out 0s; }
+  .input-group__field:focus + label,
+  .input-group .filled {
+    transform: translate(-4rem, -5rem); }
+  .input-group:focus-within {
+    border: 1px solid #a95fff;
+    background-color: transparent; }
+    .input-group:focus-within i {
+      color: #a95fff; }
+    .input-group:focus-within label {
+      color: #0a0016; }
+
+.btn {
+  cursor: pointer;
+  position: relative;
+  padding: 1rem 3rem;
+  color: #a95fff;
+  letter-spacing: 0.9rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  user-select: none; }
+
+.btn:before,
+.btn:after {
+  content: "";
+  position: absolute;
+  transition: inherit;
+  z-index: -1; }
+
+.btn:hover {
+  color: #fff;
+  transition-delay: 0.5s; }
+
+.btn:hover:before {
+  transition-delay: 0s; }
+
+.btn:hover:after {
+  background: #a95fff;
+  transition-delay: 0.35s; }
+
+/* From Top */
+.from-top:before,
+.from-top:after {
+  left: 0;
+  height: 0;
+  width: 100%; }
+
+.from-top:before {
+  bottom: 0;
+  border: 1px solid #a95fff;
+  border-top: 0;
+  border-bottom: 0; }
+
+.from-top:after {
+  top: 0;
+  height: 0; }
+
+.from-top:hover:before,
+.from-top:hover:after {
+  height: 100%; }
+
+/* From Left */
+.from-left:before,
+.from-left:after {
+  top: 0;
+  width: 0;
+  height: 100%; }
+
+.from-left:before {
+  right: 0;
+  border: 1px solid #a95fff;
+  border-left: 0;
+  border-right: 0; }
+
+.from-left:after {
+  left: 0; }
+
+.from-left:hover:before,
+.from-left:hover:after {
+  width: 100%; }
+
+/* From Right */
+.from-right:before,
+.from-right:after {
+  top: 0;
+  width: 0;
+  height: 100%; }
+
+.from-right:before {
+  left: 0;
+  border: 1px solid #a95fff;
+  border-left: 0;
+  border-right: 0; }
+
+.from-right:after {
+  right: 0; }
+
+.from-right:hover:before,
+.from-right:hover:after {
+  width: 100%; }
+
+/* From center */
+.from-center:before {
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 0;
+  border: 1px solid #a95fff;
+  border-left: 0;
+  border-right: 0; }
+
+.from-center:after {
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  background: #a95fff; }
+
+.from-center:hover:before {
+  left: 0;
+  width: 100%; }
+
+.from-center:hover:after {
+  top: 0;
+  height: 100%; }
+
+/* From Bottom */
+.from-bottom:before,
+.from-bottom:after {
+  left: 0;
+  height: 0;
+  width: 100%; }
+
+.from-bottom:before {
+  top: 0;
+  border: 1px solid #a95fff;
+  border-top: 0;
+  border-bottom: 0; }
+
+.from-bottom:after {
+  bottom: 0;
+  height: 0; }
+
+.from-bottom:hover:before,
+.from-bottom:hover:after {
+  height: 100%; }
+
+.btn--reverse {
+  color: #fff;
+  transition: all 500ms cubic-bezier(1, 0.175, 0, 0.77); }
+
+.btn--reverse:hover {
+  color: #a95fff;
+  transition-delay: 0.5s; }
+
+.btn--reverse:hover:before {
+  transition-delay: 0.5s; }
+
+.btn--reverse:after {
+  background: #a95fff; }
+
+.btn--reverse:hover:after {
+  background: transparent;
+  transition-delay: 0.2s; }
+
+.from-left--reverse:before,
+.from-left--reverse:after {
+  top: 0;
+  width: 0;
+  height: 100%; }
+
+.from-left--reverse:before {
+  right: 0;
+  border: 1px solid #a95fff;
+  border-left: 0;
+  border-right: 0; }
+
+.from-left--reverse:after {
+  left: 0; }
+
+.from-left--reverse:before,
+.from-left--reverse:after {
+  width: 100%; }
+
+.from-left--reverse:hover:before,
+.from-left--reverse:hover:after {
+  width: 1px; }
+
 .error404 {
   display: flex;
   justify-content: center;
@@ -145,13 +375,13 @@ code {
     margin-top: -3rem; }
   .error404__btn {
     transition: all 0.2s;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-top: 4rem;
-    text-transform: uppercase; }
-    .error404__btn:link, .error404__btn:visited {
-      color: #e97cec;
-      background-color: transparent;
-      border-bottom: 2px solid transparent; }
+    text-transform: uppercase;
+    color: #e97cec;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+    cursor: pointer; }
     .error404__btn:hover, .error404__btn:focus {
       transform: translateY(-2px);
       border-color: #e97cec; }
@@ -195,3 +425,43 @@ code {
     font-family: "Quintessential", cursive; }
   .hero__slogan {
     font-size: 3rem; }
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; }
+  .login__particles {
+    z-index: 1; }
+  .login__content {
+    padding: 4rem;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    height: 50rem;
+    width: 80rem; }
+  .login__title {
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 100;
+    letter-spacing: 1.2rem;
+    color: #6a3f9b; }
+  .login__comment {
+    color: #6a3f9b;
+    font-size: 1.6rem;
+    margin-top: 1.5rem; }
+  .login__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90%;
+    gap: 6rem; }
+  .login__cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem; }
+    .login__cta button {
+      background-color: transparent;
+      font-size: 1.4rem; }
