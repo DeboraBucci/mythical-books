@@ -1,7 +1,17 @@
 import { ErrorMessage, Field } from "formik";
 import TextError from "../UI/TextError";
 
-const InputGroup = ({ errors, icon, onKeyUp, value, name, type, onBlur }) => {
+const InputGroup = ({
+  formProps,
+  icon,
+  onKeyUp,
+  value,
+  name,
+  type,
+  onBlur,
+}) => {
+  const errors = formProps.errors[name] && formProps.touched[name];
+
   const findSpanElement = (e) =>
     e.target.closest(".input-group").querySelector(".input-group__text");
 
