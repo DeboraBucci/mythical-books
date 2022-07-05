@@ -1,10 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { opt } from "../../data";
 
 const Error404 = () => {
+  const navigate = useNavigate();
+  useEffect(() => {}, []);
+
   const particlesInit = async (main) => {
     await loadFull(main);
   };
@@ -21,9 +24,9 @@ const Error404 = () => {
       <h2 className="error404__title">404</h2>
       <p className="error404__subtitle">Page not found.</p>
 
-      <Link to="/" className="error404__btn">
-        Go back home
-      </Link>
+      <button onClick={() => navigate(-1)} className="error404__btn">
+        Go back <i className="fa-solid fa-reply"></i>
+      </button>
     </div>
   );
 };
