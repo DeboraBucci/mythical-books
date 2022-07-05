@@ -48,9 +48,7 @@ const Login = () => {
             return (
               <Form className="login__form">
                 <InputGroup
-                  errors={
-                    formProps.errors["email"] && formProps.touched["email"]
-                  }
+                  formProps={formProps}
                   icon={"fa-solid fa-envelope"}
                   onKeyUp={onEmailChange}
                   onBlur={formProps.handleBlur}
@@ -60,10 +58,7 @@ const Login = () => {
                 />
 
                 <InputGroup
-                  errors={
-                    formProps.errors["password"] &&
-                    formProps.touched["password"]
-                  }
+                  formProps={formProps}
                   icon={"fa-solid fa-lock"}
                   onKeyUp={onPasswordChange}
                   onBlur={formProps.handleBlur}
