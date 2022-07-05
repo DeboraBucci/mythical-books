@@ -315,7 +315,7 @@ code {
 
 .btn--reverse:hover {
   color: #a95fff;
-  transition-delay: 0.5s; }
+  transition-delay: 0.25s; }
 
 .btn--reverse:hover:before {
   transition-delay: 0.5s; }
