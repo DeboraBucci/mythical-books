@@ -24,14 +24,7 @@ const Login = () => {
 
   const validationSchema = Yup.object({
     email: Yup.string().required("Required").email("Invalid email format"),
-    password: Yup.string()
-      .required("Required")
-      .min(8)
-      .max(20)
-      .matches(
-        /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/,
-        "Password should have at least a number, a capitalized and a lowercased letter and a symbol"
-      ),
+    password: Yup.string().required("Required"),
   });
 
   const particlesInit = async (main) => {
