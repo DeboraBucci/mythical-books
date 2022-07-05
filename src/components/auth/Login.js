@@ -54,7 +54,6 @@ const Login = () => {
                   onBlur={formProps.handleBlur}
                   value={email}
                   name="email"
-                  type="text"
                 />
 
                 <InputGroup
@@ -64,7 +63,6 @@ const Login = () => {
                   onBlur={formProps.handleBlur}
                   value={password}
                   name="password"
-                  type="text"
                 />
 
                 <div className="login__cta">
