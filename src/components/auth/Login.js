@@ -4,11 +4,8 @@ import { Link } from "react-router-dom";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-
 import InputGroup from "../UI/InputGroup";
-import { opt } from "../../data";
+import ParticlesBackground from "../UI/ParticlesBackground";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -27,21 +24,13 @@ const Login = () => {
     password: Yup.string().required("Required"),
   });
 
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
-
   const onSubmit = (values) => {
     console.log(values);
   };
 
   return (
     <div className="login">
-      <Particles
-        init={particlesInit}
-        options={opt}
-        className="login__particles"
-      />
+      <ParticlesBackground />
 
       <div className="login__content">
         <h2 className="login__title">

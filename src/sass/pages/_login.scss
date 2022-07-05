@@ -2,10 +2,6 @@
   @include flexCenter;
   height: 100vh;
 
-  &__particles {
-    z-index: 1;
-  }
-
   &__content {
     padding: 4rem;
     z-index: 10;
