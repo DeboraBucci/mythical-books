@@ -5,10 +5,10 @@ const InputGroup = ({
   formProps,
   icon,
   onKeyUp,
-  value,
   name,
   type = "text",
   onBlur,
+  title = name,
 }) => {
   const errors = formProps.errors[name] && formProps.touched[name];
 
@@ -22,7 +22,7 @@ const InputGroup = ({
 
   const blurFieldHandler = (e) => {
     const spanEl = findSpanElement(e);
-    if (!value) spanEl.classList.remove("filled");
+    if (!formProps.values[name]) spanEl.classList.remove("filled");
     onBlur(e);
   };
 
@@ -42,8 +42,12 @@ const InputGroup = ({
           name={name}
           className="input-group__field"
         />
-        <span className={`input-group__text ${value !== "" && "filled"}`}>
-          {name}
+        <span
+          className={`input-group__text ${
+            formProps.values[name] !== "" && "filled"
+          }`}
+        >
+          {title}
         </span>
       </div>
       <ErrorMessage name={name} component={TextError} />
