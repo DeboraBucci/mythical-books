@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { Form, Formik } from "formik";
@@ -8,12 +8,6 @@ import InputGroup from "../UI/InputGroup";
 import ParticlesBackground from "../UI/ParticlesBackground";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const onEmailChange = (e) => setEmail(e.target.value);
-  const onPasswordChange = (e) => setPassword(e.target.value);
-
   const initialValues = {
     email: "",
     password: "",
@@ -50,18 +44,14 @@ const Login = () => {
                 <InputGroup
                   formProps={formProps}
                   icon={"fa-solid fa-envelope"}
-                  onKeyUp={onEmailChange}
                   onBlur={formProps.handleBlur}
-                  value={email}
                   name="email"
                 />
 
                 <InputGroup
                   formProps={formProps}
                   icon={"fa-solid fa-lock"}
-                  onKeyUp={onPasswordChange}
                   onBlur={formProps.handleBlur}
-                  value={password}
                   name="password"
                 />
 
