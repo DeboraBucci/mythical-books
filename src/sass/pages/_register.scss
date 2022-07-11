@@ -1,0 +1,56 @@
+.register {
+  @include flexCenter;
+  height: 100vh;
+
+  &__content {
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+    gap: 3rem;
+    padding: 4rem;
+    z-index: 10;
+    background-color: rgba($color-white, 0.9);
+    border-radius: 4px;
+    width: 120rem;
+    height: 90vh;
+    overflow: auto;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 100;
+    letter-spacing: 1.2rem;
+    color: $color-dark-purple;
+  }
+
+  &__comment {
+    color: $color-dark-purple;
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+  }
+
+  &__form {
+    @include flexCenter;
+    flex-direction: column;
+    gap: 4rem;
+
+    &--joined {
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 6rem;
+    }
+  }
+
+  &__cta {
+    @include flexCenter;
+    gap: 6rem;
+    margin-top: 2rem;
+
+    & button {
+      background-color: transparent;
+      font-size: 1.4rem;
+    }
+  }
+}

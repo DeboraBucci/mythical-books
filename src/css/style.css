@@ -358,8 +358,6 @@ code {
   height: 100vh; }
   .error404 > * {
     z-index: 10; }
-  .error404__particles {
-    z-index: 1; }
   .error404__icon {
     color: #fff;
     font-size: 13rem;
@@ -431,8 +429,6 @@ code {
   justify-content: center;
   align-items: center;
   height: 100vh; }
-  .login__particles {
-    z-index: 1; }
   .login__content {
     padding: 4rem;
     z-index: 10;
@@ -456,12 +452,60 @@ code {
     align-items: center;
     flex-direction: column;
     height: 90%;
-    gap: 6rem; }
+    gap: 4rem; }
   .login__cta {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 6rem; }
     .login__cta button {
+      background-color: transparent;
+      font-size: 1.4rem; }
+
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; }
+  .register__content {
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+    gap: 3rem;
+    padding: 4rem;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    width: 120rem;
+    height: 90vh;
+    overflow: auto; }
+  .register__title {
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 100;
+    letter-spacing: 1.2rem;
+    color: #6a3f9b; }
+  .register__comment {
+    color: #6a3f9b;
+    font-size: 1.6rem;
+    margin-top: 1.5rem; }
+  .register__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem; }
+    .register__form--joined {
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 6rem; }
+  .register__cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    margin-top: 2rem; }
+    .register__cta button {
       background-color: transparent;
       font-size: 1.4rem; }
