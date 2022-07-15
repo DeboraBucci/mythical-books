@@ -1,20 +1,12 @@
 import React from "react";
-import logo from "../../assets/logo.png";
 
 import CustomLink from "../UI/CustomLink";
+import { Logo } from "../UI/Logo";
 
-const Navbar = ({ links }) => {
+const Navbar = ({ links, title }) => {
   return (
     <nav className="navbar">
-      <div className="navbar__logo">
-        <a href="#hero">
-          <img
-            src={logo}
-            alt="logo"
-            style={{ width: "45px", height: "45px" }}
-          />
-        </a>
-      </div>
+      <Logo title={title} />
 
       <ul className="navbar__list">
         {links.map((link) => (
