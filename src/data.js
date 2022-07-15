@@ -36,6 +36,30 @@ const homeLinks = [
   },
 ];
 
+const storeLinks = [
+  {
+    title: "Home",
+    att: "/",
+    icon: "fa-solid fa-house-chimney",
+    iconClass: "store",
+    type: "link",
+  },
+  {
+    title: "Contact us",
+    att: "/contact",
+    icon: "fa-solid fa-paper-plane",
+    iconClass: "works",
+    type: "link",
+  },
+  {
+    title: "Log In",
+    att: "/login",
+    icon: "fas fa-feather",
+    iconClass: "log",
+    type: "link",
+  },
+];
+
 const opt = {
   background: {
     color: {
@@ -84,4 +108,4 @@ const opt = {
   detectRetina: true,
 };
 
-export { homeLinks, opt };
+export { homeLinks, storeLinks, opt };
