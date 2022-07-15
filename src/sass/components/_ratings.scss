@@ -1,0 +1,54 @@
+.ratings {
+  position: relative;
+  @include flexCenter;
+  height: 2rem;
+
+  &:hover &__ratings-info {
+    opacity: 1;
+  }
+
+  &__stars-background,
+  &__stars-painted {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2rem;
+  }
+
+  &__stars-invisible {
+    visibility: hidden;
+  }
+
+  &__stars-background {
+    opacity: 0.3;
+    color: $color-white;
+  }
+
+  &__stars-painted {
+    background-color: #ffa500;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+  }
+
+  &__star {
+    padding: 0.25rem;
+    font-size: 1.6rem;
+  }
+
+  &__ratings-info {
+    position: absolute;
+    top: 2.5rem;
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    border-radius: 3px;
+    opacity: 0;
+    background-color: tint($color-black, 30%);
+  }
+
+  &__no-ratings {
+    font-size: 1.6rem;
+    opacity: 0.6;
+  }
+}
