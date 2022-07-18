@@ -1,0 +1,84 @@
+import React from "react";
+import Ratings from "../UI/Ratings";
+
+const Card = ({ title, authors, image, price, rating, ratingCount }) => {
+  const authorsStr = authors
+    .map((author, i) => {
+      const secondLastIndex = authors.length - 2;
+      return `${author}${
+        secondLastIndex === i ? " and " : i < secondLastIndex ? ", " : ""
+      }`;
+    })
+    .join("");
+
+  const contentTitle = title.length > 20 ? title.slice(0, 17) + "..." : title;
+  const contentAuthor =
+    authorsStr.length > 30 ? authorsStr.slice(0, 27) + "..." : authorsStr;
+
+  const isOutOfStock = typeof price !== "number";
+  const liked = false; // Temporal
+  const bookmarked = true; // Temporal
+
+  const textHandler = (e, style, contentTitle, contentAuthors) => {
+    const parent = e.target.closest(".card");
+
+    const title = parent.querySelector(".card__title");
+    title.innerHTML = contentTitle;
+    title.style.textDecoration = style;
+
+    const authors = parent.querySelector(".card__author");
+    authors.innerHTML = contentAuthors;
+    authors.style.textDecoration = style;
+  };
+
+  const mouseEnterTextHandler = (e) =>
+    textHandler(e, "underline", title, authorsStr);
+
+  const mouseLeaveTextHandler = (e) =>
+    textHandler(e, "none", contentTitle, contentAuthor);
+
+  return (
+    <div className={`card ${isOutOfStock && "card--out-of-stock"}`} key={title}>
+      <img src={image} alt="book" style={{ width: "150px" }} />
+      <h4
+        className="card__title"
+        onMouseEnter={mouseEnterTextHandler}
+        onMouseLeave={mouseLeaveTextHandler}
+      >
+        {contentTitle}
+      </h4>
+      <p
+        className="card__author"
+        onMouseEnter={mouseEnterTextHandler}
+        onMouseLeave={mouseLeaveTextHandler}
+      >
+        {contentAuthor}
+      </p>
+
+      <div
+        className={`card__price ${isOutOfStock && "card__price--out-of-stock"}`}
+      >
+        <span>{price}</span>
+        <span>{!isOutOfStock && " ARS"}</span>
+      </div>
+
+      <Ratings rating={rating} ratingCount={ratingCount} />
+
+      <div className="card__whishlist">
+        <i className={`fa-${bookmarked ? "solid" : "regular"} fa-bookmark`}></i>
+        {bookmarked ? <span>In whishlist</span> : <span>Add to whishlist</span>}
+      </div>
+
+      <div className="card__favorites">
+        <i className={`fa-${liked ? "solid" : "regular"} fa-heart`}></i>
+        {liked ? <span>In favorites</span> : <span>Add to favorites</span>}
+      </div>
+
+      <button>
+        Add to basket <i className="fa-solid fa-basket-shopping"></i>
+      </button>
+    </div>
+  );
+};
+
+export default Card;
