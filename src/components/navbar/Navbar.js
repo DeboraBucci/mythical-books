@@ -3,10 +3,12 @@ import React from "react";
 import CustomLink from "../UI/CustomLink";
 import { Logo } from "../UI/Logo";
 
-const Navbar = ({ links, title }) => {
+const Navbar = ({ links, title, children }) => {
   return (
     <nav className="navbar">
       <Logo title={title} />
+
+      {children}
 
       <ul className="navbar__list">
         {links.map((link) => (
