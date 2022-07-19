@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import fallbackImg from "../../assets/fallback-book-image.webp";
 
-const SearchBooks = ({ setBooks }) => {
+const SearchBooks = ({ setBooks, filters }) => {
   const [searched, setSearched] = useState("");
 
   const apiKey = "AIzaSyCfyJD3oJmISN4N-ANvOFW81JCl5LZE_Gk";
-  const link = `https://www.googleapis.com/books/v1/volumes?q=${searched}&key=${apiKey}`;
+  const link = `https://www.googleapis.com/books/v1/volumes?q=${searched}${filters}&key=${apiKey}`;
 
   const submitHandler = (e) => {
     e.preventDefault();
