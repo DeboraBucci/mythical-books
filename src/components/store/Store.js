@@ -10,9 +10,9 @@ import { storeLinks } from "../../data";
 const Store = () => {
   const [books, setBooks] = useState([]);
   const [filters, setFilters] = useState("");
+  const [order, setOrder] = useState("");
 
   const filterHandler = (value) => {
-    console.log(value);
     if (value === "all") {
       setFilters("");
     } else {
@@ -20,12 +20,20 @@ const Store = () => {
     }
   };
 
+  const orderHandler = (value) => {
+    if (value === "default") {
+      setOrder("");
+    } else {
+      setOrder("&orderBy=" + value);
+    }
+  };
+
   return (
     <div className="store">
       <Navbar links={storeLinks} title={true}>
-        <SearchBooks setBooks={setBooks} filters={filters} />
+        <SearchBooks setBooks={setBooks} filters={filters} order={order} />
       </Navbar>
-      <Categories filterHandler={filterHandler} />
+      <Categories filterHandler={filterHandler} orderHandler={orderHandler} />
       <Bookshelf books={books} />
     </div>
   );
