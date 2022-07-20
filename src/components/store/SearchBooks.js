@@ -25,7 +25,8 @@ const SearchBooks = ({ setBooks, filters, order }) => {
               id: item?.id,
               rating: item?.volumeInfo?.averageRating,
               ratingsCount: item?.volumeInfo?.ratingsCount,
-              price: item?.saleInfo?.retailPrice?.amount || "Out of Stock",
+              price: item?.saleInfo?.retailPrice?.amount || "Not for sale",
+              saleabilty: item?.saleInfo?.saleability,
             });
           });
 

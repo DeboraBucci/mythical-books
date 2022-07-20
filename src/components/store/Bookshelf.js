@@ -13,6 +13,7 @@ const Bookshelf = ({ books }) => (
           rating={book.rating}
           ratingCount={book.ratingsCount}
           price={book.price}
+          saleabilty={book.saleabilty}
         />
       );
     })}

@@ -1,7 +1,15 @@
 import React from "react";
 import Ratings from "../UI/Ratings";
 
-const Card = ({ title, authors, image, price, rating, ratingCount }) => {
+const Card = ({
+  title,
+  authors,
+  image,
+  price,
+  rating,
+  ratingCount,
+  saleabilty,
+}) => {
   const authorsStr = authors
     .map((author, i) => {
       const secondLastIndex = authors.length - 2;
@@ -16,6 +24,7 @@ const Card = ({ title, authors, image, price, rating, ratingCount }) => {
     authorsStr.length > 30 ? authorsStr.slice(0, 27) + "..." : authorsStr;
 
   const isOutOfStock = typeof price !== "number";
+  const isFree = saleabilty === "FREE";
   const liked = false; // Temporal
   const bookmarked = true; // Temporal
 
@@ -56,9 +65,11 @@ const Card = ({ title, authors, image, price, rating, ratingCount }) => {
       </p>
 
       <div
-        className={`card__price ${isOutOfStock && "card__price--out-of-stock"}`}
+        className={`card__price ${
+          !isFree && isOutOfStock && "card__price--out-of-stock"
+        } ${isFree && "card__price--free"}`}
       >
-        <span>{price}</span>
+        <span>{isFree ? "Free ebook" : price}</span>
         <span>{!isOutOfStock && " ARS"}</span>
       </div>
 
