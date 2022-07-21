@@ -1,0 +1,19 @@
+.search-container {
+  @include flexCenter;
+  gap: 1rem;
+
+  &__advanced-search:link,
+  &__advanced-search:visited {
+    background-color: rgba($color-secondary, 0.2);
+    border: 1px solid $color-secondary;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    color: tint($color-secondary, 50%);
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  &__advanced-search:hover {
+    background-color: rgba($color-secondary, 0.6);
+  }
+}

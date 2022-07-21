@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import fallbackImg from "../../assets/fallback-book-image.webp";
 
 const SearchBooks = ({ setBooks, filters, order }) => {
@@ -40,18 +41,23 @@ const SearchBooks = ({ setBooks, filters, order }) => {
   const searchChangeHandler = (e) => setSearched(e.target.value.trim());
 
   return (
-    <form className="store__search" onSubmit={submitHandler}>
-      <label htmlFor="search">Search</label>
-      <input
-        name="search"
-        id="search"
-        placeholder="Search books by title / author / publisher ..."
-        onChange={searchChangeHandler}
-      />
-      <button>
-        <i className="fa-solid fa-magnifying-glass"></i>
-      </button>
-    </form>
+    <div className="search-container">
+      <form className="store__search" onSubmit={submitHandler}>
+        <label htmlFor="search">Search</label>
+        <input
+          name="search"
+          id="search"
+          placeholder="Search books by title / author / publisher ..."
+          onChange={searchChangeHandler}
+        />
+        <button>
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <Link className="search-container__advanced-search" to="/advanced-search">
+        Advanced Search
+      </Link>
+    </div>
   );
 };
 
