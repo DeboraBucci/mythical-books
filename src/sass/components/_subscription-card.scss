@@ -56,6 +56,10 @@
       background: map-get($cardColors, peasant);
     }
 
+    button {
+      @include box-shadow(rgb(58, 49, 40));
+    }
+
     ul li i {
       color: rgb(58, 49, 40);
     }
@@ -65,6 +69,10 @@
     h3,
     button {
       background: map-get($cardColors, blacksmith);
+    }
+
+    button {
+      @include box-shadow(black);
     }
 
     ul li i {
@@ -78,6 +86,10 @@
       background: map-get($cardColors, knight);
     }
 
+    button {
+      @include box-shadow(rgb(3, 116, 3));
+    }
+
     ul li i {
       color: rgb(3, 116, 3);
     }
@@ -87,6 +99,10 @@
     h3,
     button {
       background: map-get($cardColors, paladin);
+    }
+
+    button {
+      @include box-shadow(rgb(78, 20, 172));
     }
 
     ul li i {
@@ -100,6 +116,10 @@
       background: map-get($cardColors, wizard);
     }
 
+    button {
+      @include box-shadow(purple);
+    }
+
     ul li i {
       color: purple;
     }
@@ -111,6 +131,10 @@
       background: map-get($cardColors, king);
     }
 
+    button {
+      @include box-shadow(rgb(126, 96, 21));
+    }
+
     ul li i {
       color: goldenrod;
     }
@@ -120,6 +144,10 @@
     h3,
     button {
       background: map-get($cardColors, dragon);
+    }
+
+    button {
+      @include box-shadow(rgb(54, 16, 23));
     }
 
     ul li i {
@@ -148,18 +176,30 @@
   }
 
   &__button {
-    border: none;
+    position: relative;
     cursor: pointer;
+    border: none;
     color: $color-white;
     font-size: 2rem;
     border-radius: 7px;
     padding: 0.5rem 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.2s;
+
+    & span {
+      position: relative;
+      z-index: 20;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
 
   &__price {
     display: flex;
     flex-direction: column;
-    color: #666666;
+    color: #666;
     position: relative;
 
     p {
@@ -215,18 +255,14 @@
     flex-direction: column;
     gap: 2rem;
     width: 90%;
-  }
 
-  &__list li {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    border-bottom: 1px solid rgba(46, 46, 46, 0.1);
-    padding: 1rem 0;
-    font-size: 1.6rem;
-  }
-
-  &__list li i {
-    color: rgb(78, 20, 172);
+    li {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      border-bottom: 1px solid rgba(46, 46, 46, 0.1);
+      padding: 1rem 0;
+      font-size: 1.6rem;
+    }
   }
 }
