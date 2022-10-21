@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import stepOne from "../../../assets/step-one-img.png";
-import stepTwo from "../../../assets/step-two.webp";
+import stepOne from "../../../assets/step-one.webp";
+import stepTwo from "../../../assets/step-one.webp";
 import Step from "./Step";
 
 const HowItWorks = () => {
