@@ -61,3 +61,92 @@
     font-size: 3rem;
   }
 }
+
+.subscription {
+  @include flexCenter;
+  flex-direction: column;
+  position: relative;
+  min-height: 100rem;
+  width: 100vw;
+  padding: 8rem 2rem;
+  color: $color-white;
+  background-color: #131313;
+
+  &__heading {
+    position: relative;
+
+    h2,
+    p {
+      position: relative;
+      z-index: 3;
+    }
+
+    h2 {
+      font-size: 6rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: -10%;
+      top: -35%;
+      z-index: 2;
+      height: 100%;
+      width: 80%;
+      background: linear-gradient(
+            90deg,
+            $bg-color ($dot-space - $dot-size),
+            transparent 1%
+          )
+          center,
+        linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%)
+          center,
+        $dot-color;
+      background-size: $dot-space $dot-space;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      height: 0.3rem;
+      width: 10rem;
+      background-color: $color-white;
+    }
+  }
+
+  &__arrow {
+    @include flexCenter;
+    cursor: pointer;
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    font-size: 4rem;
+    color: $color-white;
+    background-color: rgba(41, 30, 99, 0.7);
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+
+    &--left {
+      left: 35%;
+    }
+
+    &--right {
+      right: 35%;
+    }
+  }
+
+  &__cards {
+    @include flexCenter;
+    overflow: hidden;
+    height: 80rem;
+    width: 100%;
+  }
+}
