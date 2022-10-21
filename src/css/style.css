@@ -527,6 +527,295 @@ code {
   .search-container__advanced-search:hover {
     background-color: rgba(209, 66, 95, 0.6); }
 
+.subscription-card {
+  color: #2e2e2e;
+  height: 70rem;
+  width: 40rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 7px;
+  border: none;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  overflow: hidden;
+  position: absolute;
+  transition: all 0.2s; }
+  .subscription-card--invisible-left {
+    transform: scale(0.4);
+    z-index: 1; }
+  .subscription-card--far-left {
+    transform: translateX(-120%) scale(0.6);
+    z-index: 2; }
+  .subscription-card--left {
+    transform: translateX(-70%) scale(0.8);
+    z-index: 3; }
+  .subscription-card--active {
+    z-index: 10; }
+  .subscription-card--right {
+    transform: translateX(70%) scale(0.8);
+    z-index: 3; }
+  .subscription-card--far-right {
+    transform: translateX(120%) scale(0.6);
+    z-index: 2; }
+  .subscription-card--invisible-right {
+    transform: scale(0.4);
+    z-index: 1; }
+  .subscription-card--peasant h3,
+  .subscription-card--peasant button {
+    background: linear-gradient(40deg, #3a3128, #645244); }
+  .subscription-card--peasant button {
+    -webkit-box-shadow: white 5px 5px 0px -2px, #3a3128 5px 5px;
+    -moz-box-shadow: white 5px 5px 0px -2px, #3a3128 5px 5px;
+    box-shadow: white 5px 5px 0px -2px, #3a3128 5px 5px; }
+    .subscription-card--peasant button:hover {
+      -webkit-box-shadow: white -5px -5px 0px -2px, #3a3128 -5px -5px;
+      -moz-box-shadow: white -5px -5px 0px -2px, #3a3128 -5px -5px;
+      box-shadow: white -5px -5px 0px -2px, #3a3128 -5px -5px; }
+  .subscription-card--peasant ul li i {
+    color: #3a3128; }
+  .subscription-card--blacksmith h3,
+  .subscription-card--blacksmith button {
+    background: linear-gradient(40deg, black 20%, #222222 25%, black 30% 60%, #464646 70%, black 80%); }
+  .subscription-card--blacksmith button {
+    -webkit-box-shadow: white 5px 5px 0px -2px, black 5px 5px;
+    -moz-box-shadow: white 5px 5px 0px -2px, black 5px 5px;
+    box-shadow: white 5px 5px 0px -2px, black 5px 5px; }
+    .subscription-card--blacksmith button:hover {
+      -webkit-box-shadow: white -5px -5px 0px -2px, black -5px -5px;
+      -moz-box-shadow: white -5px -5px 0px -2px, black -5px -5px;
+      box-shadow: white -5px -5px 0px -2px, black -5px -5px; }
+  .subscription-card--blacksmith ul li i {
+    color: black; }
+  .subscription-card--knight h3,
+  .subscription-card--knight button {
+    background: linear-gradient(40deg, #284728 10%, #0c1b0c 20%, #2d5c2d 40% 60%, #508050 70%, #264726 80%, #1d361d 85%); }
+  .subscription-card--knight button {
+    -webkit-box-shadow: white 5px 5px 0px -2px, #037403 5px 5px;
+    -moz-box-shadow: white 5px 5px 0px -2px, #037403 5px 5px;
+    box-shadow: white 5px 5px 0px -2px, #037403 5px 5px; }
+    .subscription-card--knight button:hover {
+      -webkit-box-shadow: white -5px -5px 0px -2px, #037403 -5px -5px;
+      -moz-box-shadow: white -5px -5px 0px -2px, #037403 -5px -5px;
+      box-shadow: white -5px -5px 0px -2px, #037403 -5px -5px; }
+  .subscription-card--knight ul li i {
+    color: #037403; }
+  .subscription-card--paladin h3,
+  .subscription-card--paladin button {
+    background: linear-gradient(50deg, #4e14ac, #1d004b, #130031); }
+  .subscription-card--paladin button {
+    -webkit-box-shadow: white 5px 5px 0px -2px, #4e14ac 5px 5px;
+    -moz-box-shadow: white 5px 5px 0px -2px, #4e14ac 5px 5px;
+    box-shadow: white 5px 5px 0px -2px, #4e14ac 5px 5px; }
+    .subscription-card--paladin button:hover {
+      -webkit-box-shadow: white -5px -5px 0px -2px, #4e14ac -5px -5px;
+      -moz-box-shadow: white -5px -5px 0px -2px, #4e14ac -5px -5px;
+      box-shadow: white -5px -5px 0px -2px, #4e14ac -5px -5px; }
+  .subscription-card--paladin ul li i {
+    color: #4e14ac; }
+  .subscription-card--wizard h3,
+  .subscription-card--wizard button {
+    background: linear-gradient(40deg, #380138 10%, #9e049e 35%, #290029 50%, #5e185e 65%, #290029 75%); }
+  .subscription-card--wizard button {
+    -webkit-box-shadow: white 5px 5px 0px -2px, purple 5px 5px;
+    -moz-box-shadow: white 5px 5px 0px -2px, purple 5px 5px;
+    box-shadow: white 5px 5px 0px -2px, purple 5px 5px; }
+    .subscription-card--wizard button:hover {
+      -webkit-box-shadow: white -5px -5px 0px -2px, purple -5px -5px;
+      -moz-box-shadow: white -5px -5px 0px -2px, purple -5px -5px;
+      box-shadow: white -5px -5px 0px -2px, purple -5px -5px; }
+  .subscription-card--wizard ul li i {
+    color: purple; }
+  .subscription-card--king h3,
+  .subscription-card--king button {
+    background: linear-gradient(40deg, #663b03 10%, #d87d07 25%, #663b03 40% 50%, #ffbc3e 70%, #663b03 95%); }
+  .subscription-card--king button {
+    -webkit-box-shadow: white 5px 5px 0px -2px, #7e6015 5px 5px;
+    -moz-box-shadow: white 5px 5px 0px -2px, #7e6015 5px 5px;
+    box-shadow: white 5px 5px 0px -2px, #7e6015 5px 5px; }
+    .subscription-card--king button:hover {
+      -webkit-box-shadow: white -5px -5px 0px -2px, #7e6015 -5px -5px;
+      -moz-box-shadow: white -5px -5px 0px -2px, #7e6015 -5px -5px;
+      box-shadow: white -5px -5px 0px -2px, #7e6015 -5px -5px; }
+  .subscription-card--king ul li i {
+    color: goldenrod; }
+  .subscription-card--dragon h3,
+  .subscription-card--dragon button {
+    background: linear-gradient(40deg, #160004 15%, #42111a 20%, #160004 25% 35%, #2e010a 45%, crimson 60%, #2e010a 75%, #160004 80%); }
+  .subscription-card--dragon button {
+    -webkit-box-shadow: white 5px 5px 0px -2px, #361017 5px 5px;
+    -moz-box-shadow: white 5px 5px 0px -2px, #361017 5px 5px;
+    box-shadow: white 5px 5px 0px -2px, #361017 5px 5px; }
+    .subscription-card--dragon button:hover {
+      -webkit-box-shadow: white -5px -5px 0px -2px, #361017 -5px -5px;
+      -moz-box-shadow: white -5px -5px 0px -2px, #361017 -5px -5px;
+      box-shadow: white -5px -5px 0px -2px, #361017 -5px -5px; }
+  .subscription-card--dragon ul li i {
+    color: crimson; }
+  .subscription-card__info {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem; }
+  .subscription-card__title {
+    font-size: 3.6rem;
+    font-weight: 100;
+    text-align: center;
+    padding: 3rem;
+    color: #fff;
+    width: 100%; }
+  .subscription-card__button {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    border-radius: 7px;
+    padding: 0.5rem 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.2s; }
+    .subscription-card__button span {
+      position: relative;
+      z-index: 20; }
+    .subscription-card__button:hover {
+      transform: translateY(-2px); }
+  .subscription-card__price {
+    display: flex;
+    flex-direction: column;
+    color: #666;
+    position: relative; }
+    .subscription-card__price p {
+      margin: 0; }
+    .subscription-card__price--year-box {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 1rem; }
+    .subscription-card__price--month .subscription-card__price--number {
+      font-size: 6rem; }
+    .subscription-card__price--month .subscription-card__price--faded {
+      font-size: 3rem; }
+    .subscription-card__price--year {
+      font-size: 2.4rem; }
+    .subscription-card__price--faded {
+      font-size: 2rem; }
+    .subscription-card__price--scratched {
+      text-decoration: line-through;
+      font-size: 1.4rem; }
+    .subscription-card__price--off {
+      background-color: #426442;
+      color: #fff;
+      font-size: 1.4rem;
+      padding: 0.5rem;
+      border-radius: 3px; }
+  .subscription-card__comment {
+    opacity: 0.5;
+    font-size: 1.6rem;
+    text-align: center; }
+  .subscription-card__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 90%; }
+    .subscription-card__list li {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      border-bottom: 1px solid rgba(46, 46, 46, 0.1);
+      padding: 1rem 0;
+      font-size: 1.6rem; }
+
+.step {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem; }
+  .step p {
+    letter-spacing: 0.1rem;
+    line-height: 2.5rem;
+    color: #6c6673; }
+  .step--2, .step--4 {
+    flex-direction: row-reverse; }
+  .step__content {
+    width: 70rem; }
+  .step__text {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; }
+  .step__heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 3rem;
+    font-size: 6rem;
+    font-weight: 100;
+    position: relative;
+    color: #3b3345; }
+    .step__heading--num {
+      color: #0a0016;
+      font-size: 8rem;
+      font-weight: 600;
+      opacity: 0.4; }
+    .step__heading--text, .step__heading--num {
+      position: relative;
+      z-index: 2; }
+    .step__heading::after {
+      content: "";
+      z-index: 1;
+      position: absolute;
+      top: 1.5rem;
+      left: 4.6rem;
+      height: 5rem;
+      width: 21rem;
+      background-color: #b59fcd; }
+    .step__heading::before {
+      content: "";
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 7rem;
+      height: 1rem;
+      width: 22rem;
+      background-color: #a95fff; }
+  .step__img {
+    position: relative;
+    border-radius: 3px;
+    height: 400px;
+    width: 250px; }
+    .step__img img {
+      position: relative;
+      z-index: 10; }
+    .step__img::after {
+      content: "";
+      z-index: 20;
+      position: absolute;
+      bottom: 2rem;
+      right: 10rem;
+      height: 10%;
+      width: 80%;
+      background-color: rgba(230, 230, 247, 0);
+      opacity: 0.8;
+      background: repeating-linear-gradient(45deg, black, black 5.5px, rgba(230, 230, 247, 0) 5.5px, rgba(230, 230, 247, 0) 27.5px); }
+    .step__img::before {
+      content: "";
+      z-index: 1;
+      position: absolute;
+      top: -10%;
+      left: -5rem;
+      height: 80%;
+      width: 160%;
+      background-color: transparent;
+      opacity: 0.8;
+      background-image: radial-gradient(#6a3f9b 2px, transparent 2px);
+      background-size: 40px 40px; }
+
 .error404 {
   display: flex;
   justify-content: center;
@@ -561,13 +850,22 @@ code {
       transform: translateY(-2px);
       border-color: #e97cec; }
 
-.hero {
-  height: 100vh;
-  width: 100vw;
+.home {
   background: linear-gradient(rgba(10, 0, 22, 0.4), rgba(10, 0, 22, 0.4)), url("/src/assets/mythical-books-background.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  overflow-x: hidden; }
+  .home h2 {
+    font-family: "Quintessential", cursive;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 100;
+    color: #fff; }
+
+.hero {
+  height: 100vh;
+  width: 100vw;
   position: relative;
   overflow: hidden; }
   .hero::before, .hero::after {
@@ -600,6 +898,96 @@ code {
     font-family: "Quintessential", cursive; }
   .hero__slogan {
     font-size: 3rem; }
+
+.works {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem;
+  width: 100vw;
+  background-color: #fff;
+  color: #0a0016; }
+  .works__heading {
+    margin-bottom: 6rem; }
+    .works__heading h2 {
+      color: #0a0016; }
+    .works__heading p {
+      font-size: 2rem;
+      margin-top: -1rem; }
+  .works__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    width: 70%;
+    padding: 4rem 0; }
+
+.subscription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  min-height: 100rem;
+  width: 100vw;
+  padding: 8rem 2rem;
+  color: #fff;
+  background-color: #131313; }
+  .subscription__heading {
+    position: relative; }
+    .subscription__heading h2,
+    .subscription__heading p {
+      position: relative;
+      z-index: 3; }
+    .subscription__heading h2 {
+      font-size: 6rem; }
+    .subscription__heading p {
+      font-size: 2rem; }
+    .subscription__heading::before {
+      content: "";
+      position: absolute;
+      right: -10%;
+      top: -35%;
+      z-index: 2;
+      height: 100%;
+      width: 80%;
+      background: linear-gradient(90deg, #131313 12px, transparent 1%) center, linear-gradient(#131313 12px, transparent 1%) center, #505050;
+      background-size: 13px 13px; }
+    .subscription__heading::after {
+      content: "";
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      z-index: 1;
+      height: 0.3rem;
+      width: 10rem;
+      background-color: #fff; }
+  .subscription__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    font-size: 4rem;
+    color: #fff;
+    background-color: rgba(41, 30, 99, 0.7);
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%; }
+    .subscription__arrow--left {
+      left: 35%; }
+    .subscription__arrow--right {
+      right: 35%; }
+  .subscription__cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 80rem;
+    width: 100%; }
 
 .login {
   display: flex;
