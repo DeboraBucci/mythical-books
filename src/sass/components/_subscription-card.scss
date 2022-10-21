@@ -1,0 +1,232 @@
+.subscription-card {
+  color: #2e2e2e;
+  height: 70rem;
+  width: 40rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 7px;
+  border: none;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  background-color: $color-white;
+  overflow: hidden;
+  position: absolute;
+  transition: all 0.2s;
+
+  // CARDS POSITIONS
+  &--invisible-left {
+    transform: scale(0.4);
+    z-index: 1;
+  }
+
+  &--far-left {
+    transform: translateX(-120%) scale(0.6);
+    z-index: 2;
+  }
+
+  &--left {
+    transform: translateX(-70%) scale(0.8);
+    z-index: 3;
+  }
+
+  &--active {
+    z-index: 10;
+  }
+
+  &--right {
+    transform: translateX(70%) scale(0.8);
+    z-index: 3;
+  }
+
+  &--far-right {
+    transform: translateX(120%) scale(0.6);
+    z-index: 2;
+  }
+
+  &--invisible-right {
+    transform: scale(0.4);
+    z-index: 1;
+  }
+
+  // CARDS COLORS
+  &--peasant {
+    h3,
+    button {
+      background: map-get($cardColors, peasant);
+    }
+
+    ul li i {
+      color: rgb(58, 49, 40);
+    }
+  }
+
+  &--blacksmith {
+    h3,
+    button {
+      background: map-get($cardColors, blacksmith);
+    }
+
+    ul li i {
+      color: black;
+    }
+  }
+
+  &--knight {
+    h3,
+    button {
+      background: map-get($cardColors, knight);
+    }
+
+    ul li i {
+      color: rgb(3, 116, 3);
+    }
+  }
+
+  &--paladin {
+    h3,
+    button {
+      background: map-get($cardColors, paladin);
+    }
+
+    ul li i {
+      color: rgb(78, 20, 172);
+    }
+  }
+
+  &--wizard {
+    h3,
+    button {
+      background: map-get($cardColors, wizard);
+    }
+
+    ul li i {
+      color: purple;
+    }
+  }
+
+  &--king {
+    h3,
+    button {
+      background: map-get($cardColors, king);
+    }
+
+    ul li i {
+      color: goldenrod;
+    }
+  }
+
+  &--dragon {
+    h3,
+    button {
+      background: map-get($cardColors, dragon);
+    }
+
+    ul li i {
+      color: crimson;
+    }
+  }
+
+  &__info {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
+  &__title {
+    font-size: 3.6rem;
+    font-weight: 100;
+    text-align: center;
+    padding: 3rem;
+    color: $color-white;
+    width: 100%;
+  }
+
+  &__button {
+    border: none;
+    cursor: pointer;
+    color: $color-white;
+    font-size: 2rem;
+    border-radius: 7px;
+    padding: 0.5rem 2rem;
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    color: #666666;
+    position: relative;
+
+    p {
+      margin: 0;
+    }
+
+    &--year-box {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    &--month &--number {
+      font-size: 6rem;
+    }
+
+    &--month &--faded {
+      font-size: 3rem;
+    }
+
+    &--year {
+      font-size: 2.4rem;
+    }
+
+    &--faded {
+      font-size: 2rem;
+    }
+
+    &--scratched {
+      text-decoration: line-through;
+      font-size: 1.4rem;
+    }
+
+    &--off {
+      background-color: #426442;
+      color: $color-white;
+      font-size: 1.4rem;
+      padding: 0.5rem;
+      border-radius: 3px;
+    }
+  }
+
+  &__comment {
+    opacity: 0.5;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 90%;
+  }
+
+  &__list li {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 1px solid rgba(46, 46, 46, 0.1);
+    padding: 1rem 0;
+    font-size: 1.6rem;
+  }
+
+  &__list li i {
+    color: rgb(78, 20, 172);
+  }
+}
