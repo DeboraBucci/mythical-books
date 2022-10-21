@@ -17,3 +17,15 @@
     @content;
   }
 }
+
+@mixin box-shadow($color) {
+  -webkit-box-shadow: white 5px 5px 0px -2px, $color 5px 5px;
+  -moz-box-shadow: white 5px 5px 0px -2px, $color 5px 5px;
+  box-shadow: white 5px 5px 0px -2px, $color 5px 5px;
+
+  &:hover {
+    -webkit-box-shadow: white -5px -5px 0px -2px, $color -5px -5px;
+    -moz-box-shadow: white -5px -5px 0px -2px, $color -5px -5px;
+    box-shadow: white -5px -5px 0px -2px, $color -5px -5px;
+  }
+}
