@@ -114,7 +114,7 @@ const Subscription = () => {
   };
 
   return (
-    <section id="subscription" className="subscription">
+    <section id="subscriptions" className="subscription">
       <div className="subscription__heading">
         <h2>Our Subscriptions</h2>
         <p>Take a peek into our subscriptions</p>
