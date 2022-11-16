@@ -6,7 +6,8 @@ const Hero = () => {
       <div className="hero__content">
         <h1 className="hero__title">Mythical Books</h1>
         <p className="hero__slogan">
-          Where your fantasies come alive <i className="fa-solid fa-broom"></i>
+          Where your dreams come <span>to life</span>{" "}
+          <i className="fa-solid fa-broom"></i>
         </p>
       </div>
     </section>
