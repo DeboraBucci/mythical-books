@@ -3,10 +3,10 @@ import React from "react";
 import CustomLink from "../UI/CustomLink";
 import { Logo } from "../UI/Logo";
 
-const Navbar = ({ links, title, children }) => {
+const Navbar = ({ links, title, children, logoSize }) => {
   return (
-    <nav className="navbar">
-      <Logo title={title} />
+    <nav className="navbar" style={{ backgroundColor: title ? "#0a0016" : "" }}>
+      <Logo title={title} size={logoSize} />
 
       {children}
 
