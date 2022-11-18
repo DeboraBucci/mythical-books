@@ -21,6 +21,13 @@ const homeLinks = [
     type: "anchor",
   },
   {
+    title: "Gallery",
+    att: "#gallery",
+    icon: "far fa-image",
+    iconClass: "gallery",
+    type: "anchor",
+  },
+  {
     title: "Subscriptions",
     att: "#subscriptions",
     icon: "fas fa-dragon",
