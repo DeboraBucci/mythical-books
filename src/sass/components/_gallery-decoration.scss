@@ -1,0 +1,145 @@
+.gallery__deco {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  & > div {
+    position: absolute;
+  }
+
+  &--1,
+  &--2,
+  &--3 {
+    z-index: 50;
+    width: 0.2rem;
+    background: linear-gradient(25deg, transparent, goldenrod, transparent);
+  }
+
+  &--1 {
+    bottom: 20rem;
+    left: 12rem;
+    height: 40rem;
+    transform: rotate(20deg);
+  }
+
+  &--2 {
+    bottom: 32rem;
+    left: 11rem;
+    height: 15rem;
+    transform: rotate(70deg);
+  }
+
+  &--3 {
+    bottom: 16em;
+    left: 13rem;
+    height: 30rem;
+    transform: rotate(140deg);
+  }
+
+  &--4 {
+    top: -25rem;
+    right: 5rem;
+    border-radius: 50%;
+    height: 50rem;
+    width: 70rem;
+    background-color: rgba(160, 67, 85, 0.1);
+  }
+
+  &--5 {
+    top: -10rem;
+    right: -25rem;
+    border-radius: 50%;
+    height: 60rem;
+    width: 50rem;
+    background-color: rgba(107, 43, 78, 0.3);
+  }
+
+  &--6 {
+    top: -10rem;
+    right: 10rem;
+    height: 60rem;
+    width: 0.2rem;
+    background-color: white;
+    transform: rotate(20deg);
+  }
+
+  &--7 {
+    top: -25rem;
+    right: 25rem;
+    height: 70rem;
+    width: 0.2rem;
+    background-color: white;
+    transform: rotate(120deg);
+  }
+
+  &--9 {
+    z-index: 50;
+    bottom: 15rem;
+    right: 50rem;
+    height: 60rem;
+    width: 0.2rem;
+    background: linear-gradient(transparent, goldenrod, transparent);
+    transform: rotate(140deg);
+  }
+
+  &--10 {
+    z-index: 50;
+    bottom: -5rem;
+    right: 70rem;
+    height: 60rem;
+    width: 0.2rem;
+    background: linear-gradient(transparent, goldenrod, transparent);
+    transform: rotate(110deg);
+  }
+
+  &--11 {
+    z-index: 50;
+    bottom: 10rem;
+    right: 70rem;
+    height: 80rem;
+    width: 0.2rem;
+    background: linear-gradient(transparent, goldenrod, transparent);
+    transform: rotate(30deg);
+  }
+
+  &--12 {
+    z-index: 50;
+    bottom: 15rem;
+    right: 50rem;
+    height: 40rem;
+    width: 0.2rem;
+    background: linear-gradient(transparent, goldenrod, transparent);
+    transform: rotate(10deg);
+  }
+
+  &--13 {
+    z-index: 50;
+    top: -10rem;
+    left: 50rem;
+    height: 50rem;
+    width: 0.3rem;
+    background: linear-gradient(transparent, goldenrod, transparent);
+    transform: rotate(130deg);
+  }
+
+  &--14 {
+    z-index: 50;
+    top: 5rem;
+    left: 50rem;
+    height: 30rem;
+    width: 0.2rem;
+    background: linear-gradient(transparent, goldenrod, transparent);
+    transform: rotate(100deg);
+  }
+
+  &--15 {
+    z-index: 50;
+    bottom: 10rem;
+    left: 70rem;
+    height: 50rem;
+    width: 0.3rem;
+    background: linear-gradient(transparent, goldenrod, transparent);
+    transform: rotate(40deg);
+  }
+}
