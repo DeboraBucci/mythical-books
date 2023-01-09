@@ -1,5 +1,6 @@
 import React from "react";
 import { galleryArr } from "../../../data";
+import GalleryDecoration from "./GalleryDecoration";
 
 const Gallery = () => {
   return (
@@ -15,6 +16,8 @@ const Gallery = () => {
           </div>
         ))}
       </div>
+
+      <GalleryDecoration />
     </section>
   );
 };
