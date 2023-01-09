@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import Navbar from "../navbar/Navbar";
 import Hero from "./hero/Hero";
+import HowItWorks from "./how-it-works/HowItWorks";
+import Gallery from "./gallery/Gallery";
+import Subscription from "./subscription/Subscription";
 
 import { homeLinks } from "../../data";
-import HowItWorks from "./how-it-works/HowItWorks";
-import Subscription from "./subscription/Subscription";
 
 const Home = () => {
   const [isTitleShowing, setIsTitleShowing] = useState(false);
@@ -31,6 +32,7 @@ const Home = () => {
       <Navbar links={homeLinks} title={isTitleShowing} logoSize={logoSize} />
       <Hero />
       <HowItWorks />
+      <Gallery />
       <Subscription />
     </div>
   );
