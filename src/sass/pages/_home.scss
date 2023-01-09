@@ -1,13 +1,13 @@
 .home {
+  overflow-x: hidden;
+}
+
+.hero {
   background: linear-gradient(rgba($color-black, 0.4), rgba($color-black, 0.4)),
     url("/src/assets/mythical-books-background.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  overflow-x: hidden;
-}
-
-.hero {
   height: 100vh;
   width: 100vw;
   position: relative;
@@ -223,10 +223,11 @@
 .gallery {
   background-color: $color-white;
   gap: 10rem;
-  width: 100%;
   display: flex;
   flex-direction: row-reverse;
-  padding: 4rem;
+  margin: 2rem;
+  padding: 2rem;
+  border: 1rem solid ($color-black);
 
   &__heading {
     position: relative;
