@@ -5,7 +5,7 @@ import { Logo } from "../UI/Logo";
 
 const Navbar = ({ links, title, children, logoSize }) => {
   return (
-    <nav className="navbar" style={{ backgroundColor: title ? "#0a0016" : "" }}>
+    <nav className={`navbar ${title ? "navbar__shrinked" : ""}`}>
       <Logo title={title} size={logoSize} />
 
       {children}
