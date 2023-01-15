@@ -1,0 +1,9 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient((to bottom, $color-black, rgb(30, 13, 43)));
+  color: $color-white;
+  height: 10rem;
+  font-size: 1.6rem;
+}

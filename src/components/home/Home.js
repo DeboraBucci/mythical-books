@@ -5,6 +5,7 @@ import Hero from "./hero/Hero";
 import HowItWorks from "./how-it-works/HowItWorks";
 import Gallery from "./gallery/Gallery";
 import Subscription from "./subscription/Subscription";
+import Footer from "../footer/Footer";
 
 import { homeLinks } from "../../data";
 
@@ -34,6 +35,7 @@ const Home = () => {
       <HowItWorks />
       <Gallery />
       <Subscription />
+      <Footer />
     </div>
   );
 };

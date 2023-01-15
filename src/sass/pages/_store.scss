@@ -1,8 +1,10 @@
 .store {
-  display: grid;
-  grid-template-columns: 2fr 6fr;
-  min-height: 100vh;
-  background-color: shade($color-dark-purple, 80%);
+  &__content {
+    display: grid;
+    min-height: calc(100vh - 10rem);
+    grid-template-columns: 2fr 6fr;
+    background-color: shade($color-dark-purple, 80%);
+  }
 
   &__bookshelf {
     @include flexCenter;

@@ -4,6 +4,7 @@ import Navbar from "../navbar/Navbar";
 import SearchBooks from "./SearchBooks";
 import Bookshelf from "./Bookshelf";
 import Categories from "./Categories";
+import Footer from "../footer/Footer";
 
 import { storeLinks } from "../../data";
 
@@ -33,8 +34,11 @@ const Store = () => {
       <Navbar links={storeLinks} title={true}>
         <SearchBooks setBooks={setBooks} filters={filters} order={order} />
       </Navbar>
-      <Categories filterHandler={filterHandler} orderHandler={orderHandler} />
-      <Bookshelf books={books} />
+      <div className="store__content">
+        <Categories filterHandler={filterHandler} orderHandler={orderHandler} />
+        <Bookshelf books={books} />
+      </div>
+      <Footer />
     </div>
   );
 };
