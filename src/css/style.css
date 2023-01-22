@@ -858,18 +858,18 @@ code {
     width: 0.2rem;
     background: linear-gradient(25deg, transparent, goldenrod, transparent); }
   .gallery__deco--1 {
-    bottom: 20rem;
-    left: 12rem;
+    bottom: 10rem;
+    left: 8rem;
     height: 40rem;
     transform: rotate(20deg); }
   .gallery__deco--2 {
-    bottom: 32rem;
-    left: 11rem;
+    bottom: 27rem;
+    left: 10rem;
     height: 15rem;
     transform: rotate(70deg); }
   .gallery__deco--3 {
-    bottom: 16em;
-    left: 13rem;
+    bottom: 11em;
+    left: 10rem;
     height: 30rem;
     transform: rotate(140deg); }
   .gallery__deco--4 {
@@ -902,7 +902,7 @@ code {
     transform: rotate(120deg); }
   .gallery__deco--9 {
     z-index: 50;
-    bottom: 15rem;
+    bottom: 5rem;
     right: 50rem;
     height: 60rem;
     width: 0.2rem;
@@ -910,7 +910,7 @@ code {
     transform: rotate(140deg); }
   .gallery__deco--10 {
     z-index: 50;
-    bottom: -5rem;
+    bottom: -15rem;
     right: 70rem;
     height: 60rem;
     width: 0.2rem;
@@ -918,7 +918,7 @@ code {
     transform: rotate(110deg); }
   .gallery__deco--11 {
     z-index: 50;
-    bottom: 10rem;
+    bottom: 0;
     right: 70rem;
     height: 80rem;
     width: 0.2rem;
@@ -926,7 +926,7 @@ code {
     transform: rotate(30deg); }
   .gallery__deco--12 {
     z-index: 50;
-    bottom: 15rem;
+    bottom: 5rem;
     right: 50rem;
     height: 40rem;
     width: 0.2rem;
@@ -937,7 +937,7 @@ code {
     top: -10rem;
     left: 50rem;
     height: 50rem;
-    width: 0.3rem;
+    width: 0.2rem;
     background: linear-gradient(transparent, goldenrod, transparent);
     transform: rotate(130deg); }
   .gallery__deco--14 {
@@ -953,7 +953,7 @@ code {
     bottom: 10rem;
     left: 70rem;
     height: 50rem;
-    width: 0.3rem;
+    width: 0.2rem;
     background: linear-gradient(transparent, goldenrod, transparent);
     transform: rotate(40deg); }
 
@@ -1160,6 +1160,7 @@ code {
     width: 100%; }
 
 .gallery {
+  position: relative;
   background-color: #fff;
   gap: 10rem;
   display: flex;
@@ -1168,7 +1169,6 @@ code {
   padding: 2rem;
   border: 1rem solid #0a0016; }
   .gallery__heading {
-    position: relative;
     z-index: 100;
     text-align: center;
     flex: 1; }

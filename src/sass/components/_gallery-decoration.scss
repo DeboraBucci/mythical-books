@@ -17,22 +17,22 @@
   }
 
   &--1 {
-    bottom: 20rem;
-    left: 12rem;
+    bottom: 10rem;
+    left: 8rem;
     height: 40rem;
     transform: rotate(20deg);
   }
 
   &--2 {
-    bottom: 32rem;
-    left: 11rem;
+    bottom: 27rem;
+    left: 10rem;
     height: 15rem;
     transform: rotate(70deg);
   }
 
   &--3 {
-    bottom: 16em;
-    left: 13rem;
+    bottom: 11em;
+    left: 10rem;
     height: 30rem;
     transform: rotate(140deg);
   }
@@ -75,7 +75,7 @@
 
   &--9 {
     z-index: 50;
-    bottom: 15rem;
+    bottom: 5rem;
     right: 50rem;
     height: 60rem;
     width: 0.2rem;
@@ -85,7 +85,7 @@
 
   &--10 {
     z-index: 50;
-    bottom: -5rem;
+    bottom: -15rem;
     right: 70rem;
     height: 60rem;
     width: 0.2rem;
@@ -95,7 +95,7 @@
 
   &--11 {
     z-index: 50;
-    bottom: 10rem;
+    bottom: 0;
     right: 70rem;
     height: 80rem;
     width: 0.2rem;
@@ -105,7 +105,7 @@
 
   &--12 {
     z-index: 50;
-    bottom: 15rem;
+    bottom: 5rem;
     right: 50rem;
     height: 40rem;
     width: 0.2rem;
@@ -118,7 +118,7 @@
     top: -10rem;
     left: 50rem;
     height: 50rem;
-    width: 0.3rem;
+    width: 0.2rem;
     background: linear-gradient(transparent, goldenrod, transparent);
     transform: rotate(130deg);
   }
@@ -138,7 +138,7 @@
     bottom: 10rem;
     left: 70rem;
     height: 50rem;
-    width: 0.3rem;
+    width: 0.2rem;
     background: linear-gradient(transparent, goldenrod, transparent);
     transform: rotate(40deg);
   }
