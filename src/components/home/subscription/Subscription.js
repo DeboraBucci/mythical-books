@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { subscriptionCards } from "../../../data";
 import SubscriptionCard from "./SubscriptionCard";
-import SubscriptionDecorations from "./SubscriptionDecorations";
+import SubscriptionDecoration from "./SubscriptionDecoration";
 
 const Subscription = () => {
   const [cardPositions, setCardPositions] = useState([
@@ -151,7 +151,7 @@ const Subscription = () => {
         ></i>
       </div>
 
-      <SubscriptionDecorations />
+      <SubscriptionDecoration />
     </section>
   );
 };
