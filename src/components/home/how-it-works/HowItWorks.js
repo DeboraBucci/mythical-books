@@ -8,7 +8,7 @@ import Step from "./Step";
 const HowItWorks = () => {
   return (
     <div className="works">
-      <div className="works__heading">
+      <div className="works__heading section-heading">
         <h2>How it Works</h2>
         <p>As easy as killing a basilik... </p>
       </div>

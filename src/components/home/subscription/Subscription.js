@@ -116,7 +116,7 @@ const Subscription = () => {
 
   return (
     <section id="subscriptions" className="subscription">
-      <div className="subscription__heading">
+      <div className="subscription__heading section-heading">
         <h2>Subscriptions</h2>
         <p>Take a peek into our subscriptions</p>
       </div>

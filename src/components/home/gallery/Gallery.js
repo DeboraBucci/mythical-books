@@ -7,7 +7,7 @@ const Gallery = () => {
   return (
     <section className="gallery" id="gallery">
       <div className="gallery__text-container">
-        <div className="gallery__heading">
+        <div className="gallery__heading section-heading">
           <h2>Our gallery</h2>
         </div>
 
