@@ -150,6 +150,8 @@ const Subscription = () => {
           className="fas fa-chevron-right subscription__arrow subscription__arrow--right"
         ></i>
       </div>
+
+      <SubscriptionDecorations />
     </section>
   );
 };
