@@ -1,0 +1,82 @@
+.subscription-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  & > div {
+    position: absolute;
+    background: linear-gradient(
+      transparent,
+      $color-purple,
+      $color-dark-purple,
+      $color-purple,
+      transparent
+    );
+    width: 1px;
+  }
+
+  &--1 {
+    left: 10rem;
+    top: 2rem;
+    height: 30rem;
+    transform: rotate(30deg);
+  }
+
+  &--2 {
+    left: 25rem;
+    top: -10rem;
+    height: 50rem;
+    transform: rotate(120deg);
+  }
+
+  &--3 {
+    right: 25rem;
+    top: 0;
+    height: 40rem;
+    transform: rotate(60deg);
+  }
+
+  &--4 {
+    right: 35rem;
+    top: -15rem;
+    height: 60rem;
+    transform: rotate(100deg);
+  }
+
+  &--5 {
+    right: 35rem;
+    bottom: -10rem;
+    height: 60rem;
+    transform: rotate(100deg);
+  }
+
+  &--6 {
+    right: 25rem;
+    bottom: 4rem;
+    height: 25rem;
+    transform: rotate(80deg);
+  }
+
+  &--7 {
+    right: 45rem;
+    bottom: 4rem;
+    height: 25rem;
+    transform: rotate(40deg);
+  }
+
+  &--8 {
+    left: 25rem;
+    bottom: -5rem;
+    height: 45rem;
+    transform: rotate(80deg);
+  }
+
+  &--9 {
+    left: 25rem;
+    bottom: 0rem;
+    height: 70rem;
+    transform: rotate(160deg);
+  }
+}
