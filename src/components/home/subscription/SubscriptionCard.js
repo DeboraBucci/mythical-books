@@ -60,10 +60,10 @@ const SubscriptionCard = ({
             {chest ? chest : "No Chest"}
           </li>
           <li>
-            <i className="fas fa-check"></i> Mythical Points
+            <i className="fas fa-check"></i> Mythical Coins
           </li>
           <li>
-            <i className="fas fa-check"></i> 24/7 Special User Support
+            <i className="fas fa-check"></i> 24/7 Exclusive User Support
           </li>
         </ul>
         <button className="subscription-card__button">Upgrade</button>
