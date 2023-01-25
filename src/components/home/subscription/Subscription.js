@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { subscriptionCards } from "../../../data";
 import SubscriptionCard from "./SubscriptionCard";
+import SubscriptionDecorations from "./SubscriptionDecorations";
 
 const Subscription = () => {
   const [cardPositions, setCardPositions] = useState([
@@ -116,7 +117,7 @@ const Subscription = () => {
   return (
     <section id="subscriptions" className="subscription">
       <div className="subscription__heading">
-        <h2>Our Subscriptions</h2>
+        <h2>Subscriptions</h2>
         <p>Take a peek into our subscriptions</p>
       </div>
 
