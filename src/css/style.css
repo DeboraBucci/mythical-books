@@ -85,7 +85,10 @@ code {
   align-items: center;
   width: 100vw;
   padding: 2rem 6rem;
-  transition: all 0.5s; }
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  gap: 4rem; }
   .navbar::before, .navbar::after {
     content: "";
     position: absolute;
@@ -158,6 +161,16 @@ code {
     color: #d373ff; }
   .navbar__link:hover .navbar__icon--log {
     color: goldenrod; }
+  .navbar__btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem; }
+  .navbar__btn {
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 2rem;
+    color: #fff; }
 
 .input-group {
   position: relative;
@@ -1479,3 +1492,7 @@ code {
     z-index: 1;
     cursor: pointer;
     background-color: transparent; }
+
+.dark-theme .home,
+.dark-theme section {
+  background-color: #0a0016; }
