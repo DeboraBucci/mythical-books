@@ -317,3 +317,63 @@
     }
   }
 }
+
+.benefits {
+  border-top: 1px solid rgba($color-black, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 6rem;
+
+  &__heading {
+    align-self: center;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 4rem 0;
+  }
+
+  &__item {
+    p {
+      font-size: 1.6rem;
+      color: tint($color-black, 20%);
+      line-height: 2.5rem;
+      letter-spacing: 0.1rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__item-heading {
+    margin: 1rem 0;
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    h3 {
+      font-size: 3rem;
+      font-weight: 100;
+    }
+
+    i {
+      font-size: 3rem;
+      color: $color-purple;
+    }
+
+    border-bottom: 1px solid rgba($color-purple, 0.2);
+  }
+
+  &__note {
+    display: block;
+    width: fit-content;
+    margin: 2rem 0;
+    padding: 1.5rem 1rem;
+    font-size: 1.4rem;
+    color: #424242;
+    border: 3px solid rgba($color-secondary, 0.2);
+    border-radius: 3px;
+  }
+}

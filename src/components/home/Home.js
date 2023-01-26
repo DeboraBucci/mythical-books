@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../navbar/Navbar";
 import Hero from "./hero/Hero";
 import HowItWorks from "./how-it-works/HowItWorks";
+import Benefits from "./benefits/Benefits";
 import Gallery from "./gallery/Gallery";
 import Subscription from "./subscription/Subscription";
 import Footer from "../footer/Footer";
@@ -33,6 +34,7 @@ const Home = () => {
       <Navbar links={homeLinks} title={isTitleShowing} logoSize={logoSize} />
       <Hero />
       <HowItWorks />
+      <Benefits />
       <Gallery />
       <Subscription />
       <Footer />
