@@ -28,6 +28,10 @@ a {
 button {
   border: none; }
 
+section {
+  scroll-margin-top: 6rem;
+  -webkit-scroll-snap-margin-top: 6rem; }
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;

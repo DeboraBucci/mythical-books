@@ -34,3 +34,8 @@ a {
 button {
   border: none;
 }
+
+section {
+  scroll-margin-top: 6rem;
+  -webkit-scroll-snap-margin-top: 6rem;
+}
