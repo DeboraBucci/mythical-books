@@ -7,7 +7,7 @@ import Step from "./Step";
 
 const HowItWorks = () => {
   return (
-    <div className="works">
+    <section className="works" id="works">
       <div className="works__heading section-heading">
         <h2>How it Works</h2>
         <p>As easy as killing a basilik... </p>
@@ -60,7 +60,7 @@ const HowItWorks = () => {
           <p>Enjoy the reading!</p>
         </Step>
       </div>
-    </div>
+    </section>
   );
 };
 
