@@ -37,7 +37,10 @@ const Gallery = () => {
 
       <div className="gallery__imgs">
         {galleryArr.map((obj, i) => (
-          <div className={`gallery__img-box gallery__img-box--${i + 1}`}>
+          <div
+            key={Math.random().toString()}
+            className={`gallery__img-box gallery__img-box--${i + 1}`}
+          >
             <img src={obj.img} alt={obj.alt} height="200px" width="200px" />
           </div>
         ))}

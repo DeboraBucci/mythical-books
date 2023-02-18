@@ -12,7 +12,7 @@ const Benefits = () => {
         <li className="benefits__item">
           <div className="benefits__item-heading">
             <h3>Monthly Chests</h3>
-            <i class="fa-solid fa-toolbox"></i>
+            <i className="fa-solid fa-toolbox"></i>
           </div>
           <p>
             Get a hold of one of these wonderful hidden treasures and you will
@@ -33,7 +33,7 @@ const Benefits = () => {
         <li className="benefits__item">
           <div className="benefits__item-heading">
             <h3>Mythical Coins & Boosts</h3>
-            <i class="fa-solid fa-coins"></i>
+            <i className="fa-solid fa-coins"></i>
           </div>
 
           <p>
@@ -66,7 +66,7 @@ const Benefits = () => {
         <li className="benefits__item">
           <div className="benefits__item-heading">
             <h3>Access to our Gallery</h3>
-            <i class="fa-regular fa-images"></i>
+            <i className="fa-regular fa-images"></i>
           </div>
 
           <p>
@@ -82,7 +82,7 @@ const Benefits = () => {
         <li className="benefits__item">
           <div className="benefits__item-heading">
             <h3>Free Delivery Worldwide</h3>
-            <i class="fa-solid fa-earth-americas"></i>
+            <i className="fa-solid fa-earth-americas"></i>
           </div>
 
           <p>
@@ -94,7 +94,7 @@ const Benefits = () => {
         <li className="benefits__item">
           <div className="benefits__item-heading">
             <h3>Special Discounts</h3>
-            <i class="fa-solid fa-percent"></i>
+            <i className="fa-solid fa-percent"></i>
           </div>
 
           <p>
@@ -112,7 +112,7 @@ const Benefits = () => {
         <li className="benefits__item">
           <div className="benefits__item-heading">
             <h3>Exclusive User Support</h3>
-            <i class="fa-solid fa-headset"></i>
+            <i className="fa-solid fa-headset"></i>
           </div>
 
           <p>
