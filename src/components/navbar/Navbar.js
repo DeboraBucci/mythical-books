@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import ThemeContext from "../../store/theme-context";
+import ThemeContext from "../../context/theme-context";
 
 import CustomLink from "../UI/CustomLink";
 import { Logo } from "../UI/Logo";

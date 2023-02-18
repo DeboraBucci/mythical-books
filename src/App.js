@@ -7,7 +7,7 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Error404 from "./components/errors/Error404";
 
-import ThemeContext from "./store/theme-context";
+import ThemeContext from "./context/theme-context";
 
 function App() {
   const theme = useContext(ThemeContext);
