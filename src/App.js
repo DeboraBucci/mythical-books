@@ -10,10 +10,10 @@ import Error404 from "./components/errors/Error404";
 import ThemeContext from "./context/theme-context";
 
 function App() {
-  const theme = useContext(ThemeContext);
+  const themeCtx = useContext(ThemeContext);
 
   return (
-    <div className={`${theme.darkTheme === false ? "white" : "dark"}-theme`}>
+    <div className={themeCtx.theme}>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/store" element={<Store />} />

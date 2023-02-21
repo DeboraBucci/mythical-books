@@ -72,6 +72,8 @@ code {
   font-size: 6rem;
   font-family: "Quintessential", cursive;
   font-weight: 100; }
+  .dark-theme .section-heading h2 {
+    color: #fff; }
 
 .section-heading p {
   font-size: 2rem;
@@ -1201,7 +1203,7 @@ code {
       z-index: 1;
       height: 0.3rem;
       width: 10rem;
-      background-color: #fff; }
+      background-color: #d1425f; }
   .subscription__arrow {
     display: flex;
     justify-content: center;
@@ -1493,6 +1495,34 @@ code {
     cursor: pointer;
     background-color: transparent; }
 
-.dark-theme .home,
 .dark-theme section {
-  background-color: #0a0016; }
+  background-color: #0a0016;
+  color: #fff; }
+
+.dark-theme .subscription__heading::before {
+  background: linear-gradient(90deg, #0a0016 12px, transparent 1%) center, linear-gradient(#0a0016 12px, transparent 1%) center, #fff;
+  background-size: 13px 13px; }
+
+.dark-theme .step p {
+  color: white; }
+
+.dark-theme .step__heading {
+  color: white; }
+  .dark-theme .step__heading--num {
+    color: #fff;
+    opacity: 0.3; }
+  .dark-theme .step__heading::after {
+    background-color: #35204e; }
+
+.dark-theme .step__img::after {
+  background: repeating-linear-gradient(45deg, #d1425f, #d1425f 5.5px, rgba(230, 230, 247, 0) 5.5px, rgba(230, 230, 247, 0) 27.5px); }
+
+.dark-theme .step__img::before {
+  background-image: radial-gradient(#a95fff 2px, transparent 2px); }
+
+.dark-theme .benefits {
+  border-color: rgba(255, 255, 255, 0.1); }
+  .dark-theme .benefits__item p {
+    color: #b3b3b3; }
+  .dark-theme .benefits__note {
+    color: gray; }

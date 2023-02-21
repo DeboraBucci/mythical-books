@@ -1,6 +1,72 @@
 .dark-theme {
-  .home,
   section {
     background-color: $color-black;
+    color: $color-white;
+  }
+
+  .subscription {
+    &__heading {
+      &::before {
+        background: linear-gradient(
+              90deg,
+              $color-black ($dot-space - $dot-size),
+              transparent 1%
+            )
+            center,
+          linear-gradient($color-black ($dot-space - $dot-size), transparent 1%)
+            center,
+          $color-white;
+        background-size: $dot-space $dot-space;
+      }
+    }
+  }
+
+  .step {
+    & p {
+      color: tint($color-white, 40%);
+    }
+
+    &__heading {
+      color: tint($color-white, 20%);
+
+      &--num {
+        color: $color-white;
+        opacity: 0.3;
+      }
+
+      &::after {
+        background-color: shade($color-dark-purple, 50%);
+      }
+    }
+
+    &__img {
+      &::after {
+        background: repeating-linear-gradient(
+          45deg,
+          $color-secondary,
+          $color-secondary 5.5px,
+          rgba(230, 230, 247, 0) 5.5px,
+          rgba(230, 230, 247, 0) 27.5px
+        );
+      }
+
+      &::before {
+        background-image: radial-gradient($color-purple 2px, transparent 2px);
+      }
+    }
+  }
+
+  .benefits {
+    border-color: rgba($color-white, 0.1);
+
+    &__item {
+      p {
+        color: shade($color-white, 30%);
+      }
+    }
+
+    &__note {
+      color: shade($color-white, 50%);
+    }
   }
 }
