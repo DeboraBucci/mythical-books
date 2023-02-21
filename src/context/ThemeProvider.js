@@ -2,11 +2,7 @@ import { useState } from "react";
 import ThemeContext from "./theme-context";
 
 const ThemeProvider = (props) => {
-  const [currTheme, setCurrTheme] = useState(localStorage.getItem("darkTheme"));
-
-  if (!localStorage.getItem("theme")) {
-    localStorage.setItem("theme", "light-theme");
-  }
+  const [currTheme, setCurrTheme] = useState("light-theme");
 
   const toggleThemeHandler = () => {
     localStorage.setItem(

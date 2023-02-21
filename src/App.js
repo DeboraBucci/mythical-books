@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Home from "./components/home/Home";
@@ -11,6 +11,12 @@ import ThemeContext from "./context/theme-context";
 
 function App() {
   const themeCtx = useContext(ThemeContext);
+
+  useEffect(() => {
+    if (!localStorage.getItem("theme")) {
+      localStorage.setItem("theme", "light-theme");
+    }
+  }, []);
 
   return (
     <div className={themeCtx.theme}>
