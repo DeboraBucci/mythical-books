@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Home from "./components/home/Home";
@@ -7,9 +7,13 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Error404 from "./components/errors/Error404";
 
+import ThemeContext from "./context/theme-context";
+
 function App() {
+  const themeCtx = useContext(ThemeContext);
+
   return (
-    <React.Fragment>
+    <div className={themeCtx.theme}>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/store" element={<Store />} />
@@ -17,7 +21,7 @@ function App() {
         <Route exact path="/register" element={<Register />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
-    </React.Fragment>
+    </div>
   );
 }
 

@@ -143,13 +143,13 @@
       width: 80%;
       background: linear-gradient(
             90deg,
-            $bg-color ($dot-space - $dot-size),
+            $color-white ($dot-space - $dot-size),
             transparent 1%
           )
           center,
-        linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%)
+        linear-gradient($color-white ($dot-space - $dot-size), transparent 1%)
           center,
-        $dot-color;
+        $color-black;
       background-size: $dot-space $dot-space;
     }
 
@@ -161,7 +161,7 @@
       z-index: 1;
       height: 0.3rem;
       width: 10rem;
-      background-color: $color-white;
+      background-color: $color-secondary;
     }
   }
 
