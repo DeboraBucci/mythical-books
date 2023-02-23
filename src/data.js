@@ -19,42 +19,60 @@ import Gallery17 from "./assets/gallery/gallery-17.webp";
 
 const homeLinks = [
   {
-    title: "Store",
+    title: {
+      english: "Store",
+      spanish: "Tienda",
+    },
     att: "/store",
     icon: "fas fa-store",
     iconClass: "store",
     type: "link",
   },
   {
-    title: "How it Works",
+    title: {
+      english: "How it Works",
+      spanish: "Cómo Funciona",
+    },
     att: "#works",
     icon: "fas fa-dice-d20",
     iconClass: "works",
     type: "anchor",
   },
   {
-    title: "Benefits",
+    title: {
+      english: "Benefits",
+      spanish: "Beneficios",
+    },
     att: "#benefits",
     icon: "far fa-gem",
     iconClass: "benefits",
     type: "anchor",
   },
   {
-    title: "Gallery",
+    title: {
+      english: "Gallery",
+      spanish: "Galería",
+    },
     att: "#gallery",
     icon: "far fa-image",
     iconClass: "gallery",
     type: "anchor",
   },
   {
-    title: "Subscriptions",
+    title: {
+      english: "Subscriptions",
+      spanish: "Subscripciones",
+    },
     att: "#subscriptions",
     icon: "fas fa-dragon",
     iconClass: "subscriptions",
     type: "anchor",
   },
   {
-    title: "Log In",
+    title: {
+      english: "Log In",
+      spanish: "Ingresar",
+    },
     att: "/login",
     icon: "fas fa-feather",
     iconClass: "log",
@@ -230,6 +248,11 @@ const subscriptionCards = [
     },
   },
 ];
+
+export const languages = {
+  spanish: ["inglés", "español"],
+  english: ["english", "spanish"],
+};
 
 const galleryArr = [
   { img: Gallery1, alt: "" },

@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
+
+import LanguageContext from "../../context/language-context";
 import ThemeContext from "../../context/theme-context";
+import { languages } from "../../data";
 
 import CustomLink from "../UI/CustomLink";
 import { Logo } from "../UI/Logo";
 
 const Navbar = ({ links, title, children, logoSize }) => {
+  const [langDropdownOpened, setLangDropdownOpened] = useState(false);
+
   const themeCtx = useContext(ThemeContext);
+  const languageCtx = useContext(LanguageContext);
+
   const toggleThemeHandler = () => themeCtx.toggleTheme();
+
+  const changeLanguagesHandler = () => {
+    setLangDropdownOpened((prev) => !prev);
+  };
+
+  const changeLanguageHandler = (e) => {
+    let selectedLanguage = e.target.innerText.toLowerCase();
+
+    if (selectedLanguage === "inglés") selectedLanguage = "english";
+    if (selectedLanguage === "español") selectedLanguage = "spanish";
+
+    changeLanguagesHandler();
+    languageCtx.changeLanguage(selectedLanguage);
+  };
 
   return (
     <nav className={`navbar ${title ? "navbar__shrinked" : ""}`}>
@@ -17,9 +38,9 @@ const Navbar = ({ links, title, children, logoSize }) => {
 
       <ul className="navbar__list">
         {links.map((link) => (
-          <li className="navbar__link" key={link.title}>
+          <li className="navbar__link" key={link.title[languageCtx.language]}>
             <CustomLink att={link.att} type={link.type}>
-              {link.title}{" "}
+              {link.title[languageCtx.language]}{" "}
               <i className={`${link.icon} navbar__icon--${link.iconClass}`}></i>
             </CustomLink>
           </li>
@@ -33,9 +54,31 @@ const Navbar = ({ links, title, children, logoSize }) => {
         >
           <i className="fa-solid fa-circle-half-stroke"></i>
         </button>
-        <button className="navbar__btn navbar__btn--language">
-          <i className="fa-solid fa-language"></i>
-        </button>
+
+        <div className="navbar__language-dropdown">
+          <button
+            className="navbar__btn navbar__btn--language"
+            onClick={changeLanguagesHandler}
+          >
+            <i className="fa-solid fa-language"></i>
+          </button>
+
+          <div
+            className={`navbar__language-opts ${
+              langDropdownOpened ? "navbar__language-opts--opened" : ""
+            }`}
+          >
+            {languages[languageCtx.language].map((language, i) => (
+              <p
+                key={language}
+                className="navbar__language-opt"
+                onClick={changeLanguageHandler}
+              >
+                {language}
+              </p>
+            ))}
+          </div>
+        </div>
       </div>
     </nav>
   );

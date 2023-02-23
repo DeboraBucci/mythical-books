@@ -16,6 +16,10 @@ function App() {
     if (!localStorage.getItem("theme")) {
       localStorage.setItem("theme", "light-theme");
     }
+
+    if (!localStorage.getItem("language")) {
+      localStorage.setItem("language", "english");
+    }
   }, []);
 
   return (
