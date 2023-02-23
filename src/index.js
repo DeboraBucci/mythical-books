@@ -6,13 +6,16 @@ import App from "./App";
 
 import "./css/style.css";
 import ThemeProvider from "./context/ThemeProvider";
+import LanguageProvider from "./context/LanguageProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <App />
+        <LanguageProvider>
+          <App />
+        </LanguageProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
