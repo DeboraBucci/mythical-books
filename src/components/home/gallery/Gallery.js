@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { galleryArr } from "../../../data";
+import LanguageContext from "../../../context/language-context";
+import { galleryArr, titles } from "../../../data";
 import GalleryDecoration from "./GalleryDecoration";
 
 const Gallery = () => {
+  const languageCtx = useContext(LanguageContext);
+
   return (
     <section className="gallery" id="gallery">
       <div className="gallery__text-container">
         <div className="gallery__heading section-heading">
-          <h2>Our gallery</h2>
+          <h2>{titles[languageCtx.language].gallery.main}</h2>
         </div>
 
         <div className="gallery__paragraphs">

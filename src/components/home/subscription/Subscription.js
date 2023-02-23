@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import { subscriptionCards } from "../../../data";
+import React, { useContext, useState } from "react";
+import LanguageContext from "../../../context/language-context";
+import { subscriptionCards, titles } from "../../../data";
 import SubscriptionCard from "./SubscriptionCard";
 import SubscriptionDecoration from "./SubscriptionDecoration";
 
 const Subscription = () => {
+  const languageCtx = useContext(LanguageContext);
+
   const [cardPositions, setCardPositions] = useState([
     "invisible-left",
     "far-left",
@@ -117,8 +120,8 @@ const Subscription = () => {
   return (
     <section id="subscriptions" className="subscription">
       <div className="subscription__heading section-heading">
-        <h2>Subscriptions</h2>
-        <p>Take a peek into our subscriptions</p>
+        <h2>{titles[languageCtx.language].subscriptions.main}</h2>
+        <p>{titles[languageCtx.language].subscriptions.subtitle}</p>
       </div>
 
       <div className="subscription__cards">

@@ -2,7 +2,7 @@ import React from "react";
 
 const Step = ({ img, children, number, title }) => {
   return (
-    <div className="step">
+    <li className="step">
       <div className={`step step--${number}`}>
         <div className="step__content">
           <h3 className="step__heading">
@@ -17,7 +17,7 @@ const Step = ({ img, children, number, title }) => {
           <img src={img} alt={title} height="400px" />
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 
