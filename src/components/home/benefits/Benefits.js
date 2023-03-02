@@ -13,7 +13,7 @@ const Benefits = () => {
       </div>
       <ul className="benefits__list">
         {benefitsContent[languageCtx.language].map(({ title, icon, text }) => (
-          <li className="benefits__item">
+          <li className="benefits__item" key={title}>
             <div className="benefits__item-heading">
               <h3>{title}</h3>
               <i className={icon}></i>
