@@ -164,12 +164,12 @@ const subscriptionCards = [
     name: "Peasant",
     icon: "fas fa-beer",
     comment:
-      "be part of the heartwarming folk who likes to drink bear and pass out singing songs",
+      "be part of the heartwarming folk who likes to drink beer and pass out singing songs",
     className: "peasant",
     price: [0.99, 9.99],
     benefits: {
       devilery: false,
-      discounts: false,
+      discounts: "5% OFF with your first monthly purchase",
       chest: false,
     },
   },
@@ -182,7 +182,7 @@ const subscriptionCards = [
     price: [2.99, 29.99],
     benefits: {
       delivery: "Free delivery starting from $50",
-      discounts: false,
+      discounts: "8% OFF with your first monthly purchase",
       chest: false,
       freeBook: false,
     },
@@ -196,7 +196,7 @@ const subscriptionCards = [
     price: [4.99, 47.99],
     benefits: {
       delivery: "Free delivery starting from $30",
-      discounts: "Up to 10% OFF in the store",
+      discounts: "15% OFF with your first monthly purchase",
       chest: "Iron Chest",
       freeBook: false,
     },
@@ -210,7 +210,7 @@ const subscriptionCards = [
     className: "paladin",
     benefits: {
       delivery: "Free Delivery",
-      discounts: "Up to 25% OFF in the store",
+      discounts: "25% OFF with your first monthly purchase",
       chest: "Old Silver Chest",
       freeBook: "Free book every 12 months",
     },
@@ -223,7 +223,8 @@ const subscriptionCards = [
     price: [14.99, 149.99],
     benefits: {
       delivery: "Free Delivery",
-      discounts: "Up to 35% OFF in the store",
+      discounts:
+        "35% OFF with your first monthly purchase, plus a 5% with your second one",
       chest: "Saphire Chest",
       freeBook: "Free book every 6 months",
     },
@@ -235,8 +236,9 @@ const subscriptionCards = [
     className: "king",
     price: [19.99, 189.99],
     benefits: {
-      delivery: "Free and Fast Delivery",
-      discounts: "Up to 50% OFF in the store",
+      delivery: "Premium Delivery",
+      discounts:
+        "50% OFF with your first monthly purchase, plus a 10% with your second one",
       chest: "Diamond Chest",
       freeBook: "Free book each month",
     },
@@ -246,10 +248,11 @@ const subscriptionCards = [
     icon: "fas fa-dragon",
     comment: "YOU... Impossible!!",
     className: "dragon",
-    price: [29.99, 299.99],
+    price: [49.99, 499.99],
     benefits: {
-      delivery: "Free and Fast Delivery",
-      discounts: "30% to 70% OFF in the store",
+      delivery: "Mythical Delivery",
+      discounts:
+        "70% OFF with your first monthly purchase, plus a 50% with your second one",
       chest: "Dragonscale chest",
       freeBook: "Free book each month",
     },
