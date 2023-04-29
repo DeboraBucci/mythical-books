@@ -89,21 +89,21 @@ const homeLinks = [
 
 const storeLinks = [
   {
-    title: "Home",
-    att: "/",
-    icon: "fa-solid fa-house-chimney",
+    title: { english: "Home", spanish: "Casa" },
+    att: "/store",
+    icon: "fas fa-store",
     iconClass: "store",
     type: "link",
   },
   {
-    title: "Contact us",
+    title: { english: "Contact us", spanish: "Contáctanos" },
     att: "/contact",
     icon: "fa-solid fa-paper-plane",
     iconClass: "works",
     type: "link",
   },
   {
-    title: "Log In",
+    title: { english: "Log In", spanish: "Ingresa" },
     att: "/login",
     icon: "fas fa-feather",
     iconClass: "log",
