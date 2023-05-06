@@ -10,6 +10,7 @@ const Bookshelf = ({ books }) => (
           image={book.image}
           authors={book.authors}
           key={book.id}
+          id={book.id}
           rating={book.rating}
           ratingCount={book.ratingsCount}
           price={book.price}
