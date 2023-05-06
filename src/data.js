@@ -90,9 +90,9 @@ const homeLinks = [
 const storeLinks = [
   {
     title: { english: "Home", spanish: "Casa" },
-    att: "/store",
-    icon: "fas fa-store",
-    iconClass: "store",
+    att: "/",
+    icon: "fas fa-home",
+    iconClass: "home",
     type: "link",
   },
   {
