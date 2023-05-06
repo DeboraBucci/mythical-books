@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import Navbar from "../navbar/Navbar";
+import Header from "../header/Header";
 import Hero from "./hero/Hero";
 import HowItWorks from "./how-it-works/HowItWorks";
 import Benefits from "./benefits/Benefits";
@@ -31,7 +31,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Navbar links={homeLinks} title={isTitleShowing} logoSize={logoSize} />
+      <Header links={homeLinks} title={isTitleShowing} logoSize={logoSize} />
       <Hero />
       <HowItWorks />
       <Benefits />
