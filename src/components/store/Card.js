@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Ratings from "../UI/Ratings";
 
 const Card = ({
@@ -9,6 +10,7 @@ const Card = ({
   rating,
   ratingCount,
   saleabilty,
+  id,
 }) => {
   const authorsStr = authors
     .map((author, i) => {
@@ -48,7 +50,9 @@ const Card = ({
 
   return (
     <div className={`card ${isOutOfStock && "card--out-of-stock"}`} key={title}>
-      <img src={image} alt="book" style={{ width: "150px" }} />
+      <Link to={`/store/book/${id}`}>
+        <img src={image} alt="book" style={{ width: "150px" }} />
+      </Link>
       <h4
         className="card__title"
         onMouseEnter={mouseEnterTextHandler}
