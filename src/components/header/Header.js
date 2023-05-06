@@ -31,22 +31,25 @@ const Navbar = ({ links, title, children, logoSize }) => {
   };
 
   return (
-    <nav className={`navbar ${title ? "navbar__shrinked" : ""}`}>
+    <header className={`navbar ${title ? "navbar__shrinked" : ""}`}>
       <Logo title={title} size={logoSize} />
 
-      {children}
+      <nav>
+        {children}
 
-      <ul className="navbar__list">
-        {links.map((link) => (
-          <li className="navbar__link" key={link.title[languageCtx.language]}>
-            <CustomLink att={link.att} type={link.type}>
-              {link.title[languageCtx.language]}{" "}
-              <i className={`${link.icon} navbar__icon--${link.iconClass}`}></i>
-            </CustomLink>
-          </li>
-        ))}
-      </ul>
-
+        <ul className="navbar__list">
+          {links.map((link) => (
+            <li className="navbar__link" key={link.title[languageCtx.language]}>
+              <CustomLink att={link.att} type={link.type}>
+                {link.title[languageCtx.language]}{" "}
+                <i
+                  className={`${link.icon} navbar__icon--${link.iconClass}`}
+                ></i>
+              </CustomLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
       <div className="navbar__btns">
         <button
           onClick={toggleThemeHandler}
@@ -80,7 +83,7 @@ const Navbar = ({ links, title, children, logoSize }) => {
           </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 
