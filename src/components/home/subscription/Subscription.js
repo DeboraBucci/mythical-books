@@ -18,49 +18,6 @@ const Subscription = () => {
   ]);
 
   const leftArrowHandler = () => {
-    const subscriptionCards = document.querySelectorAll(".subscription-card");
-    subscriptionCards.forEach((card) => {
-      // LEFT INVISIBLE TO FAR LEFT
-      if (card.classList.contains("card--invisible-left")) {
-        card.style.transform = "scale(.6) translateX(-200%)";
-        card.style.zIndex = "2";
-      }
-
-      // FAR LEFT TO LEFT
-      if (card.classList.contains("card--far-left")) {
-        card.style.transform = "scale(.8) translateX(-87.5%)";
-        card.style.zIndex = "3";
-      }
-
-      // LEFT TO ACTIVE
-      if (card.classList.contains("card--left")) {
-        card.style.transform = "scale(1) translateX(0%)";
-        card.style.zIndex = "10";
-      }
-
-      // ACTIVE TO RIGHT
-      if (card.classList.contains("card--active")) {
-        card.style.transform = "scale(.8) translateX(87.5%)";
-        card.style.zIndex = "3";
-      }
-
-      // RIGHT TO FAR RIGHT
-      if (card.classList.contains("card--right")) {
-        card.style.transform = "scale(.6) translateX(200%)";
-        card.style.zIndex = "2";
-      }
-
-      // FAR RIGHT TO INVISIBLE RIGHT
-      if (card.classList.contains("card--far-right")) {
-        card.style.transform = "scale(.4) translateX(0%)";
-        card.style.zIndex = "1";
-      }
-    });
-    subscriptionCards.forEach((card) => {
-      card.style.transform = "";
-      card.style.transition = "";
-      card.style.zIndex = "";
-    });
     const newArr = cardPositions.slice();
     const shifted = newArr.shift();
     newArr.push(shifted);
@@ -68,49 +25,6 @@ const Subscription = () => {
   };
 
   const rightArrowHandler = () => {
-    const subscriptionCards = document.querySelectorAll(".subscription-card");
-    subscriptionCards.forEach((card) => {
-      // INVISIBLE RIGHT TO FAR RIGHT
-      if (card.classList.contains("card--invisible-right")) {
-        card.style.transform = "scale(.6) translateX(200%)";
-        card.style.zIndex = "2";
-      }
-
-      // FAR RIGHT TO RIGHT
-      if (card.classList.contains("card--far-right")) {
-        card.style.transform = "scale(.8) translateX(87.5%)";
-        card.style.zIndex = "3";
-      }
-
-      // RIGTH TO ACTIVE
-      if (card.classList.contains("card--right")) {
-        card.style.transform = "scale(1) translateX(0%)";
-        card.style.zIndex = "10";
-      }
-
-      // ACTIVE TO LEFT
-      if (card.classList.contains("card--active")) {
-        card.style.transform = "scale(.8) translateX(-87.5%)";
-        card.style.zIndex = "3";
-      }
-
-      // LEFT TO FAR-LEFT
-      if (card.classList.contains("card--left")) {
-        card.style.transform = "scale(.6) translateX(-200%)";
-        card.style.zIndex = "2";
-      }
-
-      // FAR-LEFT TO INVISIBLE-LEFT
-      if (card.classList.contains("card--far-left")) {
-        card.style.transform = "scale(.4) translateX(0%)";
-        card.style.zIndex = "1";
-      }
-    });
-
-    subscriptionCards.forEach((card) => {
-      card.style.transform = "";
-      card.style.zIndex = "";
-    });
     const newArr = cardPositions.slice();
     const popped = newArr.pop();
     newArr.unshift(popped);
