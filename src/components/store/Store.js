@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-import Navbar from "../navbar/Navbar";
+import Navbar from "../header/Header";
 import SearchBooks from "./SearchBooks";
 import Bookshelf from "./Bookshelf";
 import Categories from "./Categories";
 import Footer from "../footer/Footer";
 
 import { storeLinks } from "../../data";
+import Aside from "./aside/Aside";
 
 const Store = () => {
   const [books, setBooks] = useState([]);
@@ -31,12 +32,13 @@ const Store = () => {
 
   return (
     <div className="store">
-      <Navbar links={storeLinks} title={true}>
-        <SearchBooks setBooks={setBooks} filters={filters} order={order} />
-      </Navbar>
+      <Navbar links={storeLinks} title={true} />
+      <SearchBooks setBooks={setBooks} filters={filters} order={order} />
       <div className="store__content">
         <Categories filterHandler={filterHandler} orderHandler={orderHandler} />
+        <div className="store__banner"></div>
         <Bookshelf books={books} />
+        <Aside />
       </div>
       <Footer />
     </div>

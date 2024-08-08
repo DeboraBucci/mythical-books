@@ -8,6 +8,7 @@ import Register from "./components/auth/Register";
 import Error404 from "./components/errors/Error404";
 
 import ThemeContext from "./context/theme-context";
+import BookDetail from "./components/store/BookDetail";
 
 function App() {
   const themeCtx = useContext(ThemeContext);
@@ -29,6 +30,7 @@ function App() {
         <Route path="/store" element={<Store />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
+        <Route path="/store/book/:id" element={<BookDetail />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>

@@ -109,6 +109,13 @@ const storeLinks = [
     iconClass: "log",
     type: "link",
   },
+  {
+    title: { english: "", spanish: "" },
+    att: "/cart",
+    icon: "fa-solid fa-cart-shopping",
+    iconClass: "cart",
+    type: "link",
+  },
 ];
 
 const opt = {
