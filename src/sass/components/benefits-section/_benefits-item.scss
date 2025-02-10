@@ -1,0 +1,54 @@
+.benefits-item {
+  cursor: pointer;
+  width: 35rem;
+  height: fit-content;
+  background-color: rgba(24, 24, 24, 0.85);
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  transition: 0.2s ease-in;
+
+  &:hover {
+    transform: translateY(-10px);
+    background-color: rgba(24, 24, 24, 1);
+
+    .benefits-item__heading {
+      border-color: $color-secondary;
+    }
+
+    i {
+      color: $color-secondary;
+    }
+  }
+
+  p {
+    font-size: 1.8rem;
+    color: shade($color-white, 25%);
+    line-height: 2.5rem;
+    letter-spacing: 0.1rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  &__heading {
+    margin: 1rem 0;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 2px solid $color-purple;
+    transition: 0.2s ease-in;
+
+    h3 {
+      font-size: 2rem;
+      font-family: "Quintessential", cursive;
+      font-weight: 100;
+      color: white;
+    }
+
+    i {
+      transition: 0.2s ease-in;
+      font-size: 3rem;
+      color: $color-purple;
+    }
+  }
+}
