@@ -461,207 +461,80 @@ const benefitsContent = {
   english: [
     {
       title: "Monthly Chests",
-      icon: "fa-solid fa-toolbox",
+      icon: "fa-solid fa-gift",
       text: [
-        <p>
-          Get a hold of one of these wonderful hidden treasures and you will
-          find something of sheer greatness.
-        </p>,
-        <p>
-          These chests contain varied items, such as bookmarks, pens, mugs,
-          notebooks, and sometimes even books! (the books are chosen depending
-          on your wishlist, if there are no books there, then the chest won't
-          have any).
-        </p>,
-        <p>
-          <Link>Click here</Link> to see the list of all the items that may be
-          inside each chest.
-        </p>,
+        "Get chests that will contain varied items, such as bookmarks, pens, mugs, notebooks, books, and more!",
       ],
     },
     {
       title: "Mythical Coins & Boosts",
-      icon: "fa-solid fa-toolbox",
+      icon: "fa-solid fa-coins",
       text: [
-        <p>Mythical Coins are worth around 0.001 USD each.</p>,
-        <p>
-          When buying something from our store, or by susbcribing, you will get
-          some of them as a reward.
-        </p>,
-        <code className="benefits__note">
-          Note: You don't have to be subscribed to earn mythical coins, but you
-          need a verified account.{" "}
-          <Link to="register">Click here to create one</Link>.
-        </code>,
-        <p>
-          You will also be able to get mythical coins' boost at random when
-          receiving a chest or buying in our store (the chances and power of the
-          boosters may increase depending on your current subscription).
-        </p>,
-        <p>
-          <Link>Click here</Link> to learn more about our currency system.
-        </p>,
+        "When buying something from our store, or by susbcribing, you will get some of this coins as a reward.",
       ],
     },
     {
       title: "Access to our Gallery",
       icon: "fa-regular fa-images",
-      text: [
-        <p>
-          With the subscription, a whole new path is open ahead of you: The
-          possibility of uploading great pictures of your adventures.
-        </p>,
-        <p>
-          <Link>Click here</Link> to inform yourself of our community
-          guidelines.
-        </p>,
-      ],
+      text: ["You can share pictures of your great adventures in our Gallery."],
     },
     {
-      title: "Free Delivery Worldwide",
+      title: "Better Delivery Service",
       icon: "fa-solid fa-earth-americas",
-      text: [
-        <p>
-          Self explanatory, you will get free delivery for every purchase you
-          make with your subscription, with the exception of the peasant
-          subscription, which doesn't have this added benefit.
-        </p>,
-      ],
+      text: ["You will get amazing benefits in your delivery fees."],
     },
     {
       title: "Special Discounts",
       icon: "fa-solid fa-percent",
-      text: [
-        <p>
-          Yes, it's as sweet as it sounds, special discounts for all our beloved
-          subscribers.
-        </p>,
-        <p>
-          The percentage of the discounts vary depending on your current
-          subscription plan. For more information about this,{" "}
-          <a href="#subscriptions">check the susbcription cards below</a>
-        </p>,
-      ],
+      text: ["All our subscribers get special discounts each week!"],
     },
     {
       title: "Exclusive Subscriptor Support",
       icon: "fa-solid fa-headset",
       text: [
-        <p>
-          We take good care of our subscribers by handling a 24/7, 365 days of
-          the year, fast and efficient customer support.
-        </p>,
-        <p>
-          <Link>Click here</Link> to contact us.
-        </p>,
+        "We offer our subscribers a fast and efficient customer support service.",
       ],
     },
   ],
   spanish: [
     {
       title: "Cofres Mensuales",
-      icon: "fa-solid fa-toolbox",
+      icon: "fa-solid fa-gift",
       text: [
-        <p>
-          Consigue uno de estos maravillosos tesoros escondidos y tendrás en tus
-          manos objetos totalmente geniales.
-        </p>,
-        <p>
-          Estos cofres pueden contener una gran variedad de objetos diferentes,
-          como por ejemplo: marcadores de libros, plumas, tazas, cuadernillos, e
-          incluso libros! (los libros que pueden encontrarse en tus cofres son
-          aquellos en tu lista de deseados, si no tienes ninguno marcado como
-          deseado, no se enviará ningún libro).
-        </p>,
-        <p>
-          Haz <Link>click aquí</Link> para ver la lista completa de todos los
-          items que pueden llegarse a encontrar dentro de cada cofre.
-        </p>,
+        "Consigue cofres en los cuales puede encontrar marcadores de página, bolígrafos, tazas, cuadernos, libros y más!",
       ],
     },
     {
       title: "Monedas Míticas y Aumentadores",
-      icon: "fa-solid fa-toolbox",
+      icon: "fa-solid fa-coins",
       text: [
-        <p>Las Monedas Míticas valen alrededor de 0.001 USD</p>,
-        <p>
-          Cuando compras en la tienda o al subscribirte, consigues algunas de
-          estas monedas como recompensa.
-        </p>,
-        <code className="benefits__note">
-          Nota: No tienes que estar subscripto para ganar Monedas Míticas, pero
-          sí necesitas una cuenta verificada para hacerlo.{" "}
-          <Link to="register">Haz click aquí para crear una</Link>.
-        </code>,
-        <p>
-          También, puedes conseguir aumentadores de monedas de forma aleatoria
-          dentro de un cofre o comprando en la tienda (las chances y el poder de
-          los aumentadores pueden aumentar dependiendo de tu subscripción
-          actual).
-        </p>,
-
-        <p>
-          Haz
-          <Link>click aquí</Link> para aprender más sobre nuestro sistema de
-          divisas.
-        </p>,
+        "Cuando compres algo de nuestra tienda, o al subscribirte, obtendrás estas monedas como recompenza.",
       ],
     },
     {
       title: "Acceso a Nuestra Galería",
       icon: "fa-regular fa-images",
       text: [
-        <p>
-          Con tu subscripción, un nuevo camino se abre frente a ti: La
-          posibilidad de subir geniales fotos de tus grandes aventuras.
-        </p>,
-        <p>
-          Haz
-          <Link>click aquí</Link> para aprender más de nuestros principios de
-          comunidad.
-        </p>,
+        "Puedes compartir fotos de tus grandes aventuras en nuestra Galería.",
       ],
     },
     {
       title: "Envío Gratuito en Todo el Mundo",
       icon: "fa-solid fa-earth-americas",
-      text: [
-        <p>
-          Autoexplicativo, obtendrás envío gratuito con cada compra que hagas
-          con tu subscripción, con la excepción de la de aldeano, la cual no
-          cuenta con este beneficio.
-        </p>,
-      ],
+      text: ["Obtendrás grandes beneficios en nuestros envíos."],
     },
     {
       title: "Descuentos Especiales",
       icon: "fa-solid fa-percent",
       text: [
-        <p>
-          Sí, ¡es tan dulce como suena! Descuentos especiales para nuestros
-          amados subscriptores.
-        </p>,
-        <p>
-          El porcentaje de descuento varía dependiendo de tu subscripción
-          actual. Para más información acerca de esto,{" "}
-          <a href="#subscriptions">
-            comprueba las cartas de subscripción aquí abajo
-          </a>
-          .
-        </p>,
+        "Todos nuestros subscriptores obtienen descuentos especiales cada semana!",
       ],
     },
     {
       title: "Atención Exclusiva a Subscriptores",
       icon: "fa-solid fa-headset",
       text: [
-        <p>
-          Cuidamos muy bien a nuestros subscriptores ofreciendo un serivicio de
-          atención veloz y eficiente de 24/7, los 365 días del año.
-        </p>,
-        <p>
-          Haz <Link>click aquí</Link> para contactarnos.
-        </p>,
+        "Ofrecemos a nuestros subscriptores un servicio al cliente rápido y eficiente.",
       ],
     },
   ],
