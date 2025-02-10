@@ -53,9 +53,6 @@ const SubscriptionCard = ({
             {discounts ? discounts : "Special Discounts"}
           </li>
           <li>
-            <i className="fas fa-check"></i> Free Premium Bookmarks
-          </li>
-          <li>
             <i className={`fas fa-${chest ? "check" : "times"}`}></i>{" "}
             {chest ? chest : "No Chest"}
           </li>
