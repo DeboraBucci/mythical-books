@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import LanguageContext from "../../../context/language-context";
-import { galleryArr, titles } from "../../../data";
+import { galleryArr } from "../../../data";
 import GalleryDecoration from "./GalleryDecoration";
+import { titles } from "data/general-data";
 
 const Gallery = () => {
   const languageCtx = useContext(LanguageContext);
@@ -11,7 +12,7 @@ const Gallery = () => {
     <section className="gallery" id="gallery">
       <div className="gallery__text-container">
         <div className="gallery__heading section-heading">
-          <h2>{(titles as any)[languageCtx.language].gallery.main}</h2>
+          <h2>{titles[languageCtx.language].gallery.title}</h2>
         </div>
 
         <div className="gallery__paragraphs">

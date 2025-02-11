@@ -1,17 +1,19 @@
 import React, { useContext } from "react";
 import LanguageContext from "../../../context/language-context";
 
-import { howItWorksContent, titles } from "../../../data";
+import { howItWorksContent } from "../../../data";
 import Step from "./Step";
+import { titles } from "data/general-data";
 
 const HowItWorks = () => {
   const languageCtx = useContext(LanguageContext);
+  const { title, subtitle } = titles[languageCtx.language].howItWorks;
 
   return (
     <section className="works" id="works">
       <div className="works__heading section-heading">
-        <h2>{(titles as any)[languageCtx.language].howItWorks.main}</h2>
-        <p>{(titles as any)[languageCtx.language].howItWorks.subtitle}</p>
+        <h2>{title}</h2>
+        <p>{subtitle}</p>
       </div>
 
       <ul className="works__steps">

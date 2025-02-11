@@ -1,18 +1,19 @@
 import { useContext } from "react";
 import LanguageContext from "../../../context/language-context";
-import { titles } from "../../../data";
 import SectionHeader from "../../UI/SectionHeader";
 import BenefitsList from "./BenefitsList";
+import { titles } from "data/general-data";
 
 const Benefits = () => {
   const { language } = useContext(LanguageContext);
+  const { title, subtitle } = titles[language].benefits;
 
   return (
     <section className="benefits" id="benefits">
       <SectionHeader
         styles="benefits__heading"
-        title={(titles as any)[language].benefits.main}
-        subtitle={(titles as any)[language].benefits.subtitle}
+        title={title}
+        subtitle={subtitle}
       />
 
       <BenefitsList language={language} />

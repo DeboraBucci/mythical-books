@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import LanguageContext from "../../../context/language-context";
-import { subscriptionCards, titles } from "../../../data";
+import { subscriptionCards } from "../../../data";
 import SubscriptionCard from "./SubscriptionCard";
 import SubscriptionDecoration from "./SubscriptionDecoration";
+import { titles } from "data/general-data";
 
 const Subscription = () => {
   const languageCtx = useContext(LanguageContext);
+  const { title, subtitle } = titles[languageCtx.language].subscriptions;
 
   const [cardPositions, setCardPositions] = useState([
     "invisible-left",
@@ -40,8 +42,8 @@ const Subscription = () => {
   return (
     <section id="subscriptions" className="subscription">
       <div className="subscription__heading section-heading">
-        <h2>{(titles as any)[languageCtx.language].subscriptions.main}</h2>
-        <p>{(titles as any)[languageCtx.language].subscriptions.subtitle}</p>
+        <h2>{title}</h2>
+        <p>{subtitle}</p>
       </div>
 
       <div className="subscription__cards">
