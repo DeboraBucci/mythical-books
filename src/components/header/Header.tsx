@@ -7,15 +7,10 @@ import { languages } from "../../data";
 import CustomLink from "../UI/CustomLink";
 import { Logo } from "../UI/Logo";
 import { Languages } from "types/general";
+import { LinkStructure } from "data/links-data";
 
 interface NavbarProps {
-  links: {
-    title: any;
-    att: string;
-    icon: string;
-    iconClass: string;
-    type: string;
-  }[];
+  links: LinkStructure[];
   title: boolean;
   children?: React.ReactNode;
   logoSize?: string;

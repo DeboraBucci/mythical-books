@@ -7,8 +7,7 @@ import Benefits from "./benefits/Benefits";
 import Gallery from "./gallery/Gallery";
 import Subscription from "./subscription/Subscription";
 import Footer from "../footer/Footer";
-
-import { homeLinks } from "../../data";
+import { homeLinks } from "data/links-data";
 
 const Home = () => {
   const [isTitleShowing, setIsTitleShowing] = useState(false);

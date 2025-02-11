@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Stars from "../UI/Stars";
 import Navbar from "../header/Header";
-import { storeLinks } from "../../data";
 import SearchBooks from "./SearchBooks";
+import { storeLinks } from "data/links-data";
 
 const BookDetail = () => {
   const [book, setBook] = useState({

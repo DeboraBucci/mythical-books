@@ -6,8 +6,8 @@ import Bookshelf from "./Bookshelf";
 import Categories from "./Categories";
 import Footer from "../footer/Footer";
 
-import { storeLinks } from "../../data";
 import Aside from "./aside/Aside";
+import { storeLinks } from "data/links-data";
 
 const Store = () => {
   const [books, setBooks] = useState([]);
