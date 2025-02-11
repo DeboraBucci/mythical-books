@@ -2,12 +2,12 @@ import { useState, useContext } from "react";
 
 import LanguageContext from "../../context/language-context";
 import ThemeContext from "../../context/theme-context";
-import { languages } from "../../data";
 
 import CustomLink from "../UI/CustomLink";
 import { Logo } from "../UI/Logo";
 import { Languages } from "types/general";
 import { LinkStructure } from "data/links-data";
+import { languages } from "data/general-data";
 
 interface NavbarProps {
   links: LinkStructure[];
@@ -84,9 +84,7 @@ const Navbar: React.FC<NavbarProps> = ({
               langDropdownOpened ? "navbar__language-opts--opened" : ""
             }`}
           >
-            {(languages as { [key: string]: string[] })[
-              languageCtx.language
-            ].map((language, i) => (
+            {languages[languageCtx.language].map((language) => (
               <p
                 key={language}
                 className="navbar__language-opt"
