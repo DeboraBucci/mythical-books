@@ -2,7 +2,7 @@ import React from "react";
 
 interface SectionHeaderProps {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   styles: string;
 }
 
