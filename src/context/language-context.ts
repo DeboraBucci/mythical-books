@@ -1,12 +1,13 @@
 import { createContext } from "react";
+import { Languages } from "types/general";
 
 interface LanguageContextStructure {
-  language: string;
-  changeLanguage: (lang: string) => void;
+  language: Languages;
+  changeLanguage: (lang: Languages) => void;
 }
 
 const LanguageContext = createContext<LanguageContextStructure>({
-  language: "",
+  language: "english",
   changeLanguage: () => {},
 });
 

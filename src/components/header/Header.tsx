@@ -6,6 +6,7 @@ import { languages } from "../../data";
 
 import CustomLink from "../UI/CustomLink";
 import { Logo } from "../UI/Logo";
+import { Languages } from "types/general";
 
 interface NavbarProps {
   links: {
@@ -44,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({
     if (selectedLanguage === "español") selectedLanguage = "spanish";
 
     changeLanguagesHandler();
-    languageCtx.changeLanguage(selectedLanguage);
+    languageCtx.changeLanguage(selectedLanguage as Languages);
   };
 
   return (
