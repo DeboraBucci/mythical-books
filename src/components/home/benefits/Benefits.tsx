@@ -1,25 +1,21 @@
 import { useContext } from "react";
 import LanguageContext from "../../../context/language-context";
-import { benefitsContent, titles } from "../../../data";
-import BenefitsItem from "./BenefitsItem";
+import { titles } from "../../../data";
 import SectionHeader from "../../UI/SectionHeader";
+import BenefitsList from "./BenefitsList";
 
 const Benefits = () => {
-  const languageCtx = useContext(LanguageContext);
+  const { language } = useContext(LanguageContext);
 
   return (
     <section className="benefits" id="benefits">
       <SectionHeader
         styles="benefits__heading"
-        title={(titles as any)[languageCtx.language].benefits.main}
-        subtitle={(titles as any)[languageCtx.language].benefits.subtitle}
+        title={(titles as any)[language].benefits.main}
+        subtitle={(titles as any)[language].benefits.subtitle}
       />
 
-      <ul className="benefits__list">
-        {(benefitsContent as any)[languageCtx.language].map((item: any) => (
-          <BenefitsItem {...item} />
-        ))}
-      </ul>
+      <BenefitsList language={language} />
     </section>
   );
 };
