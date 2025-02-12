@@ -8,7 +8,7 @@ interface BenefitsItemProps {
 
 const BenefitsItem: React.FC<BenefitsItemProps> = ({ title, icon, text }) => {
   return (
-    <li className="benefits-item" key={title}>
+    <li className="benefits-item">
       <div className="benefits-item__heading">
         <i className={icon} />
         <h3>{title}</h3>

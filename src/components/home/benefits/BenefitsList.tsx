@@ -11,6 +11,7 @@ const BenefitsList: React.FC<BenefitsListProps> = ({ language }) => {
     <ul className="benefits__list">
       {benefitsListContent.map((item: Benefit) => (
         <BenefitsItem
+          key={item.content[language].title}
           icon={item.icon}
           title={item.content[language].title}
           text={item.content[language].text}
