@@ -1479,14 +1479,14 @@ code {
   cursor: pointer;
   width: 35rem;
   height: fit-content;
-  background-color: rgba(24, 24, 24, 0.85);
+  background-color: rgba(255, 255, 255, 0.85);
   border-radius: 4px;
   padding: 1rem 2rem;
   transition: 0.2s ease-in;
 }
 .benefits-item:hover {
   transform: translateY(-10px);
-  background-color: rgb(24, 24, 24);
+  background-color: rgb(255, 255, 255);
 }
 .benefits-item:hover .benefits-item__heading {
   border-color: #d1425f;
@@ -1496,7 +1496,7 @@ code {
 }
 .benefits-item p {
   font-size: 1.8rem;
-  color: rgb(191.25, 191.25, 191.25);
+  color: rgb(71.25, 63.75, 80.25);
   line-height: 2.5rem;
   letter-spacing: 0.1rem;
   font-weight: 300;
@@ -1514,8 +1514,8 @@ code {
 .benefits-item__heading h3 {
   font-size: 2rem;
   font-family: "Quintessential", cursive;
-  font-weight: 100;
-  color: white;
+  font-weight: 800;
+  color: rgb(46.75, 38.25, 56.95);
 }
 .benefits-item__heading i {
   transition: 0.2s ease-in;
@@ -1850,7 +1850,7 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)), url("/src/assets/unicorn-bg.webp");
+  background: linear-gradient(rgba(255, 255, 255, 0.3), transparent), url("/src/assets/unicorn-bg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1859,11 +1859,9 @@ code {
   margin: 2rem 0;
   gap: 8rem;
 }
-.benefits__heading h2 {
-  color: white;
-}
 .benefits__heading p {
-  color: rgb(236.6, 179.4, 191);
+  color: rgb(83.6, 26.4, 38);
+  text-shadow: 0px 0px 25px rgb(83.6, 26.4, 38);
 }
 .benefits__list {
   display: grid;
@@ -2081,13 +2079,26 @@ code {
   background-image: radial-gradient(#a95fff 2px, transparent 2px);
 }
 .dark-theme .benefits {
-  border-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)), url("/src/assets/unicorn-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.dark-theme .benefits__item p {
-  color: rgb(178.5, 178.5, 178.5);
+.dark-theme .benefits__heading p {
+  color: rgb(232, 160.5, 175);
+  text-shadow: none;
 }
-.dark-theme .benefits__note {
-  color: rgb(127.5, 127.5, 127.5);
+.dark-theme .benefits-item {
+  background-color: rgba(24, 24, 24, 0.85);
+}
+.dark-theme .benefits-item:hover {
+  background-color: rgb(24, 24, 24);
+}
+.dark-theme .benefits-item p {
+  color: rgb(191.25, 191.25, 191.25);
+}
+.dark-theme .benefits-item__heading h3 {
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

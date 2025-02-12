@@ -2,14 +2,15 @@
   cursor: pointer;
   width: 35rem;
   height: fit-content;
-  background-color: rgba(24, 24, 24, 0.85);
+  background-color: rgba(255, 255, 255, 0.85);
+
   border-radius: 4px;
   padding: 1rem 2rem;
   transition: 0.2s ease-in;
 
   &:hover {
     transform: translateY(-10px);
-    background-color: rgba(24, 24, 24, 1);
+    background-color: rgb(255, 255, 255);
 
     .benefits-item__heading {
       border-color: $color-secondary;
@@ -22,7 +23,7 @@
 
   p {
     font-size: 1.8rem;
-    color: shade($color-white, 25%);
+    color: tint($color-black, 25%);
     line-height: 2.5rem;
     letter-spacing: 0.1rem;
     font-weight: 300;
@@ -41,8 +42,8 @@
     h3 {
       font-size: 2rem;
       font-family: "Quintessential", cursive;
-      font-weight: 100;
-      color: white;
+      font-weight: 800;
+      color: tint($color-black, 15%);
     }
 
     i {
