@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import LanguageContext from "../../../context/language-context";
-import { subscriptionCards } from "../../../data";
 import SubscriptionCard from "./SubscriptionCard";
 import SubscriptionDecoration from "./SubscriptionDecoration";
 import { titles } from "data/general-data";
+import { GetSubscriptionCardsInformation } from "data/subscription-section-data";
 
 const Subscription = () => {
   const languageCtx = useContext(LanguageContext);
@@ -38,6 +38,10 @@ const Subscription = () => {
       setCardPositions(newArr);
     }
   };
+
+  const subscriptionCards = GetSubscriptionCardsInformation(
+    languageCtx.language
+  );
 
   return (
     <section id="subscriptions" className="subscription">
