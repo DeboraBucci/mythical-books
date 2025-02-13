@@ -12,7 +12,9 @@ const Hero = () => {
         <p className="hero__slogan">
           {(hero as any)[languageCtx.language].firstPart}
           <span>{(hero as any)[languageCtx.language].secondPart}</span>{" "}
-          <i className="fa-solid fa-broom"></i>
+          <div className="hero__slogan--icon">
+            <i className="fa-solid fa-broom"></i>
+          </div>
         </p>
       </div>
     </section>
