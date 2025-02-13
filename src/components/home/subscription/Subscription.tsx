@@ -45,18 +45,19 @@ const Subscription = () => {
   );
 
   return (
-    <section id="subscriptions" className="subscription">
+    <section
+      id="subscriptions"
+      className="subscription"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
       <SectionHeader
         title={title}
         subtitle={subtitle}
         styles="subscription__heading"
       />
 
-      <div
-        className="subscription__cards"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
+      <div className="subscription__cards">
         <i
           onClick={leftArrowHandler}
           className="fas fa-chevron-left subscription__arrow subscription__arrow--left"
