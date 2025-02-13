@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import LanguageContext from "../../../context/language-context";
 import { hero } from "data/hero-data";
-import styled from "styled-components";
 
 const Hero = () => {
   const languageCtx = useContext(LanguageContext);

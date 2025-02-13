@@ -33,12 +33,20 @@
   }
 }
 
+@keyframes move-text {
+  100% {
+    left: 30%;
+    bottom: 50%;
+  }
+}
+
 .hero {
-  background: linear-gradient(rgba($color-black, 0.4), rgba($color-black, 0.4)),
+  background: linear-gradient(rgba($color-black, 0.4), rgba($color-black, 0.2)),
     url("/src/assets/mythical-books-background.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
   height: 100vh;
   width: 100vw;
   position: relative;
@@ -61,7 +69,7 @@
     background: linear-gradient(
       to bottom,
       transparent 5%,
-      rgba(86, 1, 134, 0.4) 40%,
+      rgba(105, 1, 165, 0.4) 40%,
       transparent 90%
     );
 
@@ -80,13 +88,6 @@
     );
 
     animation: move-right 1.5s ease-out forwards;
-  }
-
-  @keyframes move-text {
-    100% {
-      left: 30%;
-      bottom: 50%;
-    }
   }
 
   &__content {
