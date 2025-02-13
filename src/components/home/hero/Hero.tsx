@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import LanguageContext from "../../../context/language-context";
 import { hero } from "data/hero-data";
+import styled from "styled-components";
 
 const Hero = () => {
   const languageCtx = useContext(LanguageContext);
@@ -13,7 +14,7 @@ const Hero = () => {
           {(hero as any)[languageCtx.language].firstPart}
           <span>{(hero as any)[languageCtx.language].secondPart}</span>{" "}
           <div className="hero__slogan--icon">
-            <i className="fa-solid fa-broom"></i>
+            <i className="fa-solid fa-broom" />
           </div>
         </p>
       </div>
