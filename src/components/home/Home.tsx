@@ -34,7 +34,6 @@ const Home = () => {
       <Hero />
       <HowItWorks />
       <Benefits />
-      <Gallery />
       <Subscription />
       <Footer />
     </div>
