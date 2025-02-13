@@ -4,6 +4,7 @@ import SubscriptionCard from "./SubscriptionCard";
 import SubscriptionDecoration from "./SubscriptionDecoration";
 import { titles } from "data/general-data";
 import { GetSubscriptionCardsInformation } from "data/subscription-section-data";
+import SectionHeader from "../../../components/UI/SectionHeader";
 
 const Subscription = () => {
   const languageCtx = useContext(LanguageContext);
@@ -45,10 +46,11 @@ const Subscription = () => {
 
   return (
     <section id="subscriptions" className="subscription">
-      <div className="subscription__heading section-heading">
-        <h2>{title}</h2>
-        <p>{subtitle}</p>
-      </div>
+      <SectionHeader
+        title={title}
+        subtitle={subtitle}
+        styles="subscription__heading"
+      />
 
       <div className="subscription__cards">
         <i
