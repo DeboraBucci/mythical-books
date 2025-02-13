@@ -10,10 +10,15 @@ import Error404 from "./components/errors/Error404";
 import ThemeContext from "./context/theme-context";
 import BookDetail from "./components/store/BookDetail";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 function App() {
   const themeCtx = useContext(ThemeContext);
 
   useEffect(() => {
+    AOS.init({ duration: 1000 });
+
     if (!localStorage.getItem("theme")) {
       localStorage.setItem("theme", "light-theme");
     }
