@@ -1,18 +1,17 @@
+import styled from "styled-components";
+
 interface TextErrorProps {
   children?: React.ReactNode;
 }
 
 const TextError: React.FC<TextErrorProps> = ({ children }) => (
-  <p
-    style={{
-      color: "#ee6a6a",
-      marginTop: "1rem",
-      fontSize: "1.6rem",
-    }}
-    className="first-letter-uppercase"
-  >
-    {children}.
-  </p>
+  <Text className="first-letter-uppercase">{children}.</Text>
 );
 
 export default TextError;
+
+const Text = styled.p`
+  color: #ee6a6a;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+`;
