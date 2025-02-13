@@ -4,6 +4,7 @@ import LanguageContext from "../../../context/language-context";
 import Step from "./Step";
 import { titles } from "data/general-data";
 import { howItWorksContent } from "data/how-it-works-data";
+import SectionHeader from "../../../components/UI/SectionHeader";
 
 const HowItWorks = () => {
   const { language } = useContext(LanguageContext);
@@ -11,10 +12,11 @@ const HowItWorks = () => {
 
   return (
     <section className="works" id="works">
-      <div className="works__heading section-heading">
-        <h2>{title}</h2>
-        <p>{subtitle}</p>
-      </div>
+      <SectionHeader
+        title={title}
+        subtitle={subtitle}
+        styles="works__heading section-heading"
+      />
 
       <ul className="works__steps">
         {howItWorksContent[language].map((step: any, i: number) => (
