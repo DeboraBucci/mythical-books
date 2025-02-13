@@ -9,20 +9,3 @@
 .hidden {display: none;}
 .first-letter-uppercase::first-letter {text-transform: uppercase;}
 
-.section-heading{
-    h2 {
-      color: $color-black;
-      font-size: 6rem;
-      font-family: "Quintessential", cursive;
-      font-weight: 100;
-
-      .dark-theme & {
-        color: $color-white;
-      }
-    }
-    
-    p {
-      font-size: 2rem;
-      color: $color-secondary;
-    }
-}
