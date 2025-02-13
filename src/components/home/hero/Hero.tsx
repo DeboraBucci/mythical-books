@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import LanguageContext from "../../../context/language-context";
-import { hero } from "../../../data";
+import { hero } from "data/hero-data";
 
 const Hero = () => {
   const languageCtx = useContext(LanguageContext);
