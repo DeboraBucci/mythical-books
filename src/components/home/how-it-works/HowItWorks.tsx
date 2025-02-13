@@ -5,6 +5,7 @@ import Step from "./Step";
 import { titles } from "data/general-data";
 import { howItWorksContent } from "data/how-it-works-data";
 import SectionHeader from "../../../components/UI/SectionHeader";
+import Steps from "./Steps";
 
 const HowItWorks = () => {
   const { language } = useContext(LanguageContext);
@@ -18,20 +19,7 @@ const HowItWorks = () => {
         styles="works__heading section-heading"
       />
 
-      <ul className="works__steps">
-        {howItWorksContent[language].map((step: any, i: number) => (
-          <Step
-            key={step.title}
-            title={step.title}
-            number={i + 1}
-            img={step.img}
-          >
-            {step.text.map((content: any, i: number) => (
-              <p key={`${step.title}__paragraph--${i}`}>{content}</p>
-            ))}
-          </Step>
-        ))}
-      </ul>
+      <Steps steps={howItWorksContent[language]} />
     </section>
   );
 };

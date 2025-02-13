@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 import { Languages } from "types/general";
 
-interface StepInterface {
+export interface StepInterface {
   img: string;
   title: string;
   text: React.ReactNode[];
