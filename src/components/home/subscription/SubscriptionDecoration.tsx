@@ -2,7 +2,11 @@ import React from "react";
 
 const SubscriptionDecorations = () => {
   return (
-    <div className="subscription-decoration">
+    <div
+      className="subscription-decoration"
+      data-aos="fade-down"
+      data-aos-delay="200"
+    >
       <div className="subscription-decoration--1"></div>
       <div className="subscription-decoration--2"></div>
       <div className="subscription-decoration--3"></div>

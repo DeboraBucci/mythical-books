@@ -52,7 +52,11 @@ const Subscription = () => {
         styles="subscription__heading"
       />
 
-      <div className="subscription__cards">
+      <div
+        className="subscription__cards"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         <i
           onClick={leftArrowHandler}
           className="fas fa-chevron-left subscription__arrow subscription__arrow--left"

@@ -8,7 +8,11 @@ interface StepProps {
 const Step: React.FC<StepProps> = ({ img, children, number, title }) => {
   return (
     <li className="step">
-      <div className={`step step--${number}`}>
+      <div
+        className={`step step--${number}`}
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
         <div className="step__content">
           <h3 className="step__heading">
             <span className="step__heading--num">0{number}</span>{" "}
@@ -18,7 +22,7 @@ const Step: React.FC<StepProps> = ({ img, children, number, title }) => {
           <div className="step__text">{children}</div>
         </div>
 
-        <div className="step__img">
+        <div className="step__img" data-aos="fade-down" data-aos-delay="400">
           <img src={img} alt={title} height="400px" />
         </div>
       </div>

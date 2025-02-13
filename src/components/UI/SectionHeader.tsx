@@ -12,7 +12,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   styles,
 }) => {
   return (
-    <div className={`section-heading ${styles}`}>
+    <div className={`section-heading ${styles}`} data-aos="fade-up">
       <h2>{title}</h2>
       <p>{subtitle}</p>
     </div>

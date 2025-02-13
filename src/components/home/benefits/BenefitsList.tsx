@@ -8,7 +8,7 @@ interface BenefitsListProps {
 
 const BenefitsList: React.FC<BenefitsListProps> = ({ language }) => {
   return (
-    <ul className="benefits__list">
+    <ul className="benefits__list" data-aos="fade-up" data-aos-delay="200">
       {benefitsListContent.map((item: Benefit) => (
         <BenefitsItem
           key={item.content[language].title}
