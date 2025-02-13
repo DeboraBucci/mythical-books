@@ -12,6 +12,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@types/sass": "^1.43.1",
+    "aos": "^2.3.4",
     "axios": "^1.7.9",
     "cra-template-typescript": "1.2.0",
     "formik": "^2.4.6",
@@ -51,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7"
   }
 }
