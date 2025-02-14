@@ -646,7 +646,7 @@ code {
   width: 1px;
 }
 
-.card {
+.book-card {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -663,35 +663,35 @@ code {
   border: 1px solid #6a3f9b;
   border-radius: 4px;
 }
-.card--out-of-stock {
+.book-card--out-of-stock {
   border-color: #424242;
   background-color: rgba(66, 66, 66, 0.15);
 }
-.card--out-of-stock button {
+.book-card--out-of-stock button {
   background-color: #424242 !important;
   cursor: not-allowed !important;
 }
-.card__title {
+.book-card__title {
   font-size: 2.5rem;
   font-weight: 100;
 }
-.card__author {
+.book-card__author {
   font-size: 1.6rem;
   margin-top: -1rem;
 }
-.card__price {
+.book-card__price {
   font-size: 1.4rem;
   text-transform: uppercase;
   padding: 0.25rem 0.5rem;
   background-color: #458545;
 }
-.card__price--out-of-stock {
+.book-card__price--out-of-stock {
   background-color: #dc143c;
 }
-.card__price--free {
+.book-card__price--free {
   background-color: #1381ff;
 }
-.card button {
+.book-card button {
   background-color: #6a3f9b;
   color: #fff;
   width: 100%;
@@ -699,13 +699,13 @@ code {
   font-weight: 700;
   cursor: pointer;
 }
-.card__whishlist, .card__favorites {
+.book-card__whishlist, .book-card__favorites {
   position: absolute;
   top: 1rem;
   font-size: 2.5rem;
   cursor: pointer;
 }
-.card__whishlist span, .card__favorites span {
+.book-card__whishlist span, .book-card__favorites span {
   position: absolute;
   top: 3.5rem;
   left: 0;
@@ -717,14 +717,14 @@ code {
   min-width: 8rem;
   opacity: 0;
 }
-.card__whishlist:hover span, .card__favorites:hover span {
+.book-card__whishlist:hover span, .book-card__favorites:hover span {
   opacity: 1;
 }
-.card__whishlist {
+.book-card__whishlist {
   right: 1rem;
   color: #6666e6;
 }
-.card__favorites {
+.book-card__favorites {
   right: 4rem;
   color: #fa4c6f;
 }
@@ -855,6 +855,7 @@ code {
 }
 
 .search-container {
+  z-index: 999;
   position: fixed;
   top: 6rem;
   left: 0;
