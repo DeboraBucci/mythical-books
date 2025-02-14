@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Ratings from "../UI/Ratings";
+import Ratings from "../../UI/Ratings";
 import { BookCardInterface } from "types/books";
 
 const BookCard: React.FC<BookCardInterface> = ({

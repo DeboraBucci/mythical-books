@@ -8,7 +8,7 @@ import Register from "./components/auth/Register";
 import Error404 from "./components/errors/Error404";
 
 import ThemeContext from "./context/theme-context";
-import BookDetail from "./components/store/BookDetail";
+import BookDetail from "./components/store/books/BookDetail";
 
 import AOS from "aos";
 import "aos/dist/aos.css";

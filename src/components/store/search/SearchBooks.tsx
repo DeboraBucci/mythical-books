@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import fallbackImg from "../../assets/fallback-book-image.webp";
+import fallbackImg from "../../../assets/fallback-book-image.webp";
 
 interface SearchBooksProps {
   setBooks?: any;

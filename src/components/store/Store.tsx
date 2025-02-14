@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import Navbar from "../header/Header";
-import SearchBooks from "./SearchBooks";
-import Bookshelf from "./Bookshelf";
+import SearchBooks from "./search/SearchBooks";
+import Bookshelf from "./books/Bookshelf";
 import Categories from "./Categories";
 import Footer from "../footer/Footer";
 
