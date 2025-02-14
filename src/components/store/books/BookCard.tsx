@@ -100,7 +100,8 @@ const BookCard: React.FC<BookCardInterface> = ({
       </div>
 
       <button>
-        Add to basket <i className="fa-solid fa-basket-shopping"></i>
+        <span>Add to basket</span>{" "}
+        <i className="fa-solid fa-basket-shopping"></i>
       </button>
     </div>
   );

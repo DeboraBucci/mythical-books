@@ -659,8 +659,8 @@ code {
   width: 30rem;
   min-height: 45rem;
   color: #fff;
-  background-color: rgba(106, 63, 155, 0.15);
-  border: 1px solid #6a3f9b;
+  background-color: rgba(106, 63, 155, 0.02);
+  border: 1px solid rgba(106, 63, 155, 0.2);
   border-radius: 4px;
 }
 .book-card--out-of-stock {
@@ -672,12 +672,15 @@ code {
   cursor: not-allowed !important;
 }
 .book-card__title {
+  color: rgb(76.5, 76.5, 76.5);
   font-size: 2.5rem;
   font-weight: 100;
 }
 .book-card__author {
+  color: rgb(178.5, 178.5, 178.5);
   font-size: 1.6rem;
-  margin-top: -1rem;
+  margin-top: -2rem;
+  font-weight: 600;
 }
 .book-card__price {
   font-size: 1.4rem;
@@ -692,12 +695,36 @@ code {
   background-color: #1381ff;
 }
 .book-card button {
+  border: 1px solid #6a3f9b;
   background-color: #6a3f9b;
   color: #fff;
   width: 100%;
   padding: 1rem;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.2s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+@keyframes up-and-down {
+  0% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-3px);
+  }
+}
+.book-card button:hover {
+  background-color: transparent;
+  color: #6a3f9b;
+}
+.book-card button:hover i {
+  animation: up-and-down 0.6s ease infinite;
 }
 .book-card__whishlist, .book-card__favorites {
   position: absolute;
