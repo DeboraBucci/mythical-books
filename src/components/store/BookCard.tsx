@@ -48,11 +48,11 @@ const BookCard: React.FC<CardProps> = ({
   ) => {
     const parent = e.target.closest(".card");
 
-    const title = parent.querySelector(".card__title");
+    const title = parent.querySelector(".book-card__title");
     title.innerHTML = contentTitle;
     title.style.textDecoration = style;
 
-    const authors = parent.querySelector(".card__author");
+    const authors = parent.querySelector(".book-card__author");
     authors.innerHTML = contentAuthors;
     authors.style.textDecoration = style;
   };
