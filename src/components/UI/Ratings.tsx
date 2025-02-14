@@ -1,3 +1,5 @@
+import Stars from "./Stars";
+
 interface RatingsProp {
   averageRating: number;
   ratingCount: number;
@@ -30,9 +32,7 @@ const Ratings: React.FC<RatingsProp> = ({ averageRating, ratingCount }) => {
       {averageRating && (
         <>
           <span className="ratings__ratings-info">{`${averageRating} / 5 (${ratingCount})`}</span>
-          {starsHandler("ratings__stars-invisible")}
-          {starsHandler("ratings__stars-background")}
-          {starsHandler("ratings__stars-painted", { width: barFillWidth })}
+          <Stars starsNum={averageRating} />
         </>
       )}
     </div>
