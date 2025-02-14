@@ -8,21 +8,21 @@ import Footer from "../footer/Footer";
 
 import Aside from "./aside/Aside";
 import { storeLinks } from "data/links-data";
-import axios from "axios";
+import { getBooks } from "api/book-api";
+import { BookInterface } from "types/books";
 
 const Store = () => {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<BookInterface[]>([]);
   const [filters, setFilters] = useState("");
   const [order, setOrder] = useState("");
 
-  const getBooks = () => {
-    axios
-      .get("https://localhost:7036/api/Books")
-      .then((res) => setBooks(res.data));
+  const getBooksHandler = async () => {
+    const books = await getBooks();
+    setBooks(books);
   };
 
   useEffect(() => {
-    getBooks();
+    getBooksHandler();
   }, []);
 
   const filterHandler = (value: string) => {

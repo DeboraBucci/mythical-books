@@ -1,76 +1,33 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Stars from "../../UI/Stars";
 import Navbar from "../../header/Header";
 import SearchBooks from "../search/SearchBooks";
 import { storeLinks } from "data/links-data";
 import { BookInterface } from "types/books";
+import { getBookById } from "api/book-api";
 
 const BookDetail = () => {
-  const [book, setBook] = useState<BookInterface>({
-    id: 0,
-    stock: 0,
-    language: "",
-    title: "",
-    categories: [],
-    image: "",
-    description: "",
-    authors: [],
-    ratingCount: 0,
-    averageRating: 0,
-    pages: 0,
-    publishers: [],
-    publishedYear: 0,
-    price: 0,
-    currency: "USD",
-    isbn10: "",
-    isbn13: "",
-  });
+  const [book, setBook] = useState<BookInterface | null>(null);
 
   const query = useParams();
-  const link = `https://localhost:7036/api/Books/${query.id}`;
 
-  const getBook = useCallback(() => {
-    fetch(link)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-
-        const bookData: BookInterface = {
-          id: data.id,
-          stock: data.stock,
-          language: data.language,
-          title: data.title,
-          categories: data.categories,
-          image: data.image,
-          description: data.description,
-          authors: data.authors,
-          ratingCount: data.ratingCount,
-          averageRating: data.averageRating,
-          pages: data.pages,
-          publishers: data.publishers,
-          publishedYear: data.publishedYear,
-          price: data.price,
-          currency: "USD",
-          isbn10: data.isbN10,
-          isbn13: data.isbN13,
-        };
-
-        setBook(bookData);
-      })
-      .catch((err) => console.log(err));
-  }, [link]);
+  const getBookHandler = async () => {
+    if (query.id) {
+      const book = await getBookById(query.id);
+      setBook(book);
+    }
+  };
 
   useEffect(() => {
-    getBook();
-  }, [getBook]);
+    getBookHandler();
+  }, []);
 
   return (
     <div className="book-details">
       <Navbar links={storeLinks} title={true} />
       <SearchBooks />
 
-      {book.title && (
+      {book !== null && (
         <div className="book-details__container">
           <div className="book-details__img">
             <img src={book.image} alt={book.title} />

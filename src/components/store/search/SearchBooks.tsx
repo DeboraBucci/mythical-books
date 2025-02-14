@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import fallbackImg from "../../../assets/fallback-book-image.webp";
+import { getSearchedBooks } from "api/book-api";
 
 interface SearchBooksProps {
   setBooks?: any;
@@ -15,40 +16,12 @@ const SearchBooks: React.FC<SearchBooksProps> = ({
 }) => {
   const [searched, setSearched] = useState("");
 
-  const link = `https://localhost:7036/api/Books/search/${searched}`;
-
-  const submitHandler = (e: any) => {
+  const submitHandler = async (e: any) => {
     e.preventDefault();
 
     if (searched !== "") {
-      fetch(link)
-        .then((res) => res.json())
-        .then((data) => {
-          const booksArr: any[] = [];
-          data.map((book: any) => {
-            return booksArr.push({
-              id: book.id,
-              stock: book.stock,
-              language: book.language,
-              title: book.title,
-              categories: book.categories,
-              image: book.image,
-              description: book.description,
-              authors: book.authors,
-              ratingCount: book.ratingCount,
-              averageRating: book.averageRating,
-              pages: book.pages,
-              publishers: book.publishers,
-              publishedYear: book.publishedYear,
-              price: book.price,
-              currency: "USD",
-              isbn10: book.isbN10,
-              isbn13: book.isbN13,
-            });
-          });
-
-          if (setBooks) setBooks(booksArr);
-        });
+      const books = await getSearchedBooks(searched);
+      setBooks(books);
     } else {
       if (setBooks) setBooks([]);
     }
