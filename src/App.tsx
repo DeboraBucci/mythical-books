@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Router, Routes } from "react-router-dom";
 
 import Home from "./components/home/Home";
 import Store from "./components/store/Store";
@@ -30,14 +30,16 @@ function App() {
 
   return (
     <div className={themeCtx.theme}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/store" element={<Store />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/store/book/:id" element={<BookDetail />} />
-        <Route path="*" element={<Error404 />} />
-      </Routes>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/store/book/:id" element={<BookDetail />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </HashRouter>
     </div>
   );
 }
