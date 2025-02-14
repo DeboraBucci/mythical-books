@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/mythical-books/static/css/main.fcb6c564.css",
+    "main.js": "/mythical-books/static/js/main.ec7315e7.js",
+    "static/media/mythical-books-background.webp": "/mythical-books/static/media/mythical-books-background.71f2f1f0278544bb10f5.webp",
+    "static/media/unicorn-bg.webp": "/mythical-books/static/media/unicorn-bg.4897f40107a468518996.webp",
+    "static/media/fallback-book-image.webp": "/mythical-books/static/media/fallback-book-image.88eec7884421a1b73652.webp",
+    "static/media/store-banner.png": "/mythical-books/static/media/store-banner.38c11eade6fa0a4aa662.png",
+    "static/media/step-one.webp": "/mythical-books/static/media/step-one.7b6a61dcb421d46eb587.webp",
+    "static/media/chest.webp": "/mythical-books/static/media/chest.69640f9c071611bb237b.webp",
+    "index.html": "/mythical-books/index.html",
+    "main.fcb6c564.css.map": "/mythical-books/static/css/main.fcb6c564.css.map",
+    "main.ec7315e7.js.map": "/mythical-books/static/js/main.ec7315e7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fcb6c564.css",
+    "static/js/main.ec7315e7.js"
+  ]
+}
