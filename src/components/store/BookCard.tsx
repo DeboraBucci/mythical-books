@@ -46,7 +46,7 @@ const BookCard: React.FC<CardProps> = ({
     contentTitle: string,
     contentAuthors: string
   ) => {
-    const parent = e.target.closest(".card");
+    const parent = e.target.closest(".book-card");
 
     const title = parent.querySelector(".book-card__title");
     title.innerHTML = contentTitle;
