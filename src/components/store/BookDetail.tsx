@@ -8,54 +8,48 @@ import { storeLinks } from "data/links-data";
 const BookDetail = () => {
   const [book, setBook] = useState({
     title: "",
-    image: undefined,
-    authors: [""],
-    averageRating: 0,
-    ratingCount: 0,
-    categories: [""],
-    price: 0,
-    currency: "",
+    categories: [],
+    image: "",
     description: "",
+    authors: [],
+    ratingCount: 0,
+    averageRating: 0,
     pages: 0,
-    publisher: "",
-    publishedDate: undefined,
-    industryIdentifiers: [
-      {
-        type: "",
-        identifier: "",
-      },
-    ],
+    publishers: [],
+    publishedDate: 0,
+    price: 0,
+    currency: "USD",
+    isbN10: "",
+    isbN13: "",
   });
 
-  const apiKey = "AIzaSyCfyJD3oJmISN4N-ANvOFW81JCl5LZE_Gk";
   const query = useParams();
-  const link = `https://www.googleapis.com/books/v1/volumes/${query.id}?key=${apiKey}`;
+  const link = `https://localhost:7036/api/Books/${query.id}`;
 
   const getBook = useCallback(() => {
     fetch(link)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        console.log(data.volumeInfo.imageLinks);
 
         const bookData = {
-          title: data.volumeInfo.title,
-          categories: data.volumeInfo.categories,
-          image: data.volumeInfo.imageLinks?.small,
-          description: data.volumeInfo.description,
-          authors: data.volumeInfo.authors,
-          ratingCount: data.volumeInfo.ratingsCount,
-          averageRating: data.volumeInfo.averageRating,
-          pages: data.volumeInfo.pageCount,
-          publisher: data.volumeInfo.publisher,
-          publishedDate: data.volumeInfo.publishedDate,
-          price: data.saleInfo.listPrice.amount,
-          currency: data.saleInfo.listPrice.currencyCode,
-          industryIdentifiers: data.volumeInfo.industryIdentifiers,
-          canonicalVolumeLInk: data.volumeInfo.canonicalVolumeLink,
+          title: data.title,
+          categories: data.categories,
+          image: data.image,
+          description: data.description,
+          authors: data.authors,
+          ratingCount: data.ratings,
+          averageRating: data.rating,
+          pages: data.pages,
+          publishers: data.publishers,
+          publishedDate: data.publishedYear,
+          price: data.price,
+          currency: "USD",
+          isbN10: data.isbN10,
+          isbN13: data.isbN13,
         };
 
-        console.log(bookData);
+        console.log(data.authors[0]);
         setBook(bookData);
       })
       .catch((err) => console.log(err));
@@ -88,12 +82,14 @@ const BookDetail = () => {
               </div>
               <p className="book-details__authors">
                 <i className="fa-solid fa-feather-pointed"></i> by{" "}
-                {book.authors.map((author, i) => (
-                  <span key={author}>
-                    {author}
-                    {book.authors.length > i + 1 && ","}
-                  </span>
-                ))}
+                {book.authors?.map((author: any, i) => {
+                  return (
+                    <span key={author.id}>
+                      {author.name}
+                      {book.authors.length > i + 1 && ","}
+                    </span>
+                  );
+                })}
               </p>
             </div>
 
@@ -108,9 +104,9 @@ const BookDetail = () => {
             </div>
 
             <div className="book-details__categories">
-              {book.categories.map((category) => (
-                <span className="book-details__category" key={category}>
-                  {category}
+              {book.categories.map((category: any) => (
+                <span className="book-details__category" key={category.id}>
+                  {category.name}
                 </span>
               ))}
             </div>
@@ -146,7 +142,9 @@ const BookDetail = () => {
                 <span>
                   <i className="fa-regular fa-newspaper"></i> Publisher
                 </span>
-                <span>{book.publisher}</span>
+                {book.publishers.map((publisher: any) => (
+                  <span key={publisher.id}>{publisher.name}</span>
+                ))}
               </p>
 
               <p>
@@ -155,16 +153,19 @@ const BookDetail = () => {
                 </span>
                 <span>{book.publishedDate}</span>
               </p>
+              <p>
+                <span>
+                  <i className="fa-solid fa-barcode"></i> ISBN10
+                </span>
+                <span>{book.isbN10}</span>
+              </p>
 
-              {book.industryIdentifiers.map(({ type, identifier }) => (
-                <p>
-                  <span>
-                    <i className="fa-solid fa-barcode"></i>{" "}
-                    {type.split("_").join(" ")}{" "}
-                  </span>
-                  <span>{identifier}</span>
-                </p>
-              ))}
+              <p>
+                <span>
+                  <i className="fa-solid fa-barcode"></i> ISBN13
+                </span>
+                <span>{book.isbN13}</span>
+              </p>
             </div>
           </div>
         </div>

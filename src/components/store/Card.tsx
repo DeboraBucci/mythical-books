@@ -3,7 +3,7 @@ import Ratings from "../UI/Ratings";
 
 interface CardProps {
   title: string;
-  authors: string[];
+  authors: any[];
   image: any;
   price: number;
   rating: number;
@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({
   const authorsStr = authors
     .map((author, i) => {
       const secondLastIndex = authors.length - 2;
-      return `${author}${
+      return `${author.name}${
         secondLastIndex === i ? " and " : i < secondLastIndex ? ", " : ""
       }`;
     })
@@ -89,7 +89,7 @@ const Card: React.FC<CardProps> = ({
         } ${isFree && "card__price--free"}`}
       >
         <span>{isFree ? "Free ebook" : price}</span>
-        <span>{!isOutOfStock && " ARS"}</span>
+        <span>{!isOutOfStock && " USD"}</span>
       </div>
 
       <Ratings rating={rating} ratingCount={ratingCount} />
