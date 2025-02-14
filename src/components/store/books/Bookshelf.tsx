@@ -9,6 +9,7 @@ interface BookshelfProps {
 const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
   return (
     <div className="store__bookshelf">
+      {books.length === 0 && <p>No books found.</p>}
       {books.map((book) => {
         return (
           <BookCard
