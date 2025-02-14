@@ -117,8 +117,6 @@ const BookDetail = () => {
               ))}
             </div>
 
-            {book.averageRating && <Stars starsNum={book.averageRating} />}
-
             <p className="book-details__price">
               <span>Price: </span>
               <span className="book-details__price--colored">
