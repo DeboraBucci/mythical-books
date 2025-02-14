@@ -1,4 +1,5 @@
 import logo from "../../assets/logo.png";
+import CustomLink from "./CustomLink";
 
 interface LogoProps {
   title: boolean;
@@ -14,7 +15,7 @@ export const Logo: React.FC<LogoProps> = ({ title, size }) => (
         height: `${size === "big" ? 70 : 50}px`,
       }}
     >
-      <a href="#hero">
+      <CustomLink att="hero">
         <img
           src={logo}
           alt="logo"
@@ -23,7 +24,7 @@ export const Logo: React.FC<LogoProps> = ({ title, size }) => (
             height: `${size === "big" ? 65 : 45}px`,
           }}
         />
-      </a>
+      </CustomLink>
     </div>
 
     {title && (
