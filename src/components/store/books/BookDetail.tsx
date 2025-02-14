@@ -27,6 +27,11 @@ const BookDetail = () => {
       <Navbar links={storeLinks} title={true} />
       <SearchBooks />
 
+      {book === null && (
+        <div>
+          <p>There is no book with that id.</p>
+        </div>
+      )}
       {book !== null && (
         <div className="book-details__container">
           <div className="book-details__img">
