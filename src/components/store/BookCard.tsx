@@ -1,26 +1,16 @@
 import { Link } from "react-router-dom";
 import Ratings from "../UI/Ratings";
+import { BookCardInterface } from "types/books";
 
-interface CardProps {
-  title: string;
-  authors: any[];
-  image: any;
-  price: number;
-  rating: number;
-  ratingCount: number;
-  saleabilty: string;
-  id: any;
-}
-
-const BookCard: React.FC<CardProps> = ({
+const BookCard: React.FC<BookCardInterface> = ({
   title,
   authors,
   image,
   price,
-  rating,
+  averageRating,
   ratingCount,
-  saleabilty,
   id,
+  stock,
 }) => {
   const authorsStr = authors
     .map((author, i) => {
@@ -36,7 +26,7 @@ const BookCard: React.FC<CardProps> = ({
     authorsStr.length > 30 ? authorsStr.slice(0, 27) + "..." : authorsStr;
 
   const isOutOfStock = typeof price !== "number";
-  const isFree = saleabilty === "FREE";
+  const isFree = price === 0;
   const liked = false; // Temporal
   const bookmarked = true; // Temporal
 
@@ -95,7 +85,9 @@ const BookCard: React.FC<CardProps> = ({
         <span>{!isOutOfStock && " USD"}</span>
       </div>
 
-      <Ratings rating={rating} ratingCount={ratingCount} />
+      {ratingCount && averageRating && (
+        <Ratings averageRating={averageRating} ratingCount={ratingCount} />
+      )}
 
       <div className="book-card__whishlist">
         <i className={`fa-${bookmarked ? "solid" : "regular"} fa-bookmark`}></i>

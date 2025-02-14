@@ -4,9 +4,13 @@ import Stars from "../UI/Stars";
 import Navbar from "../header/Header";
 import SearchBooks from "./SearchBooks";
 import { storeLinks } from "data/links-data";
+import { BookInterface } from "types/books";
 
 const BookDetail = () => {
-  const [book, setBook] = useState({
+  const [book, setBook] = useState<BookInterface>({
+    id: 0,
+    stock: 0,
+    language: "",
     title: "",
     categories: [],
     image: "",
@@ -16,11 +20,11 @@ const BookDetail = () => {
     averageRating: 0,
     pages: 0,
     publishers: [],
-    publishedDate: 0,
+    publishedYear: 0,
     price: 0,
     currency: "USD",
-    isbN10: "",
-    isbN13: "",
+    isbn10: "",
+    isbn13: "",
   });
 
   const query = useParams();
@@ -32,7 +36,10 @@ const BookDetail = () => {
       .then((data) => {
         console.log(data);
 
-        const bookData = {
+        const bookData: BookInterface = {
+          id: data.id,
+          stock: data.stock,
+          language: data.language,
           title: data.title,
           categories: data.categories,
           image: data.image,
@@ -42,14 +49,13 @@ const BookDetail = () => {
           averageRating: data.rating,
           pages: data.pages,
           publishers: data.publishers,
-          publishedDate: data.publishedYear,
+          publishedYear: data.publishedYear,
           price: data.price,
           currency: "USD",
-          isbN10: data.isbN10,
-          isbN13: data.isbN13,
+          isbn10: data.isbN10,
+          isbn13: data.isbN13,
         };
 
-        console.log(data.authors[0]);
         setBook(bookData);
       })
       .catch((err) => console.log(err));
@@ -82,7 +88,7 @@ const BookDetail = () => {
               </div>
               <p className="book-details__authors">
                 <i className="fa-solid fa-feather-pointed"></i> by{" "}
-                {book.authors?.map((author: any, i) => {
+                {book.authors?.map((author, i) => {
                   return (
                     <span key={author.id}>
                       {author.name}
@@ -104,13 +110,14 @@ const BookDetail = () => {
             </div>
 
             <div className="book-details__categories">
-              {book.categories.map((category: any) => (
+              {book.categories.map((category) => (
                 <span className="book-details__category" key={category.id}>
                   {category.name}
                 </span>
               ))}
             </div>
-            <Stars starsNum={book.averageRating} />
+
+            {book.averageRating && <Stars starsNum={book.averageRating} />}
 
             <p className="book-details__price">
               <span>Price: </span>
@@ -124,10 +131,9 @@ const BookDetail = () => {
               <button>Add to Wishlist</button>
             </div>
 
-            <div
-              className="book-details__description"
-              dangerouslySetInnerHTML={{ __html: book.description }}
-            ></div>
+            <div className="book-details__description">
+              <p>{book.description}</p>
+            </div>
 
             <div className="book-details__features">
               <p>
@@ -142,7 +148,7 @@ const BookDetail = () => {
                 <span>
                   <i className="fa-regular fa-newspaper"></i> Publisher
                 </span>
-                {book.publishers.map((publisher: any) => (
+                {book.publishers.map((publisher) => (
                   <span key={publisher.id}>{publisher.name}</span>
                 ))}
               </p>
@@ -151,20 +157,20 @@ const BookDetail = () => {
                 <span>
                   <i className="fa-solid fa-calendar-days"></i> Published Date
                 </span>
-                <span>{book.publishedDate}</span>
+                <span>{book.publishedYear}</span>
               </p>
               <p>
                 <span>
                   <i className="fa-solid fa-barcode"></i> ISBN10
                 </span>
-                <span>{book.isbN10}</span>
+                <span>{book.isbn10}</span>
               </p>
 
               <p>
                 <span>
                   <i className="fa-solid fa-barcode"></i> ISBN13
                 </span>
-                <span>{book.isbN13}</span>
+                <span>{book.isbn13}</span>
               </p>
             </div>
           </div>

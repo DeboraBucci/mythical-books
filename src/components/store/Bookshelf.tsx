@@ -1,8 +1,9 @@
 import React from "react";
 import BookCard from "./BookCard";
+import { BookInterface } from "types/books";
 
 interface BookshelfProps {
-  books: any[];
+  books: BookInterface[];
 }
 
 const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
@@ -16,10 +17,10 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
             authors={book.authors}
             key={book.id}
             id={book.id}
-            rating={book.rating}
-            ratingCount={book.ratingsCount}
+            stock={book.stock}
+            averageRating={book.averageRating}
+            ratingCount={book.ratingCount}
             price={book.price}
-            saleabilty={book.saleabilty}
           />
         );
       })}
