@@ -15,8 +15,7 @@ const SearchBooks: React.FC<SearchBooksProps> = ({
 }) => {
   const [searched, setSearched] = useState("");
 
-  const apiKey = "AIzaSyCfyJD3oJmISN4N-ANvOFW81JCl5LZE_Gk";
-  const link = `https://www.googleapis.com/books/v1/volumes?q=${searched}${filters}${order}&key=${apiKey}`;
+  const link = `https://localhost:7036/api/Books/search/${searched}`;
 
   const submitHandler = (e: any) => {
     e.preventDefault();
@@ -26,18 +25,25 @@ const SearchBooks: React.FC<SearchBooksProps> = ({
         .then((res) => res.json())
         .then((data) => {
           const booksArr: any[] = [];
-          data.items.map((item: any) => {
-            console.log(item);
+          data.map((book: any) => {
             return booksArr.push({
-              title: item?.volumeInfo?.title,
-              authors: item?.volumeInfo?.authors || [],
-              image: item?.volumeInfo?.imageLinks?.thumbnail || fallbackImg,
-              maturity: item?.volumeInfo?.maturityRating,
-              id: item?.id,
-              rating: item?.volumeInfo?.averageRating,
-              ratingsCount: item?.volumeInfo?.ratingsCount,
-              price: item?.saleInfo?.retailPrice?.amount || "Not for sale",
-              saleabilty: item?.saleInfo?.saleability,
+              id: book.id,
+              stock: book.stock,
+              language: book.language,
+              title: book.title,
+              categories: book.categories,
+              image: book.image,
+              description: book.description,
+              authors: book.authors,
+              ratingCount: book.ratingCount,
+              averageRating: book.averageRating,
+              pages: book.pages,
+              publishers: book.publishers,
+              publishedYear: book.publishedYear,
+              price: book.price,
+              currency: "USD",
+              isbn10: book.isbN10,
+              isbn13: book.isbN13,
             });
           });
 
