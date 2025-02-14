@@ -36,6 +36,7 @@ export interface BookInterface {
   authors: Author[];
   publishers: Publisher[];
   categories: Category[];
+  currency?: string;
 }
 
 export interface BookCardInterface {
@@ -47,4 +48,5 @@ export interface BookCardInterface {
   title: string;
   image?: string;
   authors: Author[];
+  currency?: string;
 }
