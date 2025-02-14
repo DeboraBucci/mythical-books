@@ -6,21 +6,6 @@ interface RatingsProp {
 }
 
 const Ratings: React.FC<RatingsProp> = ({ averageRating, ratingCount }) => {
-  const starsHandler = (className: string, style?: object) => (
-    <div className={className} style={style}>
-      <i className="fa-solid fa-star ratings__star"></i>
-      <i className="fa-solid fa-star ratings__star"></i>
-      <i className="fa-solid fa-star ratings__star"></i>
-      <i className="fa-solid fa-star ratings__star"></i>
-      <i className="fa-solid fa-star ratings__star"></i>
-    </div>
-  );
-
-  let barFillWidth = "0%";
-  if (5 > 0) {
-    barFillWidth = `${Math.round((averageRating / 5) * 100)}%`;
-  }
-
   return (
     <div className="ratings">
       {!averageRating && (
