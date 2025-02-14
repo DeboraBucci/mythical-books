@@ -12,7 +12,7 @@ interface CardProps {
   id: any;
 }
 
-const Card: React.FC<CardProps> = ({
+const BookCard: React.FC<CardProps> = ({
   title,
   authors,
   image,
@@ -64,19 +64,22 @@ const Card: React.FC<CardProps> = ({
     textHandler(e, "none", contentTitle, contentAuthor);
 
   return (
-    <div className={`card ${isOutOfStock && "card--out-of-stock"}`} key={title}>
+    <div
+      className={`book-card ${isOutOfStock && "book-card--out-of-stock"}`}
+      key={title}
+    >
       <Link to={`/store/book/${id}`}>
         <img src={image} alt="book" style={{ width: "150px" }} />
       </Link>
       <h4
-        className="card__title"
+        className="book-card__title"
         onMouseEnter={mouseEnterTextHandler}
         onMouseLeave={mouseLeaveTextHandler}
       >
         {contentTitle}
       </h4>
       <p
-        className="card__author"
+        className="book-card__author"
         onMouseEnter={mouseEnterTextHandler}
         onMouseLeave={mouseLeaveTextHandler}
       >
@@ -84,9 +87,9 @@ const Card: React.FC<CardProps> = ({
       </p>
 
       <div
-        className={`card__price ${
-          !isFree && isOutOfStock && "card__price--out-of-stock"
-        } ${isFree && "card__price--free"}`}
+        className={`book-card__price ${
+          !isFree && isOutOfStock && "book-card__price--out-of-stock"
+        } ${isFree && "book-card__price--free"}`}
       >
         <span>{isFree ? "Free ebook" : price}</span>
         <span>{!isOutOfStock && " USD"}</span>
@@ -94,12 +97,12 @@ const Card: React.FC<CardProps> = ({
 
       <Ratings rating={rating} ratingCount={ratingCount} />
 
-      <div className="card__whishlist">
+      <div className="book-card__whishlist">
         <i className={`fa-${bookmarked ? "solid" : "regular"} fa-bookmark`}></i>
         {bookmarked ? <span>In whishlist</span> : <span>Add to whishlist</span>}
       </div>
 
-      <div className="card__favorites">
+      <div className="book-card__favorites">
         <i className={`fa-${liked ? "solid" : "regular"} fa-heart`}></i>
         {liked ? <span>In favorites</span> : <span>Add to favorites</span>}
       </div>
@@ -111,4 +114,4 @@ const Card: React.FC<CardProps> = ({
   );
 };
 
-export default Card;
+export default BookCard;

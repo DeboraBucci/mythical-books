@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import BookCard from "./BookCard";
 
 interface BookshelfProps {
   books: any[];
@@ -10,7 +10,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
     <div className="store__bookshelf">
       {books.map((book) => {
         return (
-          <Card
+          <BookCard
             title={book.title}
             image={book.image}
             authors={book.authors}
