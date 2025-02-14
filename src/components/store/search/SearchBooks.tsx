@@ -1,19 +1,18 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import fallbackImg from "../../../assets/fallback-book-image.webp";
 import { getSearchedBooks } from "api/book-api";
+import { BooksContext } from "context/BooksProvider";
 
 interface SearchBooksProps {
-  setBooks?: any;
   filters?: any;
   order?: any;
 }
 
-const SearchBooks: React.FC<SearchBooksProps> = ({
-  setBooks,
-  filters,
-  order,
-}) => {
+const SearchBooks: React.FC<SearchBooksProps> = ({ filters, order }) => {
+  const booksCtx = useContext(BooksContext);
+
+  const navigate = useNavigate();
   const [searched, setSearched] = useState("");
 
   const submitHandler = async (e: any) => {
@@ -21,10 +20,12 @@ const SearchBooks: React.FC<SearchBooksProps> = ({
 
     if (searched !== "") {
       const books = await getSearchedBooks(searched);
-      setBooks(books);
+      booksCtx.setBooks(books);
     } else {
-      if (setBooks) setBooks([]);
+      booksCtx.setBooks([]);
     }
+
+    navigate("/store");
   };
 
   const searchChangeHandler = (e: any) => setSearched(e.target.value.trim());

@@ -1,12 +1,11 @@
-import React from "react";
+import { useContext } from "react";
 import BookCard from "./BookCard";
 import { BookInterface } from "types/books";
+import { BooksContext } from "context/BooksProvider";
 
-interface BookshelfProps {
-  books: BookInterface[];
-}
+const Bookshelf = () => {
+  const { books } = useContext(BooksContext);
 
-const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
   return (
     <div className="store__bookshelf">
       {books.length === 0 && <p>No books found.</p>}

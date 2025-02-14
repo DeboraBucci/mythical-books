@@ -7,6 +7,7 @@ import App from "./App";
 import "./css/style.css";
 import ThemeProvider from "./context/ThemeProvider";
 import LanguageProvider from "./context/LanguageProvider";
+import BooksProvider from "context/BooksProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!!);
 root.render(
@@ -14,7 +15,9 @@ root.render(
     <HashRouter>
       <ThemeProvider>
         <LanguageProvider>
-          <App />
+          <BooksProvider>
+            <App />
+          </BooksProvider>
         </LanguageProvider>
       </ThemeProvider>
     </HashRouter>

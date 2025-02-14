@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import Navbar from "../header/Header";
 import SearchBooks from "./search/SearchBooks";
@@ -10,15 +10,17 @@ import Aside from "./aside/Aside";
 import { storeLinks } from "data/links-data";
 import { getBooks } from "api/book-api";
 import { BookInterface } from "types/books";
+import { BooksContext } from "context/BooksProvider";
 
 const Store = () => {
-  const [books, setBooks] = useState<BookInterface[]>([]);
+  const booksCtx = useContext(BooksContext);
+
   const [filters, setFilters] = useState("");
   const [order, setOrder] = useState("");
 
   const getBooksHandler = async () => {
     const books = await getBooks();
-    setBooks(books);
+    booksCtx.setBooks(books);
   };
 
   useEffect(() => {
@@ -44,11 +46,11 @@ const Store = () => {
   return (
     <div className="store">
       <Navbar links={storeLinks} title={true} />
-      <SearchBooks setBooks={setBooks} filters={filters} order={order} />
+      <SearchBooks filters={filters} order={order} />
       <div className="store__content">
         <Categories filterHandler={filterHandler} orderHandler={orderHandler} />
         <div className="store__banner"></div>
-        <Bookshelf books={books} />
+        <Bookshelf />
         <Aside />
       </div>
       <Footer />
