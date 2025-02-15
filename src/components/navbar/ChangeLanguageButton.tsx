@@ -8,7 +8,7 @@ const ChangeLanguageButton = () => {
 
   const languageCtx = useContext(LanguageContext);
 
-  const changeLanguagesHandler = () => {
+  const toggleDropdown = () => {
     setLangDropdownOpened((prev) => !prev);
   };
 
@@ -18,7 +18,7 @@ const ChangeLanguageButton = () => {
     if (selectedLanguage === "inglés") selectedLanguage = "english";
     if (selectedLanguage === "español") selectedLanguage = "spanish";
 
-    changeLanguagesHandler();
+    toggleDropdown();
     languageCtx.changeLanguage(selectedLanguage as Languages);
   };
 
@@ -26,7 +26,7 @@ const ChangeLanguageButton = () => {
     <div className="navbar__language-dropdown">
       <button
         className="navbar__btn navbar__btn--language"
-        onClick={changeLanguagesHandler}
+        onClick={toggleDropdown}
       >
         <i className="fa-solid fa-language"></i>
       </button>
