@@ -63,6 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({
           ))}
         </ul>
       </nav>
+
       <div className="navbar__btns">
         <button
           onClick={toggleThemeHandler}
