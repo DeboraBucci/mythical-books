@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 
-import Navbar from "../header/Header";
+import Navbar from "../navbar/Navbar";
 import SearchBooks from "./search/SearchBooks";
 import Bookshelf from "./books/Bookshelf";
 import Categories from "./Categories";
