@@ -8,8 +8,7 @@ import Footer from "../footer/Footer";
 
 import Aside from "./aside/Aside";
 import { storeLinks } from "data/links-data";
-import { getBooks } from "api/book-api";
-import { BookInterface } from "types/books";
+import { getBooks, getSearchedBooks } from "api/book-api";
 import { BooksContext } from "context/BooksProvider";
 
 const Store = () => {
@@ -18,13 +17,23 @@ const Store = () => {
   const [filters, setFilters] = useState("");
   const [order, setOrder] = useState("");
 
+  const getSearchedBooksHandler = async (searched: string) => {
+    const books = await getSearchedBooks(searched);
+    booksCtx.setBooks(books);
+  };
+
   const getBooksHandler = async () => {
     const books = await getBooks();
     booksCtx.setBooks(books);
   };
 
   useEffect(() => {
-    getBooksHandler();
+    if (booksCtx.searched && booksCtx.searched.trim() !== "") {
+      getSearchedBooksHandler(booksCtx.searched);
+      booksCtx.setSearched("");
+    } else {
+      getBooksHandler();
+    }
   }, []);
 
   const filterHandler = (value: string) => {
