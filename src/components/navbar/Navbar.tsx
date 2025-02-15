@@ -8,6 +8,8 @@ import { Logo } from "../UI/Logo";
 import { Languages } from "types/general";
 import { LinkStructure } from "data/links-data";
 import { languages } from "data/general-data";
+import ChangeThemeButton from "./ChangeThemeButton";
+import ChangeLanguageButton from "./ChangeLanguageButton";
 
 interface NavbarProps {
   links: LinkStructure[];
@@ -22,26 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({
   children,
   logoSize,
 }) => {
-  const [langDropdownOpened, setLangDropdownOpened] = useState(false);
-
-  const themeCtx = useContext(ThemeContext);
   const languageCtx = useContext(LanguageContext);
-
-  const toggleThemeHandler = () => themeCtx.toggleTheme();
-
-  const changeLanguagesHandler = () => {
-    setLangDropdownOpened((prev) => !prev);
-  };
-
-  const changeLanguageHandler = (e: React.MouseEvent<HTMLElement>) => {
-    let selectedLanguage = (e.target as HTMLElement).innerText.toLowerCase();
-
-    if (selectedLanguage === "inglés") selectedLanguage = "english";
-    if (selectedLanguage === "español") selectedLanguage = "spanish";
-
-    changeLanguagesHandler();
-    languageCtx.changeLanguage(selectedLanguage as Languages);
-  };
 
   return (
     <header className={`navbar ${title ? "navbar__shrinked" : ""}`}>
@@ -65,37 +48,8 @@ const Navbar: React.FC<NavbarProps> = ({
       </nav>
 
       <div className="navbar__btns">
-        <button
-          onClick={toggleThemeHandler}
-          className="navbar__btn navbar__btn--theme"
-        >
-          <i className="fa-solid fa-circle-half-stroke"></i>
-        </button>
-
-        <div className="navbar__language-dropdown">
-          <button
-            className="navbar__btn navbar__btn--language"
-            onClick={changeLanguagesHandler}
-          >
-            <i className="fa-solid fa-language"></i>
-          </button>
-
-          <div
-            className={`navbar__language-opts ${
-              langDropdownOpened ? "navbar__language-opts--opened" : ""
-            }`}
-          >
-            {languages[languageCtx.language].map((language) => (
-              <p
-                key={language}
-                className="navbar__language-opt"
-                onClick={changeLanguageHandler}
-              >
-                {language}
-              </p>
-            ))}
-          </div>
-        </div>
+        <ChangeThemeButton />
+        <ChangeLanguageButton />
       </div>
     </header>
   );
