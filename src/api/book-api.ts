@@ -3,20 +3,13 @@ import { BookInterface } from "types/books";
 
 const apiAddress = "https://localhost:7036/api";
 
-export const getBooks = async (): Promise<BookInterface[]> => {
-  try {
-    const res = await axios.get(`${apiAddress}/Books`);
-    return res.data;
-  } catch (err) {
-    return [];
-  }
-};
+export const getBooks = async (searched?: string): Promise<BookInterface[]> => {
+  const validSearch = searched && searched.trim() != "";
 
-export const getSearchedBooks = async (
-  searched: string
-): Promise<BookInterface[]> => {
   try {
-    const res = await axios.get(`${apiAddress}/Books/search/${searched}`);
+    const res = await axios.get(
+      `${apiAddress}/Books${validSearch ? "?search=" + searched : ""}`
+    );
     return res.data;
   } catch (err) {
     return [];
