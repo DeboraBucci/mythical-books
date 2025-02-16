@@ -206,10 +206,10 @@ code {
   animation: shake 0.2s ease-out 10;
   animation-delay: 3s;
 }
-.hero__slogan span {
+.hero__slogan--underline {
   position: relative;
 }
-.hero__slogan span::before {
+.hero__slogan--underline::before {
   content: "";
   position: absolute;
   bottom: -0.5rem;
@@ -882,17 +882,13 @@ code {
 }
 
 .search-container {
-  z-index: 99;
   position: fixed;
-  top: 6rem;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.75rem;
   gap: 1rem;
-  width: 100%;
-  background-color: rgb(59, 51, 68.6);
 }
 .search-container__advanced-search:link, .search-container__advanced-search:visited {
   background-color: rgba(209, 66, 95, 0.2);
@@ -2055,7 +2051,7 @@ code {
 }
 
 .store {
-  padding-top: 10.3rem;
+  padding-top: 6rem;
 }
 .store__content {
   display: grid;
