@@ -10,11 +10,13 @@ const Hero = () => {
       <div className="hero__content">
         <h1 className="hero__title">Mythical Books</h1>
         <p className="hero__slogan">
-          {(hero as any)[languageCtx.language].firstPart}
-          <span>{(hero as any)[languageCtx.language].secondPart}</span>{" "}
-          <div className="hero__slogan--icon">
+          {hero[languageCtx.language].firstPart}
+          <span className="hero__slogan--underline">
+            {hero[languageCtx.language].secondPart}
+          </span>{" "}
+          <span className="hero__slogan--icon">
             <i className="fa-solid fa-broom" />
-          </div>
+          </span>
         </p>
       </div>
     </section>
