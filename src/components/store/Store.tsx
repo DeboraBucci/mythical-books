@@ -8,7 +8,7 @@ import Footer from "../footer/Footer";
 
 import Aside from "./aside/Aside";
 import { storeLinks } from "data/links-data";
-import { getBooks, getSearchedBooks } from "api/book-api";
+import { getBooks } from "api/book-api";
 import { BooksContext } from "context/BooksProvider";
 
 const Store = () => {
@@ -17,24 +17,16 @@ const Store = () => {
   const [filters, setFilters] = useState("");
   const [order, setOrder] = useState("");
 
-  const getSearchedBooksHandler = async (searched: string) => {
-    const books = await getSearchedBooks(searched);
-    booksCtx.setBooks(books);
-  };
-
   const getBooksHandler = async () => {
     const books = await getBooks();
     booksCtx.setBooks(books);
   };
 
   useEffect(() => {
-    if (booksCtx.searched && booksCtx.searched.trim() !== "") {
-      getSearchedBooksHandler(booksCtx.searched);
-      booksCtx.setSearched("");
-    } else {
+    if (booksCtx.searched.trim() === "") {
       getBooksHandler();
     }
-  }, []);
+  }, [booksCtx.searched]);
 
   const filterHandler = (value: string) => {
     if (value === "all") {
@@ -54,8 +46,10 @@ const Store = () => {
 
   return (
     <div className="store">
-      <Navbar links={storeLinks} title={true} />
-      <SearchBooks filters={filters} order={order} />
+      <Navbar links={storeLinks} title={true}>
+        <SearchBooks filters={filters} order={order} />
+      </Navbar>
+
       <div className="store__content">
         <Categories filterHandler={filterHandler} orderHandler={orderHandler} />
         <div className="store__banner"></div>
