@@ -131,11 +131,11 @@
       }
     }
 
-    & span {
+    &--underline {
       position: relative;
     }
 
-    & span::before {
+    &--underline::before {
       content: "";
       position: absolute;
       bottom: -0.5rem;
