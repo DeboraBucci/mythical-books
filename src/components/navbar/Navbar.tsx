@@ -30,9 +30,9 @@ const Navbar: React.FC<NavbarProps> = ({
     <header className={`navbar ${title ? "navbar__shrinked" : ""}`}>
       <Logo title={title} size={logoSize} />
 
-      <nav>
-        {children}
+      {children}
 
+      <nav>
         <ul className="navbar__list">
           {links.map((link) => (
             <li className="navbar__link" key={link.title[languageCtx.language]}>
