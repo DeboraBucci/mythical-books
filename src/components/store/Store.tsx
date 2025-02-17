@@ -10,6 +10,8 @@ import Aside from "./aside/Aside";
 import { storeLinks } from "data/links-data";
 import { getBooks } from "api/book-api";
 import { BooksContext } from "context/BooksProvider";
+import { Outlet, Route, Routes } from "react-router-dom";
+import BookDetail from "./books/BookDetail";
 
 const Store = () => {
   const booksCtx = useContext(BooksContext);
@@ -50,15 +52,34 @@ const Store = () => {
         <SearchBooks filters={filters} order={order} />
       </Navbar>
 
-      <div className="store__content">
-        <Categories filterHandler={filterHandler} orderHandler={orderHandler} />
-        <div className="store__banner"></div>
-        <Bookshelf />
-        <Aside />
-      </div>
+      <Outlet />
+
       <Footer />
     </div>
   );
 };
 
-export default Store;
+const StoreRoutes = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Store />}>
+        <Route
+          index
+          element={
+            <>
+              <div className="store__content">
+                <Categories filterHandler={() => {}} orderHandler={() => {}} />
+                <div className="store__banner"></div>
+                <Bookshelf />
+                <Aside />
+              </div>
+            </>
+          }
+        />
+        <Route path="book/:id" element={<BookDetail />} />
+      </Route>
+    </Routes>
+  );
+};
+
+export default StoreRoutes;
