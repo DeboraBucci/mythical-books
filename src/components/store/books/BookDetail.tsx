@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "../../navbar/Navbar";
-import SearchBooks from "../search/SearchBooks";
-import { storeLinks } from "data/links-data";
 import { BookInterface } from "types/books";
 import { getBookById } from "api/book-api";
 
@@ -24,9 +21,6 @@ const BookDetail = () => {
 
   return (
     <div className="book-details">
-      <Navbar links={storeLinks} title={true} />
-      <SearchBooks />
-
       {book === null && (
         <div>
           <p>There is no book with that id.</p>
