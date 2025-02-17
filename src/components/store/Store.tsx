@@ -12,6 +12,7 @@ import { getBooks } from "api/book-api";
 import { BooksContext } from "context/BooksProvider";
 import { Outlet, Route, Routes } from "react-router-dom";
 import BookDetail from "./books/BookDetail";
+import Cart from "./cart/Cart";
 
 const Store = () => {
   const booksCtx = useContext(BooksContext);
@@ -77,6 +78,7 @@ const StoreRoutes = () => {
           }
         />
         <Route path="book/:id" element={<BookDetail />} />
+        <Route path="cart" element={<Cart />} />
       </Route>
     </Routes>
   );
