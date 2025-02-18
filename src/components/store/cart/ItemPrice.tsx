@@ -36,13 +36,13 @@ const ItemPriceDiv = styled.div`
   .original-price {
     font-size: 1.2rem;
     text-decoration: line-through;
-    color: #5e5e5e;
+    color: var(--color-grey-500);
   }
 
   .discount-price {
     margin-top: -0.5rem;
     font-size: 1.6rem;
     font-weight: bold;
-    color: #a95fff;
+    color: var(--color-purple);
   }
 `;

@@ -11,7 +11,7 @@ const TextError: React.FC<TextErrorProps> = ({ children }) => (
 export default TextError;
 
 const Text = styled.p`
-  color: #ee6a6a;
+  color: var(--color-error);
   margin-top: 1rem;
   font-size: 1.6rem;
 `;

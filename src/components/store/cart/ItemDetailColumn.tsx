@@ -29,6 +29,6 @@ const ItemDetailColumnDiv = styled.div`
   p {
     text-transform: uppercase;
     font-size: 1.2rem;
-    color: #848484;
+    color: var(--color-grey-400);
   }
 `;

@@ -39,11 +39,11 @@ const CartItemHeaderDiv = styled.div`
   h3 {
     font-family: "Quintessential", cursive;
     font-size: 2.4rem;
-    color: #2c2c2c;
+    color: var(--color-grey-800);
   }
 
   p {
     font-size: 1.6rem;
-    color: #848484;
+    color: var(--color-grey-400);
   }
 `;

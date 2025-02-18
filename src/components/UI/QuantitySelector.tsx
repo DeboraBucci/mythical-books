@@ -32,16 +32,13 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
 
 export default QuantitySelector;
 
-const borderColor = "#e8e8e8";
-const highlightColor = "#a95fff";
-
 const QuantitySelectorDiv = styled.div`
   display: flex;
   justify-content: space-between;
   width: 12rem;
   height: 2.5rem;
   border-radius: 4px;
-  border: 1px solid ${borderColor};
+  border: 1px solid var(--color-grey-100);
 
   button {
     cursor: pointer;
@@ -55,7 +52,7 @@ const QuantitySelectorDiv = styled.div`
     transition: all 0.4s;
 
     &:hover {
-      background-color: ${highlightColor};
+      background-color: var(--color-purple);
 
       i {
         color: white;
@@ -70,21 +67,24 @@ const QuantitySelectorDiv = styled.div`
   .minus-btn {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
-    border-right: 1px solid ${borderColor};
+    border-right: 1px solid var(--color-grey-100);
   }
 
   .plus-btn {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
-    border-left: 1px solid ${borderColor};
+    border-left: 1px solid var(--color-grey-100);
   }
 
   .number {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
-    color: ${highlightColor};
-    font-weight: bold;
+
+    p {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: var(--color-purple);
+    }
   }
 `;
