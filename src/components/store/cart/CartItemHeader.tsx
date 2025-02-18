@@ -20,7 +20,7 @@ const CartItemHeader: React.FC<CartItemHeaderProps> = ({ title, authors }) => {
   return (
     <CartItemHeaderDiv>
       <h3>{title}</h3>
-      <p>by {formatAuthors()}</p>
+      {authors.length !== 0 && <p>by {formatAuthors()}</p>}
     </CartItemHeaderDiv>
   );
 };
