@@ -2,26 +2,30 @@ import styled from "styled-components";
 
 interface ItemPriceProps {
   originalPrice: number;
-  discountPrice?: number;
+  discountPercentage?: number;
 }
 
 const ItemPrice: React.FC<ItemPriceProps> = ({
   originalPrice,
-  discountPrice,
+  discountPercentage,
 }) => {
+  const applyDiscount = (num: number) => {
+    return num * ((100 - discountPercentage!) / 100);
+  };
+
   const formatNumber = (num: number) => {
     return num.toFixed(2);
   };
 
   return (
     <ItemPriceDiv>
-      {discountPrice && (
-        <p className="original-price">${formatNumber(discountPrice)}</p>
+      {discountPercentage && (
+        <p className="original-price">${formatNumber(originalPrice)}</p>
       )}
       <p className="discount-price">
         $
-        {discountPrice
-          ? formatNumber(discountPrice)
+        {discountPercentage
+          ? formatNumber(applyDiscount(originalPrice))
           : formatNumber(originalPrice)}
       </p>
     </ItemPriceDiv>
