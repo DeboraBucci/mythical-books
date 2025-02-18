@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import BookCard from "./BookCard";
-import { BookInterface } from "types/books";
 import { BooksContext } from "context/BooksProvider";
 
 const Bookshelf = () => {
@@ -12,6 +11,7 @@ const Bookshelf = () => {
       {books.map((book) => {
         return (
           <BookCard
+            physicalFormat={book.physicalFormat}
             title={book.title}
             image={book.image}
             authors={book.authors}
