@@ -13,6 +13,7 @@ const BookCard: React.FC<BookCardInterface> = ({
   ratingCount,
   id,
   stock,
+  physicalFormat,
 }) => {
   const cartCtx = useContext(CartContext);
 
@@ -38,11 +39,13 @@ const BookCard: React.FC<BookCardInterface> = ({
     cartCtx.addBook({
       id: id,
       title: title,
+      physicalFormat: physicalFormat,
       authors: authors.map((author) => author.name),
       quantity: 1,
       unitPrice: price,
       totalSubPrice: 0,
       discountPercentage: Math.floor(Math.random() * 30),
+      image: image,
     });
   };
 

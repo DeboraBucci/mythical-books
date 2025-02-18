@@ -49,4 +49,5 @@ export interface BookCardInterface {
   image?: string;
   authors: Author[];
   currency?: string;
+  physicalFormat?: string;
 }
