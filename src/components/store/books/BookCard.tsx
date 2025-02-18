@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Ratings from "../../UI/Ratings";
 import { BookCardInterface } from "types/books";
+import { useContext } from "react";
+import { CartContext } from "context/CartProvider";
 
 const BookCard: React.FC<BookCardInterface> = ({
   title,
@@ -12,6 +14,8 @@ const BookCard: React.FC<BookCardInterface> = ({
   id,
   stock,
 }) => {
+  const cartCtx = useContext(CartContext);
+
   const authorsStr = authors
     .map((author, i) => {
       const secondLastIndex = authors.length - 2;
@@ -29,6 +33,18 @@ const BookCard: React.FC<BookCardInterface> = ({
   const isFree = price === 0;
   const liked = false; // Temporal
   const bookmarked = true; // Temporal
+
+  const onAddBookHandler = () => {
+    cartCtx.addBook({
+      id: id,
+      title: title,
+      authors: authors.map((author) => author.name),
+      quantity: 1,
+      unitPrice: price,
+      totalSubPrice: 0,
+      discountPercentage: Math.floor(Math.random() * 30),
+    });
+  };
 
   const textHandler = (
     e: any,
@@ -99,7 +115,7 @@ const BookCard: React.FC<BookCardInterface> = ({
         {liked ? <span>In favorites</span> : <span>Add to favorites</span>}
       </div>
 
-      <button>
+      <button onClick={onAddBookHandler}>
         <span>Add to basket</span>{" "}
         <i className="fa-solid fa-basket-shopping"></i>
       </button>
