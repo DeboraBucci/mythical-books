@@ -9,11 +9,11 @@ interface CartItemProps {
   id: number;
   title: string;
   authors: string[];
-  bookFormat: string;
+  bookFormat?: string;
   originalPrice: number;
   units: number;
   discountPercentage?: number;
-  cover: string;
+  cover?: string;
 }
 
 const CartItem: React.FC<CartItemProps> = ({
@@ -42,10 +42,12 @@ const CartItem: React.FC<CartItemProps> = ({
         <CartItemHeader title={title} authors={authors} />
 
         <div className="detail">
-          <div className="book-format">
-            <i className="fa-solid fa-book" />
-            <p>{bookFormat}</p>
-          </div>
+          {bookFormat && (
+            <div className="book-format">
+              <i className="fa-solid fa-book" />
+              <p>{bookFormat}</p>
+            </div>
+          )}
 
           <div className="table">
             <ItemDetailColumn title="Quantity">
