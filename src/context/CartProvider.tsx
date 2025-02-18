@@ -7,6 +7,7 @@ type BookCartType = {
   quantity: number;
   unitPrice: number;
   totalSubPrice: number;
+  discountPercentage: number;
 };
 
 type CartContextType = {
