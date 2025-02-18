@@ -3,11 +3,13 @@ import { createContext, useReducer } from "react";
 type BookCartType = {
   id: number;
   title: string;
+  physicalFormat?: string;
   authors: string[];
   quantity: number;
   unitPrice: number;
   totalSubPrice: number;
   discountPercentage: number;
+  image?: string;
 };
 
 type CartContextType = {
@@ -48,10 +50,8 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     dispatch({ type: "ADD_BOOK", payload: book });
   };
 
-  console.log(state);
-
   const value = {
-    books: state.books,
+    books: state,
     addBook: addBook,
     removeBook: () => {},
   };
