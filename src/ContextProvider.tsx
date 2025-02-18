@@ -1,4 +1,5 @@
 import BooksProvider from "context/BooksProvider";
+import CartProvider from "context/CartProvider";
 import LanguageProvider from "context/LanguageProvider";
 import ThemeProvider from "context/ThemeProvider";
 
@@ -10,7 +11,11 @@ const ContextProvider: React.FC<ContextProviderProps> = ({ children }) => {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <BooksProvider>{children}</BooksProvider>
+        <BooksProvider>
+          <CartProvider>
+            <>{children}</>
+          </CartProvider>
+        </BooksProvider>
       </LanguageProvider>
     </ThemeProvider>
   );
