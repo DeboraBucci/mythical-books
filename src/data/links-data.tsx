@@ -95,7 +95,7 @@ const storeLinks: LinkStructure[] = [
   },
   {
     title: { english: "", spanish: "" },
-    att: "/cart",
+    att: "/store/cart",
     icon: "fa-solid fa-cart-shopping",
     iconClass: "cart",
     type: "link",
