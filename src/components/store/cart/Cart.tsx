@@ -1,45 +1,37 @@
-import CartItem from "./CartItem";
-import { useContext } from "react";
-import { CartContext } from "context/CartProvider";
+import Checkout from "./Checkout";
+import styled from "styled-components";
+import CartItems from "./CartItems";
 
 const Cart = () => {
-  const cartCtx = useContext(CartContext);
-
   return (
-    <div style={{ minHeight: "100vh" }}>
-      <div>
-        <h2>Shopping Cart</h2>
+    <RootContainer style={{ minHeight: "100vh" }}>
+      <ItemsContainer>
+        <Title>Shopping Cart</Title>
 
-        <ul>
-          {cartCtx.books.map(
-            ({
-              id,
-              title,
-              physicalFormat,
-              authors,
-              unitPrice,
-              quantity,
-              discountPercentage,
-              image,
-            }) => (
-              <CartItem
-                id={id}
-                title={title}
-                bookFormat={physicalFormat}
-                authors={authors}
-                originalPrice={unitPrice}
-                units={quantity}
-                discountPercentage={discountPercentage}
-                cover={image}
-              />
-            )
-          )}
-        </ul>
-      </div>
-
-      <div></div>
-    </div>
+        <CartItems />
+      </ItemsContainer>
+      <Checkout />
+    </RootContainer>
   );
 };
 
 export default Cart;
+
+const Title = styled.h2`
+  padding: 0 20rem;
+  font-family: "Quintessential", cursive;
+  font-size: 5rem;
+  font-weight: 300;
+`;
+
+const RootContainer = styled.div`
+  display: flex;
+`;
+
+const ItemsContainer = styled.div`
+  padding: 5rem 0 5rem 25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+`;
