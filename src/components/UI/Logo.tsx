@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import logo from "../../assets/logo.png";
 import CustomLink from "./CustomLink";
 
@@ -9,9 +10,9 @@ interface LogoProps {
 }
 
 export const Logo: React.FC<LogoProps> = ({ title, size, att, linkType }) => (
-  <div className="logo">
+  <LogoDiv>
     <div
-      className="logo__container"
+      className="container"
       style={{
         width: `${size === "big" ? 70 : 50}px`,
         height: `${size === "big" ? 70 : 50}px`,
@@ -32,12 +33,71 @@ export const Logo: React.FC<LogoProps> = ({ title, size, att, linkType }) => (
     {title && (
       <>
         <h2>Mythical Books</h2>
-        <div className="logo__panel logo__panel--1"></div>
-        <div className="logo__panel logo__panel--2"></div>
-        <div className="logo__panel logo__panel--3"></div>
-        <div className="logo__panel logo__panel--4"></div>
-        <div className="logo__panel logo__panel--5"></div>
+        <Panel className="panel-1" />
+        <Panel className="panel-2" />
+        <Panel className="panel-3" />
+        <Panel className="panel-4" />
+        <Panel className="panel-5" />
       </>
     )}
-  </div>
+  </LogoDiv>
 );
+
+const LogoDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-right: auto;
+  padding-left: 5rem;
+  color: var(--color-white);
+  font-size: 1.6rem;
+  font-family: "Quintessential", cursive;
+
+  .container {
+    transition: all 0.2s;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  & img {
+    transition: all 0.2s;
+  }
+`;
+
+const Panel = styled.div`
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  background-color: var(--color-purple);
+  transition: all 0.2s;
+
+  &.panel-1 {
+    transform: skewX(35deg);
+    opacity: 0.1;
+    width: 30rem;
+    animation: var(----appear-left-animation) 0.3s linear;
+  }
+
+  &.panel-2 {
+    transform: skewX(-10deg);
+    opacity: 0.2;
+    width: 31rem;
+    animation: var(--appear-right-animation) 0.3s linear;
+  }
+
+  &.panel-3 {
+    transform: skewX(20deg);
+    opacity: 0.3;
+    width: 30rem;
+    animation: var(--appear-left-animation) 0.5s linear;
+  }
+
+  &.panel-4 {
+    transform: skewX(-30deg);
+    opacity: 0.2;
+    width: 28rem;
+    animation: var(--appear-right-animation) 0.5s linear;
+  }
+`;
