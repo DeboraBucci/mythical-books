@@ -1,13 +1,21 @@
 import styled from "styled-components";
 import x from "../../../assets/x.png";
+import { useContext } from "react";
+import { CartContext } from "context/CartProvider";
 
 interface DeleteItemButtonProps {
-  onDelete: () => void;
+  id: number;
 }
 
-const DeleteItemButton: React.FC<DeleteItemButtonProps> = ({ onDelete }) => {
+const DeleteItemButton: React.FC<DeleteItemButtonProps> = ({ id }) => {
+  const cartCtx = useContext(CartContext);
+
+  const handleItemDelete = () => {
+    cartCtx.removeBook(id);
+  };
+
   return (
-    <DeleteItemBtn>
+    <DeleteItemBtn onClick={handleItemDelete}>
       <img src={x} />
     </DeleteItemBtn>
   );

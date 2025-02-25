@@ -74,7 +74,7 @@ const CartItem: React.FC<CartItemProps> = ({
           </div>
         </div>
 
-        <DeleteItemButton onDelete={onDeleteHandler} />
+        <DeleteItemButton id={id} />
       </div>
     </CartItemDiv>
   );
