@@ -1,5 +1,8 @@
 import { createContext, useReducer } from "react";
 
+const ADD_BOOK = "ADD_BOOK";
+const REMOVE_BOOK = "REMOVE_BOOK";
+
 type BookCartType = {
   id: number;
   title: string;
@@ -15,7 +18,7 @@ type BookCartType = {
 type CartContextType = {
   books: BookCartType[];
   addBook: (book: BookCartType) => void;
-  removeBook: (id: string) => void;
+  removeBook: (id: number) => void;
 };
 
 export const CartContext = createContext<CartContextType>({
@@ -25,13 +28,13 @@ export const CartContext = createContext<CartContextType>({
 });
 
 const ReducerHandler = (state: any, action: any) => {
-  if (action.type === "ADD_BOOK") {
+  if (action.type === ADD_BOOK) {
     return [...state, action.payload];
   }
 
-  if (action.type === "REMOVE_BOOK") {
+  if (action.type === REMOVE_BOOK) {
     const books = state.filter(
-      (book: BookCartType) => book.id === action.payload
+      (book: BookCartType) => book.id !== action.payload
     );
     return books;
   }
@@ -47,13 +50,17 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(ReducerHandler, []);
 
   const addBook = (book: any) => {
-    dispatch({ type: "ADD_BOOK", payload: book });
+    dispatch({ type: ADD_BOOK, payload: book });
+  };
+
+  const removeBook = (id: number) => {
+    dispatch({ type: REMOVE_BOOK, payload: id });
   };
 
   const value = {
     books: state,
     addBook: addBook,
-    removeBook: () => {},
+    removeBook: removeBook,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
