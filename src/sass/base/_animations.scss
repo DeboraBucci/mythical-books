@@ -31,7 +31,29 @@
   }
 }
 
+@keyframes appear-left {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: skewX(20deg) translateX(0);
+  }
+}
+
+@keyframes appear-right {
+  0% {
+    transform: translateX(50%);
+  }
+
+  100% {
+    transform: skewX(-10deg) translateX(0);
+  }
+}
+
 :root {
   --pulsate-animation: pulsate;
   --rotate-animation: rotate-anim;
+  --appear-left-animation: appear-left;
+  --appear-right-animation: appear-right;
 }
