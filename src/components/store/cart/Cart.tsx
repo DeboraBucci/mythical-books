@@ -18,20 +18,22 @@ const Cart = () => {
 export default Cart;
 
 const Title = styled.h2`
-  padding: 0 20rem;
+  padding: 0 35rem 0 0;
   font-family: "Quintessential", cursive;
   font-size: 5rem;
   font-weight: 300;
 `;
 
 const RootContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
 `;
 
 const ItemsContainer = styled.div`
-  padding: 5rem 0 5rem 25rem;
-  flex: 1;
   display: flex;
+  align-items: flex-end;
   flex-direction: column;
+  padding: 5rem 10rem;
   gap: 5rem;
 `;
