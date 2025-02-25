@@ -16,7 +16,9 @@ const DeleteItemButton: React.FC<DeleteItemButtonProps> = ({ id }) => {
 
   return (
     <DeleteItemBtn onClick={handleItemDelete}>
-      <img src={x} />
+      <div>
+        <img src={x} />
+      </div>
     </DeleteItemBtn>
   );
 };
@@ -24,13 +26,18 @@ const DeleteItemButton: React.FC<DeleteItemButtonProps> = ({ id }) => {
 export default DeleteItemButton;
 
 const DeleteItemBtn = styled.button`
+  cursor: pointer;
   background-color: transparent;
   position: absolute;
   z-index: 1;
   right: 1rem;
   top: 1rem;
 
-  img {
-    font-size: 2.4rem;
+  :hover {
+    animation: var(--pulsate-animation) 0.8s linear infinite;
+
+    img {
+      animation: var(--rotate-animation) 5s linear infinite;
+    }
   }
 `;
