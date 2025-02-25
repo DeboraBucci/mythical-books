@@ -1,4 +1,4 @@
-import Checkout from "./Checkout";
+import OrderSummary from "./OrderSummary";
 import styled from "styled-components";
 import CartItems from "./CartItems";
 
@@ -10,7 +10,7 @@ const Cart = () => {
 
         <CartItems />
       </ItemsContainer>
-      <Checkout />
+      <OrderSummary />
     </RootContainer>
   );
 };
