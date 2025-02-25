@@ -49,7 +49,7 @@ const Store = () => {
 
   return (
     <div className="store">
-      <Navbar links={storeLinks} title={true}>
+      <Navbar links={storeLinks} title={true} att="/store" linkType="link">
         <SearchBooks filters={filters} order={order} />
       </Navbar>
 

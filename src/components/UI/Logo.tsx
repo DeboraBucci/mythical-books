@@ -4,9 +4,11 @@ import CustomLink from "./CustomLink";
 interface LogoProps {
   title: boolean;
   size?: string;
+  att: string;
+  linkType?: string;
 }
 
-export const Logo: React.FC<LogoProps> = ({ title, size }) => (
+export const Logo: React.FC<LogoProps> = ({ title, size, att, linkType }) => (
   <div className="logo">
     <div
       className="logo__container"
@@ -15,7 +17,7 @@ export const Logo: React.FC<LogoProps> = ({ title, size }) => (
         height: `${size === "big" ? 70 : 50}px`,
       }}
     >
-      <CustomLink att="hero">
+      <CustomLink att={att} linkType={linkType}>
         <img
           src={logo}
           alt="logo"

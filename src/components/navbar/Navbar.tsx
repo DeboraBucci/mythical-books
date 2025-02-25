@@ -16,6 +16,8 @@ interface NavbarProps {
   title: boolean;
   children?: React.ReactNode;
   logoSize?: string;
+  att?: string;
+  linkType?: string;
 }
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -23,12 +25,14 @@ const Navbar: React.FC<NavbarProps> = ({
   title,
   children,
   logoSize,
+  att = "hero",
+  linkType,
 }) => {
   const languageCtx = useContext(LanguageContext);
 
   return (
     <header className={`navbar ${title ? "navbar__shrinked" : ""}`}>
-      <Logo title={title} size={logoSize} />
+      <Logo title={title} size={logoSize} att={att} linkType={linkType} />
 
       {children}
 
