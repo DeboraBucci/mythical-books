@@ -60,8 +60,8 @@ const RootLi = styled.li`
 
   .item-count {
     position: absolute;
-    top: -0.8rem;
-    right: -0.4rem;
+    top: -0.9rem;
+    right: -0.6rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,5 +88,9 @@ const RootLi = styled.li`
     font-size: 1.6rem;
     top: -0.8rem;
     right: -0.9rem;
+  }
+
+  & div {
+    pointer-events: none;
   }
 `;
