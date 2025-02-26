@@ -53,8 +53,8 @@ const Store = () => {
       <Navbar
         links={storeLinks}
         title={true}
-        att="/store"
-        linkType="link"
+        logoAtt="/store"
+        logoLinkType="link"
         extraLinks={<CartIconLink />}
       >
         <SearchBooks filters={filters} order={order} />
