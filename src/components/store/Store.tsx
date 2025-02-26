@@ -13,6 +13,7 @@ import { BooksContext } from "context/BooksProvider";
 import { Outlet, Route, Routes } from "react-router-dom";
 import BookDetail from "./books/BookDetail";
 import Cart from "./cart/Cart";
+import CartIconLink from "./cart/CartIconLink";
 
 const Store = () => {
   const booksCtx = useContext(BooksContext);
@@ -49,7 +50,13 @@ const Store = () => {
 
   return (
     <div className="store">
-      <Navbar links={storeLinks} title={true} att="/store" linkType="link">
+      <Navbar
+        links={storeLinks}
+        title={true}
+        att="/store"
+        linkType="link"
+        extraLinks={<CartIconLink />}
+      >
         <SearchBooks filters={filters} order={order} />
       </Navbar>
 
