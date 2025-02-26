@@ -18,6 +18,7 @@ interface NavbarProps {
   logoSize?: string;
   att?: string;
   linkType?: string;
+  extraLinks?: React.ReactNode;
 }
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -27,6 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({
   logoSize,
   att = "hero",
   linkType,
+  extraLinks,
 }) => {
   const languageCtx = useContext(LanguageContext);
 
@@ -48,6 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({
               </CustomLink>
             </li>
           ))}
+          {extraLinks}
         </ul>
       </nav>
 
