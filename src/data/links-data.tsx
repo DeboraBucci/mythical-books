@@ -93,13 +93,6 @@ const storeLinks: LinkStructure[] = [
     iconClass: "log",
     type: "link",
   },
-  {
-    title: { english: "", spanish: "" },
-    att: "/store/cart",
-    icon: "fa-solid fa-cart-shopping",
-    iconClass: "cart",
-    type: "link",
-  },
 ];
 
 export { homeLinks, storeLinks };
