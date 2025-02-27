@@ -39,7 +39,9 @@
 
   &__ratings-info {
     position: absolute;
-    top: 2.5rem;
+    z-index: 1;
+    top: -1rem;
+    right: -75%;
     font-size: 1.4rem;
     padding: 0.5rem;
     border-radius: 3px;
