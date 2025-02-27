@@ -27,9 +27,19 @@ export const CartContext = createContext<CartContextType>({
   removeBook: () => {},
 });
 
-const ReducerHandler = (state: any, action: any) => {
+const ReducerHandler = (state: BookCartType[], action: any) => {
   if (action.type === ADD_BOOK) {
-    return [...state, action.payload];
+    const { book, quantity } = action.payload;
+
+    const bookFound = state.find((b) => b.id === book.id);
+
+    if (bookFound) {
+      bookFound.quantity += quantity;
+
+      return state;
+    } else {
+      return [...state, book];
+    }
   }
 
   if (action.type === REMOVE_BOOK) {
@@ -49,8 +59,11 @@ interface CartProviderProps {
 const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(ReducerHandler, []);
 
-  const addBook = (book: any) => {
-    dispatch({ type: ADD_BOOK, payload: book });
+  const addBook = (book: any, quantity?: number) => {
+    dispatch({
+      type: ADD_BOOK,
+      payload: { book: book, quantity: quantity ?? 1 },
+    });
   };
 
   const removeBook = (id: number) => {
