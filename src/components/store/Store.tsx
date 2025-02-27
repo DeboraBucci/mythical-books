@@ -2,17 +2,12 @@ import { useContext, useEffect, useState } from "react";
 
 import Navbar from "../navbar/Navbar";
 import SearchBooks from "./search/SearchBooks";
-import Bookshelf from "./books/Bookshelf";
-import Categories from "./Categories";
 import Footer from "../footer/Footer";
 
-import Aside from "./aside/Aside";
 import { storeLinks } from "data/links-data";
 import { getBooks } from "api/book-api";
 import { BooksContext } from "context/BooksProvider";
-import { Outlet, Route, Routes } from "react-router-dom";
-import BookDetail from "./books/BookDetail";
-import Cart from "./cart/Cart";
+import { Outlet } from "react-router-dom";
 import CartIconLink from "./cart/CartIconLink";
 
 const Store = () => {
@@ -67,28 +62,4 @@ const Store = () => {
   );
 };
 
-const StoreRoutes = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Store />}>
-        <Route
-          index
-          element={
-            <>
-              <div className="store__content">
-                <Categories filterHandler={() => {}} orderHandler={() => {}} />
-                <div className="store__banner"></div>
-                <Bookshelf />
-                <Aside />
-              </div>
-            </>
-          }
-        />
-        <Route path="book/:id" element={<BookDetail />} />
-        <Route path="cart" element={<Cart />} />
-      </Route>
-    </Routes>
-  );
-};
-
-export default StoreRoutes;
+export default Store;

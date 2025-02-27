@@ -10,7 +10,7 @@ import ThemeContext from "./context/theme-context";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-import StoreRoutes from "./components/store/Store";
+import StoreRoutes from "./components/store/StoreRoutes";
 
 function App() {
   const themeCtx = useContext(ThemeContext);
