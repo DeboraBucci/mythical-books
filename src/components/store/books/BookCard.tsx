@@ -119,23 +119,35 @@ const BookCard: React.FC<BookCardInterface> = ({
         {liked ? <span>In favorites</span> : <span>Add to favorites</span>}
       </div>
 
-      {(book?.quantity == 0 || !book?.quantity) && (
-        <Button onClick={onAddBookHandler}>
-          <span>Add to basket</span>{" "}
-          <i className="fa-solid fa-basket-shopping"></i>
-        </Button>
-      )}
+      <CTAContainer>
+        {(book?.quantity == 0 || !book?.quantity) && (
+          <Button onClick={onAddBookHandler}>
+            <span>Add to basket</span>{" "}
+            <i className="fa-solid fa-basket-shopping"></i>
+          </Button>
+        )}
 
-      {book?.quantity && book?.quantity != 0 && (
-        <QuantityContainer>
-          <QuantitySelector bookId={id} quantity={book?.quantity ?? 0} />
-        </QuantityContainer>
-      )}
+        {book?.quantity && book?.quantity != 0 && (
+          <QuantityContainer>
+            <QuantitySelector bookId={id} quantity={book?.quantity ?? 0} />
+          </QuantityContainer>
+        )}
+      </CTAContainer>
     </div>
   );
 };
 
 export default BookCard;
+
+const CTAContainer = styled.div`
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 3rem;
+`;
 
 const QuantityContainer = styled.div`
   margin-bottom: 1rem;
