@@ -3,8 +3,8 @@ import Ratings from "../../UI/Ratings";
 import { BookCardInterface } from "types/books";
 import { useContext } from "react";
 import { CartContext } from "context/CartProvider";
-import QuantitySelector from "../../../components/UI/QuantitySelector";
 import styled from "styled-components";
+import BookCardAction from "./BookCardAction";
 
 const BookCard: React.FC<BookCardInterface> = ({
   title,
@@ -18,7 +18,6 @@ const BookCard: React.FC<BookCardInterface> = ({
   physicalFormat,
 }) => {
   const cartCtx = useContext(CartContext);
-  const book = cartCtx.books.find((b) => b.id == id);
 
   const authorsStr = authors
     .map((author, i) => {
@@ -103,24 +102,11 @@ const BookCard: React.FC<BookCardInterface> = ({
         <Ratings averageRating={averageRating} ratingCount={ratingCount} />
       )}
 
+      <BookCardAction onAddHandler={onAddBookHandler} bookId={id} />
+
       <div className="whishlist">
         <i className={`fa-${false ? "solid" : "regular"} fa-bookmark`}></i>
         {false ? <span>In whishlist</span> : <span>Add to whishlist</span>}
-      </div>
-
-      <div className="cta_container">
-        {(book?.quantity == 0 || !book?.quantity) && (
-          <Button onClick={onAddBookHandler}>
-            <span>Add to basket</span>{" "}
-            <i className="fa-solid fa-basket-shopping"></i>
-          </Button>
-        )}
-
-        {book?.quantity && book?.quantity != 0 && (
-          <div className="quantity-container">
-            <QuantitySelector bookId={id} quantity={book?.quantity ?? 0} />
-          </div>
-        )}
       </div>
     </Card>
   );
@@ -224,48 +210,6 @@ const Card = styled.div`
       span {
         opacity: 1;
       }
-    }
-  }
-
-  & .cta_container {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 3rem;
-  }
-
-  & .quantity_container {
-    margin-bottom: 1rem;
-  }
-`;
-
-const Button = styled.button`
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-
-  color: var(--color-white);
-  background-color: var(--color-dark-purple);
-  border: 1px solid var(--color-dark-purple);
-
-  width: 100%;
-  padding: 1rem;
-  font-weight: 700;
-
-  transition: all 0.2s ease-out;
-
-  &:hover {
-    background-color: transparent;
-    color: var(--color-dark-purple);
-
-    i {
-      animation: var(--up-and-down-animation) 0.6s ease infinite;
     }
   }
 `;
