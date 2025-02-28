@@ -51,9 +51,24 @@
   }
 }
 
+@keyframes up-and-down {
+  0% {
+    transform: translateY(-3px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-3px);
+  }
+}
+
 :root {
   --pulsate-animation: pulsate;
   --rotate-animation: rotate-anim;
   --appear-left-animation: appear-left;
   --appear-right-animation: appear-right;
+  --up-and-down-animation: up-and-down;
 }
