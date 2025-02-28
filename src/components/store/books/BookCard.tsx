@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "context/CartProvider";
 import styled from "styled-components";
 import BookCardAction from "./BookCardAction";
+import BookCardHeading from "./BookCardHeading";
 
 const BookCard: React.FC<BookCardInterface> = ({
   title,
@@ -19,19 +20,6 @@ const BookCard: React.FC<BookCardInterface> = ({
 }) => {
   const cartCtx = useContext(CartContext);
 
-  const authorsStr = authors
-    .map((author, i) => {
-      const secondLastIndex = authors.length - 2;
-      return `${author.name}${
-        secondLastIndex === i ? " and " : i < secondLastIndex ? ", " : ""
-      }`;
-    })
-    .join("");
-
-  const contentTitle = title.length > 20 ? title.slice(0, 17) + "..." : title;
-  const contentAuthor =
-    authorsStr.length > 30 ? authorsStr.slice(0, 27) + "..." : authorsStr;
-
   const onAddBookHandler = () => {
     cartCtx.addBook({
       id: id,
@@ -44,54 +32,15 @@ const BookCard: React.FC<BookCardInterface> = ({
     });
   };
 
-  const textStylerHandler = (
-    e: any,
-    style: any,
-    contentTitle: string,
-    contentAuthors: string
-  ) => {
-    const parent = e.target.closest(".book-card");
-
-    if (parent) {
-      const title = parent.querySelector(".book-card__title");
-      title.innerHTML = contentTitle;
-      title.style.textDecoration = style;
-
-      const authors = parent.querySelector(".book-card__author");
-      authors.innerHTML = contentAuthors;
-      authors.style.textDecoration = style;
-    }
-  };
-
-  const mouseEnterTextHandler = (e: any) =>
-    textStylerHandler(e, "underline", title, authorsStr);
-
-  const mouseLeaveTextHandler = (e: any) =>
-    textStylerHandler(e, "none", contentTitle, contentAuthor);
-
   return (
-    <Card className={`${!stock && "out-of-stock"}`} key={title}>
+    <Card className={`book-card ${!stock && "out-of-stock"}`} key={title}>
       <div className="image-container">
         <Link to={`/store/book/${id}`}>
           <img src={image} alt="book" />
         </Link>
       </div>
 
-      <h4
-        className="title"
-        onMouseEnter={mouseEnterTextHandler}
-        onMouseLeave={mouseLeaveTextHandler}
-      >
-        {contentTitle}
-      </h4>
-
-      <p
-        className="author"
-        onMouseEnter={mouseEnterTextHandler}
-        onMouseLeave={mouseLeaveTextHandler}
-      >
-        {contentAuthor}
-      </p>
+      <BookCardHeading title={title} authors={authors} />
 
       <div className={`price ${!stock && "no-stock"} ${price <= 0 && "free"}`}>
         {stock && <span>{price <= 0 ? "Free ebook" : price + " USD"}</span>}
@@ -155,19 +104,6 @@ const Card = styled.div`
     & img {
       height: 20rem;
     }
-  }
-
-  & .title {
-    color: var(--color-grey-800);
-    font-size: 2.5rem;
-    font-weight: 100;
-  }
-
-  & .author {
-    color: var(--color-grey-500);
-    font-size: 1.6rem;
-    margin-top: -2rem;
-    font-weight: 600;
   }
 
   & .price {
