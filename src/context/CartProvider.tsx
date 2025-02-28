@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
 
 const ADD_BOOK = "ADD_BOOK";
+const UPDATE_BOOK_QUANTITY = "UPDATE_BOOK_QUANTITY";
 const REMOVE_BOOK = "REMOVE_BOOK";
 
 type BookCartType = {
@@ -8,37 +9,59 @@ type BookCartType = {
   title: string;
   physicalFormat?: string;
   authors: string[];
-  quantity: number;
+  quantity?: number;
   unitPrice: number;
-  totalSubPrice: number;
+  totalSubPrice?: number;
   discountPercentage: number;
   image?: string;
 };
 
 type CartContextType = {
   books: BookCartType[];
-  addBook: (book: BookCartType) => void;
+  addBook: (book: BookCartType, quantity?: number) => void;
   removeBook: (id: number) => void;
+  updateBookQuantity: (id: number, quantity?: number) => void;
 };
 
 export const CartContext = createContext<CartContextType>({
   books: [],
   addBook: () => {},
   removeBook: () => {},
+  updateBookQuantity: () => {},
 });
 
 const ReducerHandler = (state: BookCartType[], action: any) => {
+  const stateCopy = state.map((book) => ({ ...book })); // WON'T MUTATE THE STATE
+  const bookFound = stateCopy.find((b) => b.id == action.payload.id);
+
   if (action.type === ADD_BOOK) {
-    const { book, quantity } = action.payload;
+    if (bookFound && bookFound.quantity) {
+      bookFound.quantity += 1;
 
-    const bookFound = state.find((b) => b.id === book.id);
+      return stateCopy;
+    }
 
-    if (bookFound) {
-      bookFound.quantity += quantity;
+    return [
+      ...stateCopy,
+      {
+        ...action.payload,
+        quantity: 1,
+        totalSubPrice: action.payload.unitPrice,
+      },
+    ];
+  }
 
-      return state;
-    } else {
-      return [...state, book];
+  if (action.type === UPDATE_BOOK_QUANTITY) {
+    const { quantity } = action.payload;
+
+    if (bookFound && quantity >= -1) {
+      if (quantity == -1 || quantity == 1) {
+        bookFound.quantity += quantity;
+      } else {
+        bookFound.quantity = quantity;
+      }
+
+      return [...stateCopy.filter((b) => b.quantity != 0)];
     }
   }
 
@@ -49,7 +72,7 @@ const ReducerHandler = (state: BookCartType[], action: any) => {
     return books;
   }
 
-  return state;
+  return stateCopy;
 };
 
 interface CartProviderProps {
@@ -59,10 +82,17 @@ interface CartProviderProps {
 const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(ReducerHandler, []);
 
-  const addBook = (book: any, quantity?: number) => {
+  const addBook = (book: BookCartType) => {
     dispatch({
       type: ADD_BOOK,
-      payload: { book: book, quantity: quantity ?? 1 },
+      payload: book,
+    });
+  };
+
+  const updateBookQuantity = (id: number, quantity?: number) => {
+    dispatch({
+      type: UPDATE_BOOK_QUANTITY,
+      payload: { id, quantity: quantity ?? 1 },
     });
   };
 
@@ -74,6 +104,7 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     books: state,
     addBook: addBook,
     removeBook: removeBook,
+    updateBookQuantity: updateBookQuantity,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
