@@ -33,11 +33,6 @@ const BookCard: React.FC<BookCardInterface> = ({
   const contentAuthor =
     authorsStr.length > 30 ? authorsStr.slice(0, 27) + "..." : authorsStr;
 
-  const isOutOfStock = typeof price !== "number";
-  const isFree = price === 0;
-  const liked = false; // Temporal
-  const bookmarked = true; // Temporal
-
   const onAddBookHandler = () => {
     cartCtx.addBook({
       id: id,
@@ -50,7 +45,7 @@ const BookCard: React.FC<BookCardInterface> = ({
     });
   };
 
-  const textHandler = (
+  const textStylerHandler = (
     e: any,
     style: any,
     contentTitle: string,
@@ -58,68 +53,62 @@ const BookCard: React.FC<BookCardInterface> = ({
   ) => {
     const parent = e.target.closest(".book-card");
 
-    const title = parent.querySelector(".book-card__title");
-    title.innerHTML = contentTitle;
-    title.style.textDecoration = style;
+    if (parent) {
+      const title = parent.querySelector(".book-card__title");
+      title.innerHTML = contentTitle;
+      title.style.textDecoration = style;
 
-    const authors = parent.querySelector(".book-card__author");
-    authors.innerHTML = contentAuthors;
-    authors.style.textDecoration = style;
+      const authors = parent.querySelector(".book-card__author");
+      authors.innerHTML = contentAuthors;
+      authors.style.textDecoration = style;
+    }
   };
 
   const mouseEnterTextHandler = (e: any) =>
-    textHandler(e, "underline", title, authorsStr);
+    textStylerHandler(e, "underline", title, authorsStr);
 
   const mouseLeaveTextHandler = (e: any) =>
-    textHandler(e, "none", contentTitle, contentAuthor);
+    textStylerHandler(e, "none", contentTitle, contentAuthor);
 
   return (
-    <div
-      className={`book-card ${isOutOfStock && "book-card--out-of-stock"}`}
-      key={title}
-    >
-      <Link to={`/store/book/${id}`}>
-        <img src={image} alt="book" style={{ width: "150px" }} />
-      </Link>
+    <Card className={`${!stock && "out-of-stock"}`} key={title}>
+      <div className="image-container">
+        <Link to={`/store/book/${id}`}>
+          <img src={image} alt="book" />
+        </Link>
+      </div>
+
       <h4
-        className="book-card__title"
+        className="title"
         onMouseEnter={mouseEnterTextHandler}
         onMouseLeave={mouseLeaveTextHandler}
       >
         {contentTitle}
       </h4>
+
       <p
-        className="book-card__author"
+        className="author"
         onMouseEnter={mouseEnterTextHandler}
         onMouseLeave={mouseLeaveTextHandler}
       >
         {contentAuthor}
       </p>
 
-      <div
-        className={`book-card__price ${
-          !isFree && isOutOfStock && "book-card__price--out-of-stock"
-        } ${isFree && "book-card__price--free"}`}
-      >
-        <span>{isFree ? "Free ebook" : price}</span>
-        <span>{!isOutOfStock && " USD"}</span>
+      <div className={`price ${!stock && "no-stock"} ${price <= 0 && "free"}`}>
+        {stock && <span>{price <= 0 ? "Free ebook" : price + " USD"}</span>}
+        {!stock && <span>Out of Stock</span>}
       </div>
 
       {ratingCount && averageRating && (
         <Ratings averageRating={averageRating} ratingCount={ratingCount} />
       )}
 
-      <div className="book-card__whishlist">
-        <i className={`fa-${bookmarked ? "solid" : "regular"} fa-bookmark`}></i>
-        {bookmarked ? <span>In whishlist</span> : <span>Add to whishlist</span>}
+      <div className="whishlist">
+        <i className={`fa-${false ? "solid" : "regular"} fa-bookmark`}></i>
+        {false ? <span>In whishlist</span> : <span>Add to whishlist</span>}
       </div>
 
-      <div className="book-card__favorites">
-        <i className={`fa-${liked ? "solid" : "regular"} fa-heart`}></i>
-        {liked ? <span>In favorites</span> : <span>Add to favorites</span>}
-      </div>
-
-      <CTAContainer>
+      <div className="cta_container">
         {(book?.quantity == 0 || !book?.quantity) && (
           <Button onClick={onAddBookHandler}>
             <span>Add to basket</span>{" "}
@@ -128,29 +117,129 @@ const BookCard: React.FC<BookCardInterface> = ({
         )}
 
         {book?.quantity && book?.quantity != 0 && (
-          <QuantityContainer>
+          <div className="quantity-container">
             <QuantitySelector bookId={id} quantity={book?.quantity ?? 0} />
-          </QuantityContainer>
+          </div>
         )}
-      </CTAContainer>
-    </div>
+      </div>
+    </Card>
   );
 };
 
 export default BookCard;
 
-const CTAContainer = styled.div`
-  width: 100%;
+const Card = styled.div`
+  position: relative;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
 
-  height: 3rem;
-`;
+  text-align: center;
 
-const QuantityContainer = styled.div`
-  margin-bottom: 1rem;
+  width: 30rem;
+  min-height: 45rem;
+  padding-top: 2rem;
+
+  color: var(--color-white);
+  background-color: rgba(106, 63, 155, 0.02);
+  border: 1px solid rgba(106, 63, 155, 0.2);
+  border-radius: 4px;
+
+  &.out-of-stock {
+    background-color: rgb(238, 238, 238);
+
+    & button {
+      cursor: not-allowed;
+      pointer-events: none;
+      background-color: var(--color-grey-800);
+    }
+  }
+
+  & .image-container {
+    height: 20rem;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & img {
+      height: 20rem;
+    }
+  }
+
+  & .title {
+    color: var(--color-grey-800);
+    font-size: 2.5rem;
+    font-weight: 100;
+  }
+
+  & .author {
+    color: var(--color-grey-500);
+    font-size: 1.6rem;
+    margin-top: -2rem;
+    font-weight: 600;
+  }
+
+  & .price {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    padding: 0.25rem 0.5rem;
+    background-color: #458545;
+
+    &.no-stock {
+      background-color: #dc143c;
+    }
+
+    &.free {
+      background-color: #1381ff;
+    }
+  }
+
+  & .whishlist {
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    color: #6666e6;
+
+    & span {
+      position: absolute;
+      top: 3.5rem;
+      left: 0;
+      font-size: 1.2rem;
+      background-color: var(--color-grey-800);
+      color: var(--color-white);
+      padding: 0.5rem;
+      border-radius: 3px;
+      min-width: 8rem;
+      opacity: 0;
+    }
+
+    &:hover {
+      span {
+        opacity: 1;
+      }
+    }
+  }
+
+  & .cta_container {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 3rem;
+  }
+
+  & .quantity_container {
+    margin-bottom: 1rem;
+  }
 `;
 
 const Button = styled.button`
