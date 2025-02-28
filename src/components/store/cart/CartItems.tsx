@@ -20,6 +20,7 @@ const CartItems = () => {
           image,
         }) => (
           <CartItem
+            key={id}
             id={id}
             title={title}
             bookFormat={physicalFormat}
