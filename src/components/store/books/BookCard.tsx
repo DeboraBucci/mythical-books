@@ -4,6 +4,7 @@ import { BookCardInterface } from "types/books";
 import { useContext } from "react";
 import { CartContext } from "context/CartProvider";
 import QuantitySelector from "../../../components/UI/QuantitySelector";
+import styled from "styled-components";
 
 const BookCard: React.FC<BookCardInterface> = ({
   title,
@@ -119,17 +120,51 @@ const BookCard: React.FC<BookCardInterface> = ({
       </div>
 
       {(book?.quantity == 0 || !book?.quantity) && (
-        <button onClick={onAddBookHandler}>
+        <Button onClick={onAddBookHandler}>
           <span>Add to basket</span>{" "}
           <i className="fa-solid fa-basket-shopping"></i>
-        </button>
+        </Button>
       )}
 
       {book?.quantity && book?.quantity != 0 && (
-        <QuantitySelector bookId={id} quantity={book?.quantity ?? 0} />
+        <QuantityContainer>
+          <QuantitySelector bookId={id} quantity={book?.quantity ?? 0} />
+        </QuantityContainer>
       )}
     </div>
   );
 };
 
 export default BookCard;
+
+const QuantityContainer = styled.div`
+  margin-bottom: 1rem;
+`;
+
+const Button = styled.button`
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  color: var(--color-white);
+  background-color: var(--color-dark-purple);
+  border: 1px solid var(--color-dark-purple);
+
+  width: 100%;
+  padding: 1rem;
+  font-weight: 700;
+
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--color-dark-purple);
+
+    i {
+      animation: var(--up-and-down-animation) 0.6s ease infinite;
+    }
+  }
+`;
