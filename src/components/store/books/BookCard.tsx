@@ -3,6 +3,7 @@ import Ratings from "../../UI/Ratings";
 import { BookCardInterface } from "types/books";
 import { useContext } from "react";
 import { CartContext } from "context/CartProvider";
+import QuantitySelector from "../../../components/UI/QuantitySelector";
 
 const BookCard: React.FC<BookCardInterface> = ({
   title,
@@ -16,6 +17,7 @@ const BookCard: React.FC<BookCardInterface> = ({
   physicalFormat,
 }) => {
   const cartCtx = useContext(CartContext);
+  const book = cartCtx.books.find((b) => b.id == id);
 
   const authorsStr = authors
     .map((author, i) => {
@@ -116,10 +118,16 @@ const BookCard: React.FC<BookCardInterface> = ({
         {liked ? <span>In favorites</span> : <span>Add to favorites</span>}
       </div>
 
-      <button onClick={onAddBookHandler}>
-        <span>Add to basket</span>{" "}
-        <i className="fa-solid fa-basket-shopping"></i>
-      </button>
+      {(book?.quantity == 0 || !book?.quantity) && (
+        <button onClick={onAddBookHandler}>
+          <span>Add to basket</span>{" "}
+          <i className="fa-solid fa-basket-shopping"></i>
+        </button>
+      )}
+
+      {book?.quantity && book?.quantity != 0 && (
+        <QuantitySelector bookId={id} quantity={book?.quantity ?? 0} />
+      )}
     </div>
   );
 };
