@@ -11,7 +11,7 @@ interface CartItemProps {
   authors: string[];
   bookFormat?: string;
   originalPrice: number;
-  units: number;
+  units?: number;
   discountPercentage?: number;
   cover?: string;
 }
@@ -22,16 +22,10 @@ const CartItem: React.FC<CartItemProps> = ({
   bookFormat,
   id,
   originalPrice,
-  units,
+  units = 1,
   discountPercentage,
   cover,
 }) => {
-  const onDeleteHandler = () => {};
-
-  const onIncrement = () => {};
-
-  const onReduce = () => {};
-
   return (
     <CartItemDiv>
       <div className="cover">
@@ -51,11 +45,7 @@ const CartItem: React.FC<CartItemProps> = ({
 
           <div className="table">
             <ItemDetailColumn title="Quantity">
-              <QuantitySelector
-                quantity={units}
-                reduce={onReduce}
-                increment={onIncrement}
-              />
+              <QuantitySelector quantity={units} bookId={id} />
             </ItemDetailColumn>
 
             <ItemDetailColumn title="Price">
