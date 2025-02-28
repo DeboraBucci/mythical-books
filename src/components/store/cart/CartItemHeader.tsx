@@ -11,7 +11,7 @@ const CartItemHeader: React.FC<CartItemHeaderProps> = ({ title, authors }) => {
 
     authors.forEach((author, i) => {
       authorsStr += author;
-      if (i < authors.length - 1) authorsStr += ", ";
+      if (i < authors?.length - 1) authorsStr += ", ";
     });
 
     return authorsStr;
@@ -20,7 +20,7 @@ const CartItemHeader: React.FC<CartItemHeaderProps> = ({ title, authors }) => {
   return (
     <CartItemHeaderDiv>
       <h3>{title}</h3>
-      {authors.length !== 0 && <p>by {formatAuthors()}</p>}
+      {authors?.length !== 0 && <p>by {formatAuthors()}</p>}
     </CartItemHeaderDiv>
   );
 };
