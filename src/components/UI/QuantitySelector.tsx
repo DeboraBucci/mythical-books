@@ -1,28 +1,50 @@
+import { CartContext } from "context/CartProvider";
+import { ChangeEvent, useContext, useState } from "react";
 import styled from "styled-components";
 
 interface QuantitySelectorProps {
+  bookId: number;
   quantity: number;
-  reduce: () => void;
-  increment: () => void;
 }
 
 const QuantitySelector: React.FC<QuantitySelectorProps> = ({
+  bookId,
   quantity,
-  reduce,
-  increment,
 }) => {
+  const cartCtx = useContext(CartContext);
+
+  const [bookQuantity, setBookQuantity] = useState(quantity);
+
+  const onChangeQuantityHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const newQuantity = +e.target.value;
+    if (!isNaN(newQuantity)) {
+      setBookQuantity(newQuantity);
+      cartCtx.updateBookQuantity(bookId, newQuantity);
+    }
+  };
+
+  const onIncreaseQuantityHandler = () => {
+    setBookQuantity((prev) => prev + 1);
+    cartCtx.updateBookQuantity(bookId);
+  };
+
+  const onDecreaseQuantityHandler = () => {
+    setBookQuantity((prev) => prev - 1);
+    cartCtx.updateBookQuantity(bookId, -1);
+  };
+
   return (
     <div className="quantity-selector__container">
       <QuantitySelectorDiv>
-        <button className="minus-btn" onClick={reduce}>
+        <button className="minus-btn" onClick={onDecreaseQuantityHandler}>
           <i className="fa-solid fa-minus" />
         </button>
 
         <div className="number">
-          <p>{quantity}</p>
+          <input value={bookQuantity} onChange={onChangeQuantityHandler} />
         </div>
 
-        <button className="plus-btn" onClick={increment}>
+        <button className="plus-btn" onClick={onIncreaseQuantityHandler}>
           <i className="fa-solid fa-plus" />
         </button>
       </QuantitySelectorDiv>
@@ -81,7 +103,11 @@ const QuantitySelectorDiv = styled.div`
     align-items: center;
     justify-content: center;
 
-    p {
+    input {
+      all: unset; // helps center text by deleting default styles
+      width: 100%;
+      text-align: center;
+      border: none;
       font-size: 1.6rem;
       font-weight: bold;
       color: var(--color-purple);
