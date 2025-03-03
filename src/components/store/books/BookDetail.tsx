@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BookInterface } from "types/books";
 import { getBookById } from "api/book-api";
+import { CartContext } from "context/CartProvider";
+import QuantitySelector from "../../../components/UI/QuantitySelector";
 
 const BookDetail = () => {
+  const cartCtx = useContext(CartContext);
+
   const [book, setBook] = useState<BookInterface | null>(null);
+  const [quantity, setQuantity] = useState(0);
 
   const query = useParams();
 
@@ -12,12 +17,13 @@ const BookDetail = () => {
     if (query.id) {
       const book = await getBookById(query.id);
       setBook(book);
+      setQuantity(cartCtx.books.find((b) => b.id == book?.id)?.quantity ?? 0);
     }
   };
 
   useEffect(() => {
     getBookHandler();
-  }, []);
+  }, [cartCtx]);
 
   return (
     <div className="book-details">
@@ -56,10 +62,6 @@ const BookDetail = () => {
             </div>
 
             <div className="book-details__status">
-              <div className="book-details__status--like">
-                <i className="fa-regular fa-heart"></i>
-              </div>
-
               <div className="book-details__status--bookmark">
                 <i className="fa-regular fa-bookmark"></i>
               </div>
@@ -81,7 +83,13 @@ const BookDetail = () => {
             </p>
 
             <div className="book-details__cta">
-              <button className="book-details__cta--add">Add to Basket</button>
+              {quantity == 0 ? (
+                <button className="book-details__cta--add">
+                  Add to Basket
+                </button>
+              ) : (
+                <QuantitySelector bookId={book.id} quantity={quantity} />
+              )}
               <button>Add to Wishlist</button>
             </div>
 
