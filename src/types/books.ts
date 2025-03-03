@@ -1,4 +1,4 @@
-interface Author {
+export interface Author {
   id: number;
   name: string;
   fuller_name?: string;
@@ -7,12 +7,12 @@ interface Author {
   death_date?: Date;
 }
 
-interface Publisher {
+export interface Publisher {
   id: number;
   name: string;
 }
 
-interface Category {
+export interface Category {
   id: number;
   name: string;
 }
