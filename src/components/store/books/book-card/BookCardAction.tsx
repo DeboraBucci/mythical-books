@@ -1,4 +1,4 @@
-import QuantitySelector from "../../../components/UI/QuantitySelector";
+import QuantitySelector from "../../../UI/QuantitySelector";
 import { CartContext } from "context/CartProvider";
 import { useContext } from "react";
 import styled from "styled-components";
