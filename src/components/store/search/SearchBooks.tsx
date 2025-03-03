@@ -1,9 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import fallbackImg from "../../../assets/fallback-book-image.webp";
 import { BooksContext } from "context/BooksProvider";
 import { getBooks } from "api/book-api";
-import BookCard from "../books/BookCard";
 
 interface SearchBooksProps {
   filters?: any;
