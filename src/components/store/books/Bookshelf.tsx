@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import BookCard from "./BookCard";
+import BookCard from "./book-card/BookCard";
 import { BooksContext } from "context/BooksProvider";
 
 const Bookshelf = () => {
