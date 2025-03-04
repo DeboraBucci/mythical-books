@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Categories from "./Categories";
 import Bookshelf from "./books/Bookshelf";
 import Aside from "./aside/Aside";
-import BookDetail from "./books/BookDetail";
+import BookDetail from "./books/book-detail/BookDetail";
 import Cart from "./cart/Cart";
 import Store from "./Store";
 
