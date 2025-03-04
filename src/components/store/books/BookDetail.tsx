@@ -4,6 +4,7 @@ import { BookInterface } from "types/books";
 import { getBookById } from "api/book-api";
 import { CartContext } from "context/CartProvider";
 import QuantitySelector from "../../../components/UI/QuantitySelector";
+import BookDetailHeading from "./BookDetailHeading";
 
 const BookDetail = () => {
   const cartCtx = useContext(CartContext);
@@ -39,27 +40,12 @@ const BookDetail = () => {
           </div>
 
           <div className="book-details__content">
-            <div>
-              <div className="book-details__title">
-                <h3>{book.title}</h3>
-                <p className="book-details__rating">
-                  <i className="fa-regular fa-star"></i>
-                  <span>{book.averageRating}</span>{" "}
-                  <span>({book.ratingCount})</span>
-                </p>
-              </div>
-              <p className="book-details__authors">
-                <i className="fa-solid fa-feather-pointed"></i> by{" "}
-                {book.authors?.map((author, i) => {
-                  return (
-                    <span key={author.id}>
-                      {author.name}
-                      {book.authors.length > i + 1 && ","}
-                    </span>
-                  );
-                })}
-              </p>
-            </div>
+            <BookDetailHeading
+              title={book.title}
+              averageRating={book.averageRating}
+              ratingCount={book.ratingCount}
+              authors={book.authors}
+            />
 
             <div className="book-details__status">
               <div className="book-details__status--bookmark">
