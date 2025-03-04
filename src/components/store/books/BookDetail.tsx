@@ -5,6 +5,7 @@ import { getBookById } from "api/book-api";
 import { CartContext } from "context/CartProvider";
 import QuantitySelector from "../../../components/UI/QuantitySelector";
 import BookDetailHeading from "./BookDetailHeading";
+import Bookmark from "../../UI/Bookmark";
 
 const BookDetail = () => {
   const cartCtx = useContext(CartContext);
@@ -47,11 +48,7 @@ const BookDetail = () => {
               authors={book.authors}
             />
 
-            <div className="book-details__status">
-              <div className="book-details__status--bookmark">
-                <i className="fa-regular fa-bookmark"></i>
-              </div>
-            </div>
+            <Bookmark />
 
             <div className="book-details__categories">
               {book.categories.map((category) => (
