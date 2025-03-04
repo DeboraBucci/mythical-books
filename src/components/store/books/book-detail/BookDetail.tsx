@@ -4,7 +4,7 @@ import { BookInterface } from "types/books";
 import { getBookById } from "api/book-api";
 import { CartContext } from "context/CartProvider";
 import BookDetailHeading from "./BookDetailHeading";
-import Bookmark from "../../UI/Bookmark";
+import Bookmark from "../../../UI/Bookmark";
 import BookDetailAction from "./BookDetailAction";
 import { bookToCartBook } from "functions/book-mappers";
 

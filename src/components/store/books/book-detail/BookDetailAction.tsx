@@ -1,4 +1,4 @@
-import ActionCard from "./ActionCard";
+import ActionCard from "../ActionCard";
 import styled from "styled-components";
 
 interface BookDetailActionProps {
