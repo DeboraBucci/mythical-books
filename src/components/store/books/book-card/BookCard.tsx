@@ -6,6 +6,7 @@ import { CartContext } from "context/CartProvider";
 import styled from "styled-components";
 import BookCardAction from "./BookCardAction";
 import BookCardHeading from "./BookCardHeading";
+import Bookmark from "../../../UI/Bookmark";
 
 const BookCard: React.FC<BookCardInterface> = ({
   title,
@@ -53,10 +54,7 @@ const BookCard: React.FC<BookCardInterface> = ({
 
       <BookCardAction onAddHandler={onAddBookHandler} bookId={id} />
 
-      <div className="whishlist">
-        <i className={`fa-${false ? "solid" : "regular"} fa-bookmark`}></i>
-        {false ? <span>In whishlist</span> : <span>Add to whishlist</span>}
-      </div>
+      <Bookmark />
     </Card>
   );
 };
@@ -118,34 +116,6 @@ const Card = styled.div`
 
     &.free {
       background-color: #1381ff;
-    }
-  }
-
-  & .whishlist {
-    cursor: pointer;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 2.5rem;
-    color: #6666e6;
-
-    & span {
-      position: absolute;
-      top: 3.5rem;
-      left: 0;
-      font-size: 1.2rem;
-      background-color: var(--color-grey-800);
-      color: var(--color-white);
-      padding: 0.5rem;
-      border-radius: 3px;
-      min-width: 8rem;
-      opacity: 0;
-    }
-
-    &:hover {
-      span {
-        opacity: 1;
-      }
     }
   }
 `;
