@@ -1385,28 +1385,14 @@ code {
   justify-content: center;
   height: 100vh;
 }
+.book-details__img img {
+  max-width: 30rem;
+}
 .book-details__content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
-}
-.book-details h3 {
-  font-weight: 100;
-  font-size: 3rem;
-}
-.book-details__title {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.book-details__authors {
-  font-weight: 300;
-  font-size: 1.6rem;
-  color: #4b4b4b;
-}
-.book-details__authors i {
-  color: #a95fff;
 }
 .book-details__container {
   position: relative;
@@ -1415,21 +1401,6 @@ code {
   border: 1px solid rgba(10, 0, 22, 0.05);
   display: flex;
   gap: 3rem;
-}
-.book-details__rating {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
-  font-size: 1.6rem;
-  color: #4b4b4b;
-}
-.book-details__rating i {
-  color: goldenrod;
-}
-.book-details__rating span:last-child {
-  cursor: pointer;
-  color: royalblue;
 }
 .book-details__categories {
   display: flex;
@@ -1441,28 +1412,6 @@ code {
   background-color: royalblue;
   color: #fff;
   border-radius: 3px;
-}
-.book-details__features {
-  display: flex;
-  gap: 1rem;
-}
-.book-details__features p {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.6rem;
-  font-weight: 300;
-  padding: 0.5rem 1rem;
-  color: #4b4b4b;
-  border-top: 3px solid #a95fff;
-  border-right: 2px solid #a95fff;
-  border-radius: 7px;
-  box-shadow: 1px 1px 10px rgba(10, 0, 22, 0.1);
-}
-.book-details__features span:last-child {
-  font-weight: 400;
 }
 .book-details__description {
   color: #2b2b2b;
@@ -1476,35 +1425,6 @@ code {
 }
 .book-details__price--colored {
   color: green;
-}
-.book-details__cta {
-  display: flex;
-  gap: 2rem;
-}
-.book-details__cta button {
-  padding: 1rem 2rem;
-  border-radius: 14px;
-  cursor: pointer;
-}
-.book-details__cta--add {
-  background-color: #a95fff;
-  color: #fff;
-}
-.book-details__status {
-  position: absolute;
-  right: 2rem;
-  top: 2rem;
-  display: flex;
-  gap: 2rem;
-}
-.book-details__status div i {
-  font-size: 3rem;
-}
-.book-details__status--like {
-  color: crimson;
-}
-.book-details__status--bookmark {
-  color: royalblue;
 }
 
 .relevant {
