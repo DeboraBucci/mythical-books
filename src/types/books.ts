@@ -51,3 +51,15 @@ export interface BookCardInterface {
   currency?: string;
   physicalFormat?: string;
 }
+
+export type BookCartType = {
+  id: number;
+  title: string;
+  physicalFormat?: string;
+  authors: string[];
+  quantity?: number;
+  unitPrice: number;
+  totalSubPrice?: number;
+  discountPercentage?: number;
+  image?: string;
+};

@@ -1,20 +1,9 @@
 import { createContext, useReducer } from "react";
+import { BookCartType } from "types/books";
 
 const ADD_BOOK = "ADD_BOOK";
 const UPDATE_BOOK_QUANTITY = "UPDATE_BOOK_QUANTITY";
 const REMOVE_BOOK = "REMOVE_BOOK";
-
-type BookCartType = {
-  id: number;
-  title: string;
-  physicalFormat?: string;
-  authors: string[];
-  quantity?: number;
-  unitPrice: number;
-  totalSubPrice?: number;
-  discountPercentage: number;
-  image?: string;
-};
 
 type CartContextType = {
   books: BookCartType[];
