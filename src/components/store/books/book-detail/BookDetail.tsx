@@ -7,6 +7,7 @@ import BookDetailHeading from "./BookDetailHeading";
 import Bookmark from "../../../UI/Bookmark";
 import BookDetailAction from "./BookDetailAction";
 import { bookToCartBook } from "functions/book-mappers";
+import BookDetailFeatures from "./BookDetailFeatures";
 
 const BookDetail = () => {
   const cartCtx = useContext(CartContext);
@@ -24,7 +25,7 @@ const BookDetail = () => {
 
   useEffect(() => {
     getBookHandler();
-  }, [cartCtx]);
+  }, []);
 
   const onAddToCartHandler = () => {
     if (book) cartCtx.addBook(bookToCartBook(book));
@@ -77,44 +78,13 @@ const BookDetail = () => {
               <p>{book.description}</p>
             </div>
 
-            <div className="book-details__features">
-              <p>
-                <span>
-                  {" "}
-                  <i className="fa-regular fa-file-lines"></i> № of Pages
-                </span>
-                <span>{book.pages}</span>
-              </p>
-
-              <p>
-                <span>
-                  <i className="fa-regular fa-newspaper"></i> Publisher
-                </span>
-                {book.publishers.map((publisher) => (
-                  <span key={publisher.id}>{publisher.name}</span>
-                ))}
-              </p>
-
-              <p>
-                <span>
-                  <i className="fa-solid fa-calendar-days"></i> Published Date
-                </span>
-                <span>{book.publishedYear}</span>
-              </p>
-              <p>
-                <span>
-                  <i className="fa-solid fa-barcode"></i> ISBN10
-                </span>
-                <span>{book.isbn10}</span>
-              </p>
-
-              <p>
-                <span>
-                  <i className="fa-solid fa-barcode"></i> ISBN13
-                </span>
-                <span>{book.isbn13}</span>
-              </p>
-            </div>
+            <BookDetailFeatures
+              publishers={book.publishers}
+              pages={book.pages}
+              publishedYear={book.publishedYear}
+              isbn10={book.isbn10}
+              isbn13={book.isbn13}
+            />
           </div>
         </div>
       )}
