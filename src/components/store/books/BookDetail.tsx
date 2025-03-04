@@ -3,15 +3,15 @@ import { useParams } from "react-router-dom";
 import { BookInterface } from "types/books";
 import { getBookById } from "api/book-api";
 import { CartContext } from "context/CartProvider";
-import QuantitySelector from "../../../components/UI/QuantitySelector";
 import BookDetailHeading from "./BookDetailHeading";
 import Bookmark from "../../UI/Bookmark";
+import BookDetailAction from "./BookDetailAction";
+import { bookToCartBook } from "functions/book-mappers";
 
 const BookDetail = () => {
   const cartCtx = useContext(CartContext);
 
   const [book, setBook] = useState<BookInterface | null>(null);
-  const [quantity, setQuantity] = useState(0);
 
   const query = useParams();
 
@@ -19,13 +19,16 @@ const BookDetail = () => {
     if (query.id) {
       const book = await getBookById(query.id);
       setBook(book);
-      setQuantity(cartCtx.books.find((b) => b.id == book?.id)?.quantity ?? 0);
     }
   };
 
   useEffect(() => {
     getBookHandler();
   }, [cartCtx]);
+
+  const onAddToCartHandler = () => {
+    if (book) cartCtx.addBook(bookToCartBook(book));
+  };
 
   return (
     <div className="book-details">
@@ -65,16 +68,10 @@ const BookDetail = () => {
               </span>
             </p>
 
-            <div className="book-details__cta">
-              {quantity == 0 ? (
-                <button className="book-details__cta--add">
-                  Add to Basket
-                </button>
-              ) : (
-                <QuantitySelector bookId={book.id} quantity={quantity} />
-              )}
-              <button>Add to Wishlist</button>
-            </div>
+            <BookDetailAction
+              bookId={book.id}
+              onAddToCart={onAddToCartHandler}
+            />
 
             <div className="book-details__description">
               <p>{book.description}</p>
