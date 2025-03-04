@@ -1,7 +1,7 @@
-import QuantitySelector from "../../../UI/QuantitySelector";
 import { CartContext } from "context/CartProvider";
 import { useContext } from "react";
 import styled from "styled-components";
+import ActionCard from "../ActionCard";
 
 type BookCardActionProps = {
   onAddHandler: () => void;
@@ -17,18 +17,15 @@ const BookCardAction: React.FC<BookCardActionProps> = ({
 
   return (
     <RootContainer>
-      {(!quantity || quantity == 0) && (
+      <ActionCard
+        bookId={bookId}
+        quantitySelectorStyles={{ marginBottom: "1rem" }}
+      >
         <Button onClick={onAddHandler}>
           <span>Add to basket</span>
           <i className="fa-solid fa-basket-shopping"></i>
         </Button>
-      )}
-
-      {quantity && quantity != 0 && (
-        <div className="quantity-container">
-          <QuantitySelector bookId={bookId} quantity={quantity ?? 0} />
-        </div>
-      )}
+      </ActionCard>
     </RootContainer>
   );
 };
@@ -41,12 +38,6 @@ const RootContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  height: 3rem;
-
-  & .quantity-container {
-    margin-bottom: 1rem;
-  }
 `;
 
 const Button = styled.button`
