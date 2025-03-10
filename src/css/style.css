@@ -487,6 +487,9 @@ code {
   text-transform: capitalize;
   pointer-events: none;
 }
+.input-group input[type=date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
 .input-group__field {
   padding: 0.5rem;
   border: none;

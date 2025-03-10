@@ -32,6 +32,10 @@
     pointer-events: none;
   }
 
+  & input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
   &__field {
     padding: 0.5rem;
     border: none;
