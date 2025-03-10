@@ -1,14 +1,15 @@
 import axios from "axios";
 import { BookInterface } from "types/books";
+import { apiAddress } from "./constants";
 
-const apiAddress = "https://localhost:7036/api";
+const address = apiAddress + "/Books";
 
 export const getBooks = async (searched?: string): Promise<BookInterface[]> => {
   const validSearch = searched && searched.trim() != "";
 
   try {
     const res = await axios.get(
-      `${apiAddress}/Books${validSearch ? "?search=" + searched : ""}`
+      `${address}${validSearch ? "?search=" + searched : ""}`
     );
     return res.data;
   } catch (err) {
@@ -20,7 +21,7 @@ export const getBookById = async (
   id: string
 ): Promise<BookInterface | null> => {
   try {
-    const { data } = await axios.get(`${apiAddress}/Books/${id}`);
+    const { data } = await axios.get(`${address}/${id}`);
 
     const bookData: BookInterface = {
       id: data.id,
