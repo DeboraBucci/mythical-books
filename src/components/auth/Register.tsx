@@ -5,16 +5,21 @@ import * as Yup from "yup";
 
 import InputGroup from "../UI/InputGroup";
 import ParticlesBackground from "../UI/ParticlesBackground";
-import { AnyMxRecord } from "dns";
+import { registerUser } from "api/auth-api";
 
 const Register = () => {
   const initialValues = {
+    username: "",
     name: "",
     surname: "",
+    dateOfBirth: "",
     email: "",
     password: "",
     passwordCheck: "",
     country: "",
+    city: "",
+    postalCode: "",
+    address: "",
   };
 
   const validationSchema = Yup.object({
@@ -36,7 +41,20 @@ const Register = () => {
   });
 
   const onSubmit = (values: any) => {
-    console.log(values);
+    const user = {
+      username: values.username,
+      password: values.password,
+      email: values.email,
+      dateOfBirth: values.dateOfBirth,
+      name: values.name,
+      surname: values.surname,
+      country: values.country,
+      address: values.address,
+      city: values.city,
+      postalCode: values.postalCode,
+    };
+
+    registerUser(user);
   };
 
   return (
@@ -62,6 +80,13 @@ const Register = () => {
           {(formProps) => {
             return (
               <Form className="register__form">
+                <InputGroup
+                  formProps={formProps}
+                  icon={"fa-solid fa-user"}
+                  onBlur={formProps.handleBlur}
+                  name="username"
+                />
+
                 <div className="register__form--joined">
                   <InputGroup
                     formProps={formProps}
@@ -75,14 +100,31 @@ const Register = () => {
                     onBlur={formProps.handleBlur}
                     name="surname"
                   />
+                  <InputGroup
+                    type="date"
+                    formProps={formProps}
+                    icon={"fa-solid fa-calendar"}
+                    name="dateOfBirth"
+                    title="date of birth"
+                    onBlur={formProps.handleBlur}
+                  />{" "}
                 </div>
 
-                <InputGroup
-                  formProps={formProps}
-                  icon={"fa-solid fa-envelope"}
-                  onBlur={formProps.handleBlur}
-                  name="email"
-                />
+                <div className="register__form--joined">
+                  <InputGroup
+                    formProps={formProps}
+                    icon={"fa-solid fa-envelope"}
+                    onBlur={formProps.handleBlur}
+                    name="email"
+                  />
+                  <InputGroup
+                    formProps={formProps}
+                    icon={"fa-solid fa-envelope"}
+                    onBlur={formProps.handleBlur}
+                    name="emailCheck"
+                    title="email check"
+                  />
+                </div>
 
                 <div className="register__form--joined">
                   <InputGroup
@@ -100,10 +142,33 @@ const Register = () => {
                   />
                 </div>
 
+                <div className="register__form--joined">
+                  <InputGroup
+                    formProps={formProps}
+                    icon={"fa-solid fa-globe"}
+                    name="country"
+                    onBlur={formProps.handleBlur}
+                  />
+                  <InputGroup
+                    formProps={formProps}
+                    icon={"fa-solid fa-city"}
+                    name="city"
+                    onBlur={formProps.handleBlur}
+                  />
+
+                  <InputGroup
+                    formProps={formProps}
+                    icon={"fa-solid fa-hashtag"}
+                    name="postalCode"
+                    title="postal code"
+                    onBlur={formProps.handleBlur}
+                  />
+                </div>
+
                 <InputGroup
                   formProps={formProps}
-                  icon={"fa-solid fa-globe"}
-                  name="country"
+                  icon={"fa-solid fa-map"}
+                  name="address"
                   onBlur={formProps.handleBlur}
                 />
 
