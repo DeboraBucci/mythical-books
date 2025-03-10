@@ -1,5 +1,6 @@
 import { ErrorMessage, Field } from "formik";
 import TextError from "./TextError";
+import { useRef } from "react";
 
 interface InputGroup {
   formProps: any;
@@ -21,6 +22,7 @@ const InputGroup: React.FC<InputGroup> = ({
   onBlur,
 }) => {
   const errors = formProps.errors[name] && formProps.touched[name];
+  const dateInputRef = useRef<HTMLInputElement | null>(null);
 
   const findSpanElement = (e: React.FocusEvent) =>
     e.target.closest(".input-group")?.querySelector(".input-group__text");
@@ -31,19 +33,28 @@ const InputGroup: React.FC<InputGroup> = ({
   };
 
   const blurFieldHandler = (e: React.FocusEvent) => {
-    const spanEl = findSpanElement(e);
-    if (!formProps.values[name]) spanEl?.classList.remove("filled");
-    if (onBlur) onBlur(e);
+    if (type != "date") {
+      const spanEl = findSpanElement(e);
+      if (!formProps.values[name]) spanEl?.classList.remove("filled");
+      if (onBlur) onBlur(e);
+    }
+  };
+
+  const showDatePicker = (e: React.MouseEvent) => {
+    if (type == "date" && dateInputRef?.current) {
+      dateInputRef.current.showPicker();
+    }
   };
 
   return (
     <div className="input-group__container">
       <div className={`input-group ${errors && "input-group__error"}`}>
         <label htmlFor={name} className={errors && "input-group__error"}>
-          <i className={`${icon} input-group__icon`}></i>
+          <i className={`${icon} input-group__icon`} onClick={showDatePicker} />
           <span className="hidden">Email</span>
         </label>
         <Field
+          innerRef={dateInputRef}
           onFocus={focusFieldHandler}
           onBlur={blurFieldHandler}
           onKeyUp={onKeyUp}
@@ -54,7 +65,7 @@ const InputGroup: React.FC<InputGroup> = ({
         />
         <span
           className={`input-group__text ${
-            formProps.values[name] !== "" && "filled"
+            (formProps.values[name] !== "" || type == "date") && "filled"
           }`}
         >
           {title}
