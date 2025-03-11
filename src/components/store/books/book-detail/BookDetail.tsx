@@ -8,6 +8,7 @@ import Bookmark from "../../../UI/Bookmark";
 import BookDetailAction from "./BookDetailAction";
 import { bookToCartBook } from "functions/book-mappers";
 import BookDetailFeatures from "./BookDetailFeatures";
+import FallbackCover from "../../../../assets/cover-not-available.webp";
 
 const BookDetail = () => {
   const cartCtx = useContext(CartContext);
@@ -41,7 +42,10 @@ const BookDetail = () => {
       {book !== null && (
         <div className="book-details__container">
           <div className="book-details__img">
-            <img src={book.image} alt={book.title} />
+            <img
+              src={book.image ? book.image : FallbackCover}
+              alt={book.title}
+            />
           </div>
 
           <div className="book-details__content">

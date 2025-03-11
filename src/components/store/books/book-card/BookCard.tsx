@@ -7,6 +7,7 @@ import styled from "styled-components";
 import BookCardAction from "./BookCardAction";
 import BookCardHeading from "./BookCardHeading";
 import Bookmark from "../../../UI/Bookmark";
+import FallbackCover from "../../../../assets/cover-not-available.webp";
 
 const BookCard: React.FC<BookCardInterface> = ({
   title,
@@ -37,7 +38,7 @@ const BookCard: React.FC<BookCardInterface> = ({
     <Card className={`book-card ${!stock && "out-of-stock"}`} key={title}>
       <div className="image-container">
         <Link to={`/store/book/${id}`}>
-          <img src={image} alt="book" />
+          <img src={image ? image : FallbackCover} alt="book" />
         </Link>
       </div>
 

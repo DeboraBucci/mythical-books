@@ -1,4 +1,4 @@
-import fallback from "../../../assets/fallback-book-image.webp";
+import fallback from "../../../assets/cover-not-available.webp";
 
 const Aside = () => {
   return (
@@ -11,7 +11,10 @@ const Aside = () => {
 
         <ul className="relevant__list">
           <li className="relevant__item">
-            <img src={fallback} alt="fallback" width={100} />
+            <div style={{ backgroundColor: "white" }}>
+              <img src={fallback} alt="fallback" width={100} />
+            </div>
+
             <h4>Book 1</h4>
             <p>Price: $20</p>
             <p>ratings: 5</p>
