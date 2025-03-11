@@ -19,42 +19,53 @@ const BookDetailFeatures: React.FC<BookDetailFeaturesProps> = ({
 }) => {
   return (
     <RootComponent>
-      <p>
-        <span>
-          {" "}
-          <i className="fa-regular fa-file-lines" /> № of Pages
-        </span>
-        <span>{pages}</span>
-      </p>
+      {pages && (
+        <p>
+          <span>
+            {" "}
+            <i className="fa-regular fa-file-lines" /> № of Pages
+          </span>
+          <span>{pages}</span>
+        </p>
+      )}
 
-      <p>
-        <span>
-          <i className="fa-regular fa-newspaper" /> Publisher
-        </span>
-        {publishers.map((publisher) => (
-          <span key={publisher.id}>{publisher.name}</span>
-        ))}
-      </p>
+      {publishers.length > 0 && (
+        <p>
+          <span>
+            <i className="fa-regular fa-newspaper" /> Publisher
+          </span>
+          {publishers.map((publisher) => (
+            <span key={publisher.id}>{publisher.name}</span>
+          ))}
+        </p>
+      )}
 
-      <p>
-        <span>
-          <i className="fa-solid fa-calendar-days" /> Published Date
-        </span>
-        <span>{publishedYear}</span>
-      </p>
-      <p>
-        <span>
-          <i className="fa-solid fa-barcode" /> ISBN10
-        </span>
-        <span>{isbn10}</span>
-      </p>
+      {publishedYear && (
+        <p>
+          <span>
+            <i className="fa-solid fa-calendar-days" /> Published Date
+          </span>
+          <span>{publishedYear}</span>
+        </p>
+      )}
 
-      <p>
-        <span>
-          <i className="fa-solid fa-barcode" /> ISBN13
-        </span>
-        <span>{isbn13}</span>
-      </p>
+      {isbn10 && (
+        <p>
+          <span>
+            <i className="fa-solid fa-barcode" /> ISBN10
+          </span>
+          <span>{isbn10}</span>
+        </p>
+      )}
+
+      {isbn13 && (
+        <p>
+          <span>
+            <i className="fa-solid fa-barcode" /> ISBN13
+          </span>
+          <span>{isbn13}</span>
+        </p>
+      )}
     </RootComponent>
   );
 };
