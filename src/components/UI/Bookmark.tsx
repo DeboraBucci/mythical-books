@@ -12,6 +12,7 @@ const Bookmark = () => {
 export default Bookmark;
 
 const RootContainer = styled.button`
+  background-color: transparent !important;
   cursor: pointer;
   position: absolute;
   top: 1rem;
