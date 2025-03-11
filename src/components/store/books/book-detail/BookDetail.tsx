@@ -66,12 +66,28 @@ const BookDetail = () => {
               ))}
             </div>
 
-            <p className="book-details__price">
-              <span>Price: </span>
-              <span className="book-details__price--colored">
-                {book.price} {book.currency}
-              </span>
-            </p>
+            {book.price > 0 ? (
+              <p className="book-details__price">
+                <span>Price: </span>
+                <span className="book-details__price--colored">
+                  {book.price} {book.currency}
+                </span>
+              </p>
+            ) : (
+              <p
+                style={{
+                  backgroundColor: "#4c68cf",
+                  color: "white",
+                  fontWeight: "bold",
+                  fontSize: "1.6rem",
+                  width: "fit-content",
+                  padding: "0.3rem 0.5rem",
+                  borderRadius: "4px",
+                }}
+              >
+                FREE BOOK
+              </p>
+            )}
 
             <BookDetailAction
               bookId={book.id}
