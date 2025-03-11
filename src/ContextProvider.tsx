@@ -1,3 +1,4 @@
+import AuthProvider from "context/AuthProvider";
 import BooksProvider from "context/BooksProvider";
 import CartProvider from "context/CartProvider";
 import LanguageProvider from "context/LanguageProvider";
@@ -11,11 +12,13 @@ const ContextProvider: React.FC<ContextProviderProps> = ({ children }) => {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <BooksProvider>
-          <CartProvider>
-            <>{children}</>
-          </CartProvider>
-        </BooksProvider>
+        <AuthProvider>
+          <BooksProvider>
+            <CartProvider>
+              <>{children}</>
+            </CartProvider>
+          </BooksProvider>
+        </AuthProvider>
       </LanguageProvider>
     </ThemeProvider>
   );
