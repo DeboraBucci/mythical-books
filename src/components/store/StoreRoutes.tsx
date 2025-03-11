@@ -16,7 +16,6 @@ const StoreRoutes = () => {
             <>
               <div className="store__content">
                 <Categories filterHandler={() => {}} orderHandler={() => {}} />
-                <div className="store__banner"></div>
                 <Bookshelf />
                 <Aside />
               </div>
