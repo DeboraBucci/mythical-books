@@ -1396,6 +1396,8 @@ code {
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
+  min-width: 70rem;
+  min-height: 40rem;
 }
 .book-details__container {
   position: relative;

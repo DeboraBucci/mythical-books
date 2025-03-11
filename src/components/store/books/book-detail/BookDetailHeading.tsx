@@ -19,23 +19,27 @@ const BookDetailHeading: React.FC<BookDetailHeadingProps> = ({
       <div className="title-container">
         <h3>{title}</h3>
 
-        <p className="rating">
-          <i className="fa-regular fa-star"></i>
-          <span>{averageRating}</span> <span>({ratingCount})</span>
-        </p>
+        {ratingCount && (
+          <p className="rating">
+            <i className="fa-regular fa-star"></i>
+            <span>{averageRating}</span> <span>({ratingCount})</span>
+          </p>
+        )}
       </div>
 
-      <p className="authors">
-        <i className="fa-solid fa-feather-pointed" /> by{" "}
-        {authors?.map((author, i) => {
-          return (
-            <span key={author.id}>
-              {author.name}
-              {authors.length > i + 1 && ","}
-            </span>
-          );
-        })}
-      </p>
+      {authors.length > 0 && (
+        <p className="authors">
+          <i className="fa-solid fa-feather-pointed" /> by{" "}
+          {authors?.map((author, i) => {
+            return (
+              <span key={author.id}>
+                {author.name}
+                {authors.length > i + 1 && ","}
+              </span>
+            );
+          })}
+        </p>
+      )}
     </RootComponent>
   );
 };
