@@ -1905,7 +1905,6 @@ code {
   display: grid;
   min-height: calc(100vh - 10rem);
   grid-template-columns: 1.5fr 6fr 1.5fr;
-  grid-template-rows: 40rem auto;
 }
 .store__banner {
   margin: 2rem 4rem;
