@@ -4,6 +4,7 @@ import ItemDetailColumn from "./ItemDetailColumn";
 import CartItemHeader from "./CartItemHeader";
 import DeleteItemButton from "./DeleteItemButton";
 import styled from "styled-components";
+import FallbackCover from "../../../assets/cover-not-available.webp";
 
 interface CartItemProps {
   id: number;
@@ -29,7 +30,7 @@ const CartItem: React.FC<CartItemProps> = ({
   return (
     <CartItemDiv>
       <div className="cover">
-        <img src={cover} />
+        <img src={cover ? cover : FallbackCover} />
       </div>
 
       <div className="content">
