@@ -6,8 +6,12 @@ import * as Yup from "yup";
 import InputGroup from "../UI/InputGroup";
 import ParticlesBackground from "../UI/ParticlesBackground";
 import { loginUser } from "api/auth-api";
+import { useContext } from "react";
+import { AuthContext } from "context/AuthProvider";
 
 const Login = () => {
+  const AuthCtx = useContext(AuthContext);
+
   const initialValues = {
     email: "",
     password: "",
@@ -21,7 +25,9 @@ const Login = () => {
   const loginUserHandler = async (email: string, password: string) => {
     const token = await loginUser(email, password);
 
-    if (token) localStorage.setItem("token", token);
+    if (token) {
+      AuthCtx.setToken(token);
+    }
   };
 
   const onSubmit = (values: any) => {
