@@ -5,6 +5,7 @@ import * as Yup from "yup";
 
 import InputGroup from "../UI/InputGroup";
 import ParticlesBackground from "../UI/ParticlesBackground";
+import { loginUser } from "api/auth-api";
 
 const Login = () => {
   const initialValues = {
@@ -17,8 +18,14 @@ const Login = () => {
     password: Yup.string().required("Required"),
   });
 
+  const loginUserHandler = async (email: string, password: string) => {
+    const token = await loginUser(email, password);
+
+    if (token) localStorage.setItem("token", token);
+  };
+
   const onSubmit = (values: any) => {
-    console.log(values);
+    loginUserHandler(values.email, values.password);
   };
 
   return (
