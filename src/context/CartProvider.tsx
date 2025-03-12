@@ -1,12 +1,20 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 import { BookCartType } from "types/books";
 
 const ADD_BOOK = "ADD_BOOK";
 const UPDATE_BOOK_QUANTITY = "UPDATE_BOOK_QUANTITY";
 const REMOVE_BOOK = "REMOVE_BOOK";
 
+type Shipping = {
+  name?: string;
+  price?: number;
+};
+
 type CartContextType = {
   books: BookCartType[];
+  subTotal: number;
+  shipping: Shipping;
+  setShipping: (shipping: Shipping) => void;
   addBook: (book: BookCartType, quantity?: number) => void;
   removeBook: (id: number) => void;
   updateBookQuantity: (id: number, quantity?: number) => void;
@@ -14,6 +22,9 @@ type CartContextType = {
 
 export const CartContext = createContext<CartContextType>({
   books: [],
+  subTotal: 0,
+  shipping: { name: "", price: 0 },
+  setShipping: (shipping) => {},
   addBook: () => {},
   removeBook: () => {},
   updateBookQuantity: () => {},
@@ -26,6 +37,7 @@ const ReducerHandler = (state: BookCartType[], action: any) => {
   if (action.type === ADD_BOOK) {
     if (bookFound && bookFound.quantity) {
       bookFound.quantity += 1;
+      bookFound.totalSubPrice = bookFound.unitPrice * bookFound.quantity;
 
       return stateCopy;
     }
@@ -50,6 +62,9 @@ const ReducerHandler = (state: BookCartType[], action: any) => {
         bookFound.quantity = quantity;
       }
 
+      if (bookFound.quantity)
+        bookFound.totalSubPrice = bookFound.unitPrice * bookFound.quantity;
+
       return [...stateCopy.filter((b) => b.quantity != 0)];
     }
   }
@@ -70,6 +85,20 @@ interface CartProviderProps {
 
 const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(ReducerHandler, []);
+  const [shipping, setShipping] = useState({});
+
+  const setSubtotalHandler = () => {
+    return state
+      .map((b) => {
+        if (b.totalSubPrice) return b.totalSubPrice;
+        return 0;
+      })
+      .reduce(
+        (accumulator: number, currentValue: number) =>
+          accumulator + currentValue,
+        0
+      );
+  };
 
   const addBook = (book: BookCartType) => {
     dispatch({
@@ -91,6 +120,9 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
 
   const value = {
     books: state,
+    subTotal: +setSubtotalHandler().toFixed(2),
+    shipping: shipping,
+    setShipping: setShipping,
     addBook: addBook,
     removeBook: removeBook,
     updateBookQuantity: updateBookQuantity,
