@@ -58,3 +58,13 @@ export const getCategories = async () => {
     return undefined;
   }
 };
+
+export const getCategoryBooks = async (id: string) => {
+  try {
+    const res = await axios.get(`${address}/categories/${id}`);
+    return res.data;
+  } catch (err) {
+    console.error(err);
+    return undefined;
+  }
+};
