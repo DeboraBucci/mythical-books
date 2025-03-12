@@ -48,3 +48,13 @@ export const getBookById = async (
     return null;
   }
 };
+
+export const getCategories = async () => {
+  try {
+    const res = await axios.get(`${address}/categories`);
+    return res.data;
+  } catch (err) {
+    console.error(err);
+    return undefined;
+  }
+};
