@@ -20,12 +20,10 @@
   }
 
   &__aside {
-    grid-row: 1 / 3;
     border-left: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   &__bookshelf {
-    grid-row: 2 / 3;
     @include flexCenter;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -34,7 +32,6 @@
   }
 
   &__sidebar {
-    grid-row: 1 / 3;
     background-color: shade($color-dark-purple, 20%);
     padding: 7rem 2rem;
 
