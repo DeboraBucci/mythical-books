@@ -1,19 +1,55 @@
 import styled from "styled-components";
 import ItemPrice from "./ItemPrice";
 import triangle from "../../../assets/triangle.png";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "context/CartProvider";
 
 const SummaryDetails = () => {
+  const [total, setTotal] = useState(0);
+
+  const cartCtx = useContext(CartContext);
+
+  useEffect(() => {
+    setTotal(cartCtx.subTotal + (cartCtx.shipping.price ?? 0));
+  }, [cartCtx]);
+
+  const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const shippingName = e.target.value;
+    let shippingPrice = 0;
+
+    switch (shippingName) {
+      case "standard":
+        shippingPrice = 5;
+        break;
+      case "premium":
+        shippingPrice = 10;
+        break;
+      default:
+        shippingPrice = 5;
+    }
+
+    cartCtx.setShipping({
+      name: shippingName,
+      price: shippingPrice,
+    });
+  };
+
   return (
     <CheckoutInfoContainer>
       <SubTotalContainer>
-        <p>4 items</p>
-        <p>$44.96</p>
+        <p>{cartCtx.books.length} items</p>
+        <p>$ {cartCtx.subTotal}</p>
       </SubTotalContainer>
 
       <DropdownContainer>
         <p>Shipping</p>
         <Dropdown>
-          <select name="shipping" id="shipping">
+          <select
+            name="shipping"
+            id="shipping"
+            value={cartCtx.shipping.name}
+            onChange={handleOptionChange}
+          >
             <option value="standard">Standard Delivery — $5.00</option>
             <option value="premium">Premium Delivery — $10.00</option>
           </select>
@@ -25,7 +61,7 @@ const SummaryDetails = () => {
       <TotalCost>
         <p>TOTAL COST</p>
 
-        <ItemPrice originalPrice={49.96} discountPercentage={10} />
+        <ItemPrice originalPrice={total} />
       </TotalCost>
     </CheckoutInfoContainer>
   );
