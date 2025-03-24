@@ -59,9 +59,12 @@ export const getCategories = async () => {
   }
 };
 
-export const getCategoryBooks = async (id: string) => {
+export const getCategoryBooks = async (ids: string[]) => {
   try {
-    const res = await axios.get(`${address}/categories/${id}`);
+    const res = await axios.get(`${address}/categories-books`, {
+      params: { ids: ids },
+      paramsSerializer: { indexes: null }, // Prevents sending 'ids[0]=1&ids[1]=2'
+    });
     return res.data;
   } catch (err) {
     console.error(err);
