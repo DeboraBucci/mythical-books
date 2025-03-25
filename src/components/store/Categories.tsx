@@ -1,6 +1,8 @@
+import { useContext, useEffect, useState } from "react";
 import { getCategories, getCategoryBooks } from "api/book-api";
 import { BooksContext } from "context/BooksProvider";
-import { useContext, useEffect, useState } from "react";
+
+import CheckboxItem from "./CheckboxItem";
 
 interface CategoriesProps {
   filterHandler: any;
@@ -14,19 +16,23 @@ const Categories: React.FC<CategoriesProps> = ({
   const booksCtx = useContext(BooksContext);
 
   const [categories, setCategories] = useState<any[]>([]);
-
-  const setCategoriesHandler = async () => {
-    const categories = await getCategories();
-
-    if (categories) setCategories(categories);
-  };
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   useEffect(() => {
     setCategoriesHandler();
   }, []);
 
-  const getCategoryBooksHandler = async (id: string) => {
-    const categoryBooks = await getCategoryBooks(id);
+  useEffect(() => {
+    setCategoryBooksHandler();
+  }, [selectedCategories]);
+
+  const setCategoriesHandler = async () => {
+    const categories = await getCategories();
+    if (categories) setCategories(categories);
+  };
+
+  const setCategoryBooksHandler = async () => {
+    const categoryBooks = await getCategoryBooks(selectedCategories);
     booksCtx.setBooks(categoryBooks);
   };
 
@@ -55,9 +61,13 @@ const Categories: React.FC<CategoriesProps> = ({
       <h3>Categories</h3>
       <ul>
         {categories.map((c) => (
-          <li key={c.id} onClick={getCategoryBooksHandler.bind(this, c.id)}>
-            <button>{c.name}</button>
-          </li>
+          <CheckboxItem
+            key={c.id}
+            id={c.id}
+            name={c.name}
+            checked={!!selectedCategories.find((catId) => catId == c.id)}
+            setSelectedCategories={setSelectedCategories}
+          />
         ))}
       </ul>
     </div>
