@@ -49,6 +49,19 @@ export const getBookById = async (
   }
 };
 
+export const getBooksByIds = async (ids: number[]) => {
+  try {
+    const res = await axios.get(`${address}/books-ids`, {
+      params: { ids },
+      paramsSerializer: { indexes: null },
+    });
+
+    return res.data;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 export const getCategories = async () => {
   try {
     const res = await axios.get(`${address}/categories`);
