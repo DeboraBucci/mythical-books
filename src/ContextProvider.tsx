@@ -3,6 +3,7 @@ import BooksProvider from "context/BooksProvider";
 import CartProvider from "context/CartProvider";
 import LanguageProvider from "context/LanguageProvider";
 import ThemeProvider from "context/ThemeProvider";
+import WishlistProvider from "context/WishlistProvider";
 
 interface ContextProviderProps {
   children: React.ReactNode;
@@ -15,7 +16,9 @@ const ContextProvider: React.FC<ContextProviderProps> = ({ children }) => {
         <AuthProvider>
           <BooksProvider>
             <CartProvider>
-              <>{children}</>
+              <WishlistProvider>
+                <>{children}</>
+              </WishlistProvider>
             </CartProvider>
           </BooksProvider>
         </AuthProvider>
