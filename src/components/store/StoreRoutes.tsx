@@ -5,6 +5,8 @@ import Aside from "./aside/Aside";
 import BookDetail from "./books/book-detail/BookDetail";
 import Cart from "./cart/Cart";
 import Store from "./Store";
+import Error404 from "../../components/errors/Error404";
+import WishlistBooks from "./wishlist/WishlistBooks";
 
 const StoreRoutes = () => {
   return (
@@ -24,6 +26,8 @@ const StoreRoutes = () => {
         />
         <Route path="book/:id" element={<BookDetail />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="wishlist" element={<WishlistBooks />} />
+        <Route path="*" element={<Error404 />} />
       </Route>
     </Routes>
   );
