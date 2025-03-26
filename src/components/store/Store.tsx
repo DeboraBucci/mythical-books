@@ -9,6 +9,7 @@ import { getBooks } from "api/book-api";
 import { BooksContext } from "context/BooksProvider";
 import { Outlet } from "react-router-dom";
 import CartIconLink from "./cart/CartIconLink";
+import WishlistLink from "../WishlistLink";
 
 const Store = () => {
   const booksCtx = useContext(BooksContext);
@@ -50,7 +51,12 @@ const Store = () => {
         title={true}
         logoAtt="/store"
         logoLinkType="link"
-        extraLinks={<CartIconLink />}
+        extraLinks={
+          <>
+            <CartIconLink />
+            <WishlistLink />
+          </>
+        }
       >
         <SearchBooks filters={filters} order={order} />
       </Navbar>
