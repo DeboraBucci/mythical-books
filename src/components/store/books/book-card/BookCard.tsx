@@ -55,7 +55,7 @@ const BookCard: React.FC<BookCardInterface> = ({
 
       <BookCardAction onAddHandler={onAddBookHandler} bookId={id} />
 
-      <Bookmark />
+      <Bookmark id={id} />
     </Card>
   );
 };

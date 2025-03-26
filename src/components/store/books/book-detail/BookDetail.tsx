@@ -56,7 +56,7 @@ const BookDetail = () => {
               authors={book.authors}
             />
 
-            <Bookmark />
+            <Bookmark id={book.id} />
 
             <div className="book-details__categories">
               {book.categories.map((category) => (
