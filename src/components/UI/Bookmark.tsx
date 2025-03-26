@@ -1,10 +1,32 @@
+import { WishlistContext } from "context/WishlistProvider";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
-const Bookmark = () => {
+interface BookmarkProps {
+  id: number;
+}
+
+const Bookmark: React.FC<BookmarkProps> = ({ id }) => {
+  const wishlistCtx = useContext(WishlistContext);
+
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  useEffect(() => {
+    setIsBookmarked(!!wishlistCtx?.wishlistBookIds.find((bId) => bId == id));
+  }, [wishlistCtx?.wishlistBookIds]);
+
+  const onBookmarkHandler = () => {
+    wishlistCtx?.addBookToWishlist(id);
+  };
+
   return (
-    <RootContainer>
-      <i className={`fa-${false ? "solid" : "regular"} fa-bookmark`} />
-      {false ? <span>In whishlist</span> : <span>Add to whishlist</span>}
+    <RootContainer onClick={onBookmarkHandler}>
+      <i className={`fa-${isBookmarked ? "solid" : "regular"} fa-bookmark`} />
+      {isBookmarked ? (
+        <span>Remove from wishlist</span>
+      ) : (
+        <span>Add to wishlist</span>
+      )}
     </RootContainer>
   );
 };
@@ -12,8 +34,9 @@ const Bookmark = () => {
 export default Bookmark;
 
 const RootContainer = styled.button`
+  cursor: pointer !important;
+  pointer-events: auto !important;
   background-color: transparent !important;
-  cursor: pointer;
   position: absolute;
   top: 1rem;
   right: 2rem;
