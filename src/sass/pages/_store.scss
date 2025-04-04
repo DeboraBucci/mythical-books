@@ -23,14 +23,6 @@
     border-left: 1px solid rgba(0, 0, 0, 0.1);
   }
 
-  &__bookshelf {
-    @include flexCenter;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 4rem;
-    padding: 7rem 4rem;
-  }
-
   &__sidebar {
     background-color: shade($color-dark-purple, 20%);
     padding: 7rem 2rem;
