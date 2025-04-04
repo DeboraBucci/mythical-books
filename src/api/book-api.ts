@@ -4,14 +4,21 @@ import { apiAddress } from "./constants";
 
 const address = apiAddress + "/Books";
 
-export const getBooks = async (searched?: string): Promise<BookInterface[]> => {
-  const validSearch = searched && searched.trim() != "";
-
+export const getBooks = async (
+  categories: string[],
+  page: number = 1,
+  searched?: string
+): Promise<BookInterface[]> => {
   try {
-    const res = await axios.get(
-      `${address}${validSearch ? "?search=" + searched : ""}`
-    );
-    return res.data;
+    const res = await axios.get(address, {
+      params: {
+        categories,
+        ...(searched?.trim() && { search: searched.trim() }),
+        page,
+      },
+    });
+
+    return res.data.data;
   } catch (err) {
     return [];
   }
@@ -65,19 +72,6 @@ export const getBooksByIds = async (ids: number[]) => {
 export const getCategories = async () => {
   try {
     const res = await axios.get(`${address}/categories`);
-    return res.data;
-  } catch (err) {
-    console.error(err);
-    return undefined;
-  }
-};
-
-export const getCategoryBooks = async (ids: string[]) => {
-  try {
-    const res = await axios.get(`${address}/categories-books`, {
-      params: { ids: ids },
-      paramsSerializer: { indexes: null }, // Prevents sending 'ids[0]=1&ids[1]=2'
-    });
     return res.data;
   } catch (err) {
     console.error(err);
