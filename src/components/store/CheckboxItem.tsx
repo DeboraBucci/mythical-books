@@ -3,30 +3,18 @@ import styled from "styled-components";
 interface CheckboxItemProps {
   id: string;
   name: string;
-  checked?: boolean;
-  setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
+  checked: boolean;
+  onAddCategoryHandler: (catId: string) => void;
 }
 
 const CheckboxItem: React.FC<CheckboxItemProps> = ({
   id,
   name,
-  checked = false,
-  setSelectedCategories,
+  checked,
+  onAddCategoryHandler,
 }) => {
-  const setCategoryBooksHandler = async () => {
-    setSelectedCategories((prev: string[]) => {
-      const alreadyChecked = prev.find((cId) => cId == id);
-
-      if (alreadyChecked) {
-        return prev.filter((cId) => cId != id);
-      }
-
-      return [...prev, id];
-    });
-  };
-
   return (
-    <RootItem onClick={setCategoryBooksHandler}>
+    <RootItem onClick={() => onAddCategoryHandler(id)}>
       <button>
         <div
           style={{

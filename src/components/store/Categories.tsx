@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { getCategories, getCategoryBooks } from "api/book-api";
+import { getCategories } from "api/book-api";
 import { BooksContext } from "context/BooksProvider";
 
 import CheckboxItem from "./CheckboxItem";
@@ -16,28 +16,30 @@ const Categories: React.FC<CategoriesProps> = ({
   const booksCtx = useContext(BooksContext);
 
   const [categories, setCategories] = useState<any[]>([]);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   useEffect(() => {
     setCategoriesHandler();
   }, []);
-
-  useEffect(() => {
-    setCategoryBooksHandler();
-  }, [selectedCategories]);
 
   const setCategoriesHandler = async () => {
     const categories = await getCategories();
     if (categories) setCategories(categories);
   };
 
-  const setCategoryBooksHandler = async () => {
-    const categoryBooks = await getCategoryBooks(selectedCategories);
-    booksCtx.setBooks(categoryBooks);
-  };
-
   const onChangeFilterHandler = (e: any) => filterHandler(e.target.value);
   const onChangeOrderHandler = (e: any) => orderHandler(e.target.value);
+
+  const onAddCategoryHandler = (catId: string) => {
+    booksCtx.setSelectedCategories((prev: string[]) => {
+      const alreadyChecked = prev.find((cId) => cId == catId);
+
+      if (alreadyChecked) {
+        return prev.filter((cId) => cId != catId);
+      }
+
+      return [...prev, catId];
+    });
+  };
 
   return (
     <div className="store__sidebar store-sidebar">
@@ -65,8 +67,10 @@ const Categories: React.FC<CategoriesProps> = ({
             key={c.id}
             id={c.id}
             name={c.name}
-            checked={!!selectedCategories.find((catId) => catId == c.id)}
-            setSelectedCategories={setSelectedCategories}
+            checked={
+              !!booksCtx.selectedCategories.find((catId) => catId == c.id)
+            }
+            onAddCategoryHandler={onAddCategoryHandler}
           />
         ))}
       </ul>
