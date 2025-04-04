@@ -17,16 +17,11 @@ const Store = () => {
   const [filters, setFilters] = useState("");
   const [order, setOrder] = useState("");
 
-  const getBooksHandler = async () => {
-    const books = await getBooks();
-    booksCtx.setBooks(books);
-  };
-
   useEffect(() => {
     if (booksCtx.searched.trim() === "") {
-      getBooksHandler();
+      booksCtx.setBooksHandler();
     }
-  }, [booksCtx.searched]);
+  }, [booksCtx.searched]); // check
 
   const filterHandler = (value: string) => {
     if (value === "all") {
