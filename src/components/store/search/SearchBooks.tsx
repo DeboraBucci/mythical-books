@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BooksContext } from "context/BooksProvider";
-import { getBooks } from "api/book-api";
 
 interface SearchBooksProps {
   filters?: any;
@@ -18,11 +17,6 @@ const SearchBooks: React.FC<SearchBooksProps> = ({ filters, order }) => {
     e.preventDefault();
 
     booksCtx.setSearched(search);
-
-    if (search !== "") {
-      const books = await getBooks(search);
-      booksCtx.setBooks(books);
-    }
 
     navigate("/store");
   };
