@@ -1,15 +1,13 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 import LanguageContext from "../../context/language-context";
-import ThemeContext from "../../context/theme-context";
 
 import CustomLink from "../UI/CustomLink";
 import { Logo } from "../UI/Logo";
-import { Languages } from "types/general";
 import { LinkStructure } from "data/links-data";
-import { languages } from "data/general-data";
 import ChangeThemeButton from "./ChangeThemeButton";
 import ChangeLanguageButton from "./ChangeLanguageButton";
+import ProfileIcon from "../../components/UI/ProfileIcon";
 
 interface NavbarProps {
   links: LinkStructure[];
@@ -45,16 +43,25 @@ const Navbar: React.FC<NavbarProps> = ({
 
       <nav>
         <ul className="navbar__list">
-          {links.map((link) => (
-            <li className="navbar__link" key={link.title[languageCtx.language]}>
-              <CustomLink att={link.att} linkType={link.type}>
-                {link.title[languageCtx.language]}{" "}
-                <i
-                  className={`${link.icon} navbar__icon--${link.iconClass}`}
-                ></i>
-              </CustomLink>
-            </li>
-          ))}
+          {links.map((link) => {
+            if (link.att == "login" && localStorage.getItem("token"))
+              return <ProfileIcon />;
+
+            return (
+              <li
+                className="navbar__link"
+                key={link.title[languageCtx.language]}
+              >
+                <CustomLink att={link.att} linkType={link.type}>
+                  {link.title[languageCtx.language]}{" "}
+                  <i
+                    className={`${link.icon} navbar__icon--${link.iconClass}`}
+                  ></i>
+                </CustomLink>
+              </li>
+            );
+          })}
+
           {extraLinks}
         </ul>
       </nav>
