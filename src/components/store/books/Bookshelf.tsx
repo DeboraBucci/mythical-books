@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import BookCard from "./book-card/BookCard";
 import { BooksContext } from "context/BooksProvider";
-import Pagination from "../../../components/UI/Pagination";
+import Pagination from "../pagination/Pagination";
 import styled from "styled-components";
 
 const Bookshelf = () => {
