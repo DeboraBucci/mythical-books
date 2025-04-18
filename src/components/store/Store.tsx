@@ -5,7 +5,6 @@ import SearchBooks from "./search/SearchBooks";
 import Footer from "../footer/Footer";
 
 import { storeLinks } from "data/links-data";
-import { getBooks } from "api/book-api";
 import { BooksContext } from "context/BooksProvider";
 import { Outlet } from "react-router-dom";
 import CartIconLink from "./cart/CartIconLink";
