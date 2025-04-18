@@ -37,9 +37,9 @@ const SearchBooks: React.FC<SearchBooksProps> = ({ filters, order }) => {
           <i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
-      <Link className="search-container__advanced-search" to="/advanced-search">
+      {/* <Link className="search-container__advanced-search" to="/advanced-search">
         Advanced Search
-      </Link>
+      </Link> */}
     </div>
   );
 };
