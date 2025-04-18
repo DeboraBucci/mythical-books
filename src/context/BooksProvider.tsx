@@ -1,4 +1,4 @@
-import { getBooks } from "api/book-api";
+import { getBooksAndPages } from "api/book-api";
 import { createContext, useEffect, useState } from "react";
 import { BookInterface } from "types/books";
 
@@ -10,6 +10,7 @@ interface BooksContextStructure {
   setSearched: (search: string) => void;
   setBooksHandler: () => void;
   setPage: (page: number) => void;
+  totalPages: number;
 }
 
 export const BooksContext = createContext<BooksContextStructure>({
@@ -20,6 +21,7 @@ export const BooksContext = createContext<BooksContextStructure>({
   setSearched: () => {},
   setBooksHandler: () => {},
   setPage: () => {},
+  totalPages: 1,
 });
 
 interface BooksProviderProps {
@@ -31,10 +33,13 @@ const BooksProvider: React.FC<BooksProviderProps> = ({ children }) => {
   const [searched, setSearched] = useState<string>("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const setBooksHandler = async () => {
-    const books = await getBooks(selectedCategories, page, searched);
-    setBooks(books);
+    const res = await getBooksAndPages(selectedCategories, page, searched);
+
+    if (res?.totalPages) setTotalPages(res.totalPages);
+    if (res?.books) setBooks(res.books);
   };
 
   useEffect(() => {
@@ -49,6 +54,7 @@ const BooksProvider: React.FC<BooksProviderProps> = ({ children }) => {
     setSelectedCategories: setSelectedCategories,
     setBooksHandler: setBooksHandler,
     setPage: setPage,
+    totalPages: totalPages,
   };
 
   return (
