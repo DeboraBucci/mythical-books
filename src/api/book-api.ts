@@ -4,11 +4,11 @@ import { apiAddress } from "./constants";
 
 const address = apiAddress + "/Books";
 
-export const getBooks = async (
+export const getBooksAndPages = async (
   categories: string[],
   page: number = 1,
   searched?: string
-): Promise<BookInterface[]> => {
+): Promise<{ books: BookInterface[]; totalPages: number } | undefined> => {
   try {
     const res = await axios.get(address, {
       params: {
@@ -18,9 +18,9 @@ export const getBooks = async (
       },
     });
 
-    return res.data.data;
+    return { books: res.data.data, totalPages: res.data.totalPages };
   } catch (err) {
-    return [];
+    return undefined;
   }
 };
 
