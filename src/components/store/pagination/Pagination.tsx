@@ -7,13 +7,13 @@ const MAX_SCOPE = 5;
 const Pagination = () => {
   const booksCtx = useContext(BooksContext);
 
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  const arr = Array.from({ length: booksCtx.totalPages }, (_, i) => i + 1);
 
   const [selected, setSelected] = useState(1);
-  const [indexes, setIndexes] = useState([0, MAX_SCOPE]);
+  const [offSet, setOffSet] = useState(0);
 
   useEffect(() => {
-    if (selected > 1 && selected < 5) {
+    if (selected >= 1 && selected <= booksCtx.totalPages) {
       booksCtx.setPage(selected);
     }
   }, [selected]);
@@ -28,22 +28,20 @@ const Pagination = () => {
     setSelected(newSelected);
 
     if (newSelected >= 1 && newSelected <= MAX_SCOPE) {
-      setIndexes([0, MAX_SCOPE]);
+      setOffSet(0);
     } else if (newSelected > arr.length - MAX_SCOPE) {
-      setIndexes([arr.length - MAX_SCOPE, arr.length]);
+      setOffSet(arr.length - MAX_SCOPE);
     } else {
-      setIndexes([newSelected - MAX_SCOPE, newSelected]);
+      setOffSet(newSelected - MAX_SCOPE);
     }
   };
 
   const decrementSelectedHandler = () => {
-    const newSelected = selected - 1;
-
     if (selected > 0) setSelected((prev) => prev - 1);
 
     // Se decrementa los indices hasta [0, MAX_SCOPE]
-    if (indexes[0] >= 0) {
-      setIndexes((prev) => [prev[0] - 1, prev[1] - 1]);
+    if (offSet > 0) {
+      setOffSet((prev) => prev - 1);
     }
   };
 
@@ -55,9 +53,9 @@ const Pagination = () => {
     if (
       newSelected > MAX_SCOPE &&
       newSelected <= arr.length &&
-      newSelected > indexes[1]
+      newSelected > offSet
     ) {
-      setIndexes((prev) => [prev[0] + 1, prev[1] + 1]);
+      setOffSet((prev) => prev + 1);
     }
   };
 
@@ -75,7 +73,7 @@ const Pagination = () => {
         )}
 
         <ul>
-          {arr.slice(indexes[0], indexes[1]).map((num) => (
+          {arr.slice(offSet, offSet + MAX_SCOPE).map((num) => (
             <li
               key={num}
               onClick={() => setSelected(num)}
@@ -86,7 +84,7 @@ const Pagination = () => {
           ))}
         </ul>
 
-        {selected < arr.length && (
+        {selected < arr.length - MAX_SCOPE && (
           <div>
             <p>...</p>
           </div>
