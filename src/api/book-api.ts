@@ -2,10 +2,10 @@ import axios from "axios";
 import { BookInterface } from "types/books";
 import { apiAddress } from "./constants";
 
-const address = apiAddress + "/Books";
+const address = apiAddress + "/books";
 
 export const getBooksAndPages = async (
-  categories: string[],
+  categories: number[],
   page: number = 1,
   searched?: string
 ): Promise<{ books: BookInterface[]; totalPages: number } | undefined> => {
@@ -16,6 +16,7 @@ export const getBooksAndPages = async (
         ...(searched?.trim() && { search: searched.trim() }),
         page,
       },
+      paramsSerializer: { indexes: null },
     });
 
     return { books: res.data.data, totalPages: res.data.totalPages };
