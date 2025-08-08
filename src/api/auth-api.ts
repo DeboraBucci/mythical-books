@@ -1,7 +1,7 @@
 import axios from "axios";
 import { apiAddress } from "./constants";
 
-const address = apiAddress + "/Auth";
+const address = apiAddress + "/auth";
 
 export const registerUser = async (user: any): Promise<string | undefined> => {
   try {
@@ -23,7 +23,7 @@ export const loginUser = async (
     const res = await axios.post(`${address}/login`, { email, password });
 
     return res.data.token;
-} catch (err) {
+  } catch (err) {
     return undefined;
   }
 };
