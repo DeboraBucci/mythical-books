@@ -29,8 +29,8 @@ const Categories: React.FC<CategoriesProps> = ({
   const onChangeFilterHandler = (e: any) => filterHandler(e.target.value);
   const onChangeOrderHandler = (e: any) => orderHandler(e.target.value);
 
-  const onAddCategoryHandler = (catId: string) => {
-    booksCtx.setSelectedCategories((prev: string[]) => {
+  const onAddCategoryHandler = (catId: number) => {
+    booksCtx.setSelectedCategories((prev: number[]) => {
       const alreadyChecked = prev.find((cId) => cId == catId);
 
       if (alreadyChecked) {

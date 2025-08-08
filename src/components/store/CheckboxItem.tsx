@@ -4,7 +4,7 @@ interface CheckboxItemProps {
   id: string;
   name: string;
   checked: boolean;
-  onAddCategoryHandler: (catId: string) => void;
+  onAddCategoryHandler: (catId: number) => void;
 }
 
 const CheckboxItem: React.FC<CheckboxItemProps> = ({
@@ -14,7 +14,7 @@ const CheckboxItem: React.FC<CheckboxItemProps> = ({
   onAddCategoryHandler,
 }) => {
   return (
-    <RootItem onClick={() => onAddCategoryHandler(id)}>
+    <RootItem onClick={() => onAddCategoryHandler(+id)}>
       <button>
         <div
           style={{

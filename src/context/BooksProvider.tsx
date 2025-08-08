@@ -5,8 +5,8 @@ import { BookInterface } from "types/books";
 interface BooksContextStructure {
   books: BookInterface[];
   searched: string;
-  selectedCategories: string[];
-  setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedCategories: number[];
+  setSelectedCategories: React.Dispatch<React.SetStateAction<number[]>>;
   setSearched: (search: string) => void;
   setBooksHandler: () => void;
   setPage: (page: number) => void;
@@ -31,7 +31,7 @@ interface BooksProviderProps {
 const BooksProvider: React.FC<BooksProviderProps> = ({ children }) => {
   const [books, setBooks] = useState<BookInterface[]>([]);
   const [searched, setSearched] = useState<string>("");
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
